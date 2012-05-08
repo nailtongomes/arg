@@ -5,11 +5,11 @@
     </span>
     <span class="content"><%= feed_item.content %></span>
     <span class="timestamp">
-      Incluído em: <%= time_ago_in_words(feed_item.created_at) %>
+      Incluído há <%= time_ago_in_words(feed_item.created_at) %>
     </span>
   <% if current_user?(feed_item.user) %>
     <%= link_to "Excluir", feed_item, method:  :delete,
                                      confirm: "Tem certeza?",
-                                     title:   feed_item.content %>
+                                     class: "btn btn-small btn-danger" %>
   <% end %>
 </li>

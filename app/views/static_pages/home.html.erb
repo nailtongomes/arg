@@ -1,19 +1,21 @@
 <% if signed_in? %>
 <div class="row">
+	<aside class="span4">
+		<section>
+			<%= render 'shared/user_info' %>
+		</section>
+		<section>
+			<%= render 'shared/stats' %>
+		</section>
+		<section>
+			<%= render 'shared/argument_form' %>
+		</section>
+	</aside>
 	<div class="span8">
 		<h3>Argumentos</h3>
 		<%= render 'shared/feed' %>
 	</div>
 </div>
-<section>
-	<%= render 'shared/user_info' %>
-</section>
-<section>
-	<%= render 'shared/stats' %>
-</section>
-<section>
-	<%= render 'shared/argument_form' %>
-</section>
 <% else %>
 <div class="center hero-unit">
 	<h1>Bem vindo ao Arg.</h1>
