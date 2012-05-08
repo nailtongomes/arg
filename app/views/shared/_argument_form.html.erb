@@ -1,0 +1,8 @@
+<br />
+<%= form_for(@argument) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Argumente aqui!", rows: "5" %>
+  </div>
+  <%= f.submit "Gravar", class: "btn btn-large btn-primary" %>
+<% end %>
