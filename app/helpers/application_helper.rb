@@ -9,4 +9,8 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"                 # String interpolation
     end
   end
+
+  def textilize(text)
+    RedCloth.new(text).to_html.html_safe
+  end  
 end

@@ -236,9 +236,13 @@ en:
       user:
         one: Usuário
         other: Usuários
-
+      argument:
+        one: Argumento
+        other: Argumentos
     attributes:
       user: 
         name: "Nome"        
         password: "Senha"
         email: "E-Mail"        
+      argument: 
+        content: "Argumento"            

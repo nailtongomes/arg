@@ -5,7 +5,8 @@ Arg::Application.routes.draw do
     end
   end
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :arguments,     only: [:create, :destroy]
+  resources :arguments,     only: [:create, :destroy, :index]
+  resources :facts,         only: [:create, :destroy, :index]
   resources :relationships, only: [:create, :destroy]
 
   match '/signup',  to: 'users#new'

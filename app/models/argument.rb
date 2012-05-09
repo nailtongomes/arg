@@ -9,8 +9,17 @@ class Argument < ActiveRecord::Base
 
   # Returns arguments from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
+  
+  def self.search(search)
+    if search
+      where("LOWER(content) LIKE ?", "%#{search.downcase}%")
+    else
+      scoped
+    end
+  end
 
   private
+
   # Returns an SQL condition for users followed by the given user.
   # We include the user's own id as well.
   def self.followed_by(user)

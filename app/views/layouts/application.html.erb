@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title><%= full_title(yield(:title)) %></title>
-		<%= stylesheet_link_tag    "application", media: "all" %>
-		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag    "application", media: "all" %>		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/shim' %>
 	</head>
@@ -54,5 +54,6 @@
 			});
 
 		</script>
+		<%= javascript_include_tag "application" %>
 	</body>
 </html>

@@ -1,0 +1,23 @@
+<div class="row">
+<div class="span12">
+	<%= form_tag arguments_path, :method => 'get' do %>
+	<p>
+	<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar" %>	
+	</p>
+	<% end %>
+</div>
+	<div class="span12">
+		<% if @arguments.any? %>
+		<ol>
+			<% @arguments.each do |argument| %>
+			<li>
+				<span class="content"><%= argument.content %></span>
+				<span class="timestamp"> Incluído há <%= time_ago_in_words(argument.created_at) %>
+					por <%= User.find_by_id(argument.user_id).name %> </span>
+			</li>
+			<% end %>
+		</ol>
+		<%= will_paginate @arguments %>
+		<% end %>
+	</div>
+</div>

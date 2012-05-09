@@ -1,5 +1,19 @@
 <% if signed_in? %>
 <div class="row">
+	<aside class="span12">
+		<div>
+			<a class="close" data-dismiss="alert" href="#">&times;</a>
+			<h1>[ Caso da Semana ] </h1>
+			<%= render 'facts/fact' %>
+			<% if current_user.admin? %>
+			<div class="alert alert-success">
+				<%= render 'shared/fact_form' %>
+				<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Novo caso</a> |
+				<%= link_to "Excluir", @f, method: :delete, confirm: "Tem certeza?", class: "btn btn-large btn-danger" %>
+			</div>
+			<% end %>
+		</div>
+	</aside>
 	<aside class="span4">
 		<section>
 			<%= render 'shared/user_info' %>

@@ -1,0 +1,18 @@
+<div id="myModal" class="modal hide fade">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Novo Caso</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for(@fact) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<div class="field">
+			<%= f.text_area :content, :placeholder => "Qual o caso?"%>
+			<%= f.text_area :problem, :placeholder => "Qual o problema?"%>
+		</div>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit "Inserir", class: "btn btn-large btn-primary" %>
+	<% end %>   
+  </div>
+</div>
