@@ -10,7 +10,7 @@ before_filter :admin_user,     only: :index
   def create
     @argument = current_user.arguments.build(params[:argument])
     if @argument.save
-      flash[:success] = "Argument created!"
+      flash[:success] = "Argumento criado."
       redirect_to root_path
     else
       @feed_items = []
@@ -20,6 +20,7 @@ before_filter :admin_user,     only: :index
 
   def destroy
     @argument.destroy
+    flash[:success] = "Argumento removido."
     redirect_back_or root_path
   end
 

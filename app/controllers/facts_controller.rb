@@ -9,16 +9,17 @@ before_filter :admin_user,     only: :index
   def create
     @fact = Fact.create(params[:fact])
     if @fact.save
-      flash[:success] = "fact created!"
+      flash[:success] = "Caso criado"
       redirect_to root_path
     else      
-      flash[:error] = "Error!"
+      flash[:error] = "Erro!"
       render 'static_pages/home'
     end
   end
 
   def destroy
     Fact.find(params[:id]).destroy
+    flash[:success] = "Caso removido"
     redirect_back_or root_path
   end
   

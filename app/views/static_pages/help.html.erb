@@ -1,5 +1,12 @@
 <% provide(:title, 'Ajuda') %>
 <h1>Ajuda</h1>
+<% if signed_in? %>
+<b><p>1. Como mudo minha foto?</p></b>
 <p>
-  Escreve alguma coisa depois.
+	O <a href="http://br.gravatar.com">Gravatar</a>, um Avatar Globalmente Reconhecido, é o responsável por armazernar sua foto de perfil. 	
 </p>
+<% else %>
+<p>
+	Em breve... 	
+</p>
+<% end %>

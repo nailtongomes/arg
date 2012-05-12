@@ -1,4 +1,4 @@
-<% provide(:title, "Editando Usuário") %> <h1>Atualize seu perfil</h1>
+<% provide(:title, "Atualizando perfil") %> <h1>Atualize seu perfil</h1>
 
 <div class="row">
 	<div class="span6 offset3">
@@ -14,7 +14,7 @@
 		<%= f.label :password %>
 		<%= f.password_field :password %>
 
-		<%= f.label :password_confirmation, "Confirm Password" %>
+		<%= f.label :password_confirmation %>
 		<%= f.password_field :password_confirmation %>
 
 		<%= f.submit "Gravar", class: "btn btn-large btn-primary" %>

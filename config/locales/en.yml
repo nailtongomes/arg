@@ -243,6 +243,7 @@ en:
       user: 
         name: "Nome"        
         password: "Senha"
+        password_confirmation: "Confimação da Senha"
         email: "E-Mail"        
       argument: 
         content: "Argumento"            
