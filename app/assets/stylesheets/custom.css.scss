@@ -59,7 +59,8 @@ h2 {
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
+  line-height: 1.7em;   
+  text-align: justify;
 }
 
 
@@ -106,15 +107,6 @@ footer {
     }
   }
 }
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
 /* sidebar */
 
 aside {
@@ -136,6 +128,9 @@ aside {
       letter-spacing: -1px;
       margin-bottom: 3px;
     }
+    p {
+      text-align: justify;
+    }    
   }
 }
 
@@ -221,7 +216,7 @@ input, textarea, select, .uneditable-input {
     border-top: 1px solid #e8e8e8;
   }
 }
-.content-fluid {
+.content {
   display: block;
   text-align: justify;
 }
@@ -236,9 +231,6 @@ aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
-  }
-  p {
-    text-align: justify;
   }
 }
 

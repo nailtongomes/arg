@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
-		<div class="container-fluid">
-			<%= link_to "[ Arg. ]", root_path, id: "logo" %>
+		<div class="container">
+			<%= link_to "Arg.", root_path, id: "logo" %>
 			<nav>
 				<ul class="nav pull-right">
 					<li>
@@ -15,10 +15,10 @@
 					<li>
 						<%= link_to "Casos", facts_path %>
 					</li>
+					<% end %>
 					<li>
 						<%= link_to "Perquisar", arguments_path %>
-					</li>
-					<% end %>
+					</li>					
 					<li id="fat-menu" class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <%= current_user.name %> <b class="caret"></b> </a>
 						<ul class="dropdown-menu">
@@ -28,7 +28,6 @@
 							<li>
 								<%= link_to "Configurações", edit_user_path(current_user) %>
 							</li>
-							<li class="divider"></li>
 							<li>
 								<%= link_to "Sair", signout_path, method: "delete" %>
 							</li>
@@ -44,7 +43,6 @@
 					</li>
 				</ul>
 			</nav>
-
 		</div>
 	</div>
 </header>

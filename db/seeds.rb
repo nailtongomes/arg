@@ -1,5 +1,5 @@
 # encoding: UTF-8
-User.create!([:name =>  "Nailton Gomes",
+User.create!([:name =>  "Katchanga",
   :email => "nailtongomes@ig.com.br",
   :password => "123456",
   :password_confirmation => "123456",
@@ -390,8 +390,31 @@ Argument.create!([:content =>  %{Numa análise dos fatos, se percebe dos depoime
 Fact.create!(:content =>  %{Caim e o seu irmão mais novo Abel, em determinada ocasião, deram presentes ao seu pai. Caim entregou frutas que havia cultivado e Abel entregou as primeiras ovelhas que nasceram do seu rebanho. O presente de Abel teria agradado, enquanto o de Caim, não. Após essa ocasião, Abel teria provocado Caim com as seguintes palavras: "Você é uma decepção para nosso pai." Possuído por ódio e ciúmes, Caim arquitetou uma emboscada para seu irmão. Sugeriu a Abel que ambos fossem ao campo e, lá chegando, Caim esfaqueou seu irmão. <b>#C01</b>.
         },
              :problem => %{Diante de tal situação e amparado pela ordenamento jurídico brasileiro vigente:
-        /na. como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.
-        /nb. como ADVOGADO de Caim, tendo o promotor denuciado pelo art. 121, § 2º, incisos I e IV, elabore o argumento que irá compor a defesa.
-        /nc. como MAGISTRADO, tendo o promotor denuciado pelo art. 121, § 2º, incisos I e IV, e o advogado sustentado o art. 121, § 1º, elabore o argumento que irá motivar sua decisão.
+        \na. como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.
+        \nb. como ADVOGADO de Caim, tendo o promotor denunciado pelo art. 121, § 2º, incisos I e IV, elabore o argumento que irá compor a defesa.
+        \nc. como MAGISTRADO, tendo o promotor denuciado pelo art. 121, § 2º, incisos I e IV, e o advogado sustentado o art. 121, § 1º, elabore o argumento que irá motivar sua decisão.
         }
 )
+
+
+
+Sandarg.create!([:claim =>  "a lesão sofrida pela vítima foi de natureza leve",
+                 :ground =>  "não há, no processo, qualquer elemento para que se possa aferir a natureza das lesões; no caso dos autos, 
+                   a vítima com cicatrizes nos ombros e pescoço, compareceu a este plenário, com uma blusa de alça, sem demonstrar qualquer 
+                   constrangimento ou complexo; o Laudo de Exame de Lesão Corporal de fls. 39/39v atinente a vítima, é expresso no sentido de que
+                   da ofensa não resultou perigo de vida à vítima e nem incapacidade para as ocupações habituais por mais de trinta dias; e 
+                   a esta prova, a própria vítima corroborou a ocorrência, sem divergir dos fatos descritos na prova técnica",
+                 :warrant =>  "a deformidade deve, além de ser aparente, causar constrangimento à vítima perante a sociedade e precisa ser significativa, a ponto de causar vexame ao portador e repulsa a quem vê",
+                 :backing =>  "art. 129, §2º, IV do CPB",
+                 :qualifier =>  "é necessário entender que",
+                 :content =>  %{Com base no art. 129, §2º, IV do CPB, assume-se que a deformidade deve, além de ser aparente, causar 
+                   constrangimento à vítima perante a sociedade e precisa ser significativa, a ponto de causar vexame ao portador e repulsa a 
+                   quem vê. Posto que: não há, no processo, qualquer elemento para que se possa aferir a natureza das lesões; no caso dos autos, 
+                   a vítima com cicatrizes nos ombros e pescoço, compareceu a este plenário, com uma blusa de alça, sem demonstrar qualquer 
+                   constrangimento ou complexo; o Laudo de Exame de Lesão Corporal de fls. 39/39v atinente a vítima, é expresso no sentido de que
+                   da ofensa não resultou perigo de vida à vítima e nem incapacidade para as ocupações habituais por mais de trinta dias; e 
+                   a esta prova, a própria vítima corroborou a ocorrência, sem divergir dos fatos descritos na prova técnica. Deste modo, é 
+                   necessário entender que a lesão sofrida pela vítima foi de natureza leve.                   
+                 },
+                 :overwrite =>  false, 
+  :user_id => 1], :without_protection => true)  

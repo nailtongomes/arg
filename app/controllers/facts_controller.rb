@@ -12,8 +12,9 @@ before_filter :admin_user,     only: :index
       flash[:success] = "Caso criado"
       redirect_to root_path
     else      
-      flash[:error] = "Erro!"
-      render 'static_pages/home'
+      flash[:error] = "Erro ao criar o caso!"
+      @facts = []
+      render "index" 
     end
   end
 

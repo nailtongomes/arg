@@ -1,0 +1,29 @@
+<%= form_for(@sandarg) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>		
+	Cada argumento deve deve propor, reivindicar ou concluir alguma coisa:
+	<%= f.text_area :claim,   :placeholder => "Ou seja, o que você está tentando provar?", :rows => "5"%>		
+	Cada conclusão deve ser sustentada por fatos:
+	<%= f.text_area :ground,   :placeholder => "Por que você supõe isso?", :rows => "5"%>	
+	Deve existir uma regra, um vínculo, entre a conclusão e os fatos:
+	<%= f.text_area :warrant,   :placeholder => "Explique seu raciocínio...", :rows => "5"%>
+	As regras provém de um fundamento:
+	<%= f.text_area :backing,   :placeholder => "O quê fundamenta seu raciocínio?", :rows => "5"%>
+	Cada argumento pode admitir excessões:
+	<%= f.text_area :rebuttal,   :placeholder => "Há alguma situação em que seu argumento não se sustenta?", :rows => "5"%>
+	Cada argumento tem sua força verbalizada:
+	<%= f.text_field :qualifier, :placeholder => "Você acha provável ou é certo?",
+					 :data => {:provide => "typeahead", 
+					 		   :items => "4", 
+							   :source => '["necessariamente","possivelmente","é plausível","é inconteste", "não resta dúvida", "estes fatos, aqui expostos, tornam inafastável que", "demonstra-se de forma irrefutável"]'
+							  }
+	%> 		
+<div class="pull-right">
+	<% if @sandarg.content.blank? %>
+	Gerar texto automático?
+	<% else %>
+	Sobrescrever texto do argumento? 
+	<% end %> 
+	<%= f.check_box :overwrite %> | 
+	<%= f.submit "Gravar", class: "btn btn-large btn-primary" %>
+</div>
+<% end %>

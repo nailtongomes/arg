@@ -239,6 +239,12 @@ en:
       argument:
         one: Argumento
         other: Argumentos
+      sandarg:
+        one: Rascunho de Argumento
+        other: Rascunhos de Argumentos        
+      fact:
+        one: Caso
+        other: Casos        
     attributes:
       user: 
         name: "Nome"        
@@ -246,4 +252,15 @@ en:
         password_confirmation: "Confimação da Senha"
         email: "E-Mail"        
       argument: 
-        content: "Argumento"            
+        content: "Texto do Argumento"
+      sandarg: 
+        claim: "Pretensão"
+        ground: "Razão"
+        warrant: "Garantia"
+        backing: "Respaldo"
+        qualifier: "Qualificador"
+        rebuttal: "Refutador"
+        content: "Texto do Rascunho do Argumento"               
+      fact: 
+        content: "Fato"
+        problem: "Problema"

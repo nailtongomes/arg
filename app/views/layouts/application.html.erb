@@ -10,50 +10,36 @@
 	<body>
 		<%= render 'layouts/header' %>
 		<div class="container">
-			<% flash.each do |key, value| %>
-			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+			<% flash.each do |key, value| %>			
+			<%= content_tag :div, class: "alert alert-#{key}" do -%>
+			<a class="close" data-dismiss="alert" href="#">&times;</a>
+			<%= value %>
+			<% end -%>
 			<% end %>
 			<%= yield %>
 			<%= render 'layouts/footer' %>
 		</div>
-	<script type="text/javascript">
-			jQuery(document).ready(function() {
-
-				jQuery(function() {
-
-					var scrollDiv = document.createElement("div");
-
-					jQuery(scrollDiv).attr("id", "toTop").html("^ Subir").appendTo("body");
-
-					jQuery(window).scroll(function() {
-
-						if(jQuery(this).scrollTop() != 0) {
-
-							jQuery("#toTop").fadeIn();
-
-						} else {
-
-							jQuery("#toTop").fadeOut();
-
-						}
-
-					});
-
-					jQuery("#toTop").click(function() {
-
-						jQuery("body,html").animate({
-
-							scrollTop : 0
-
-						}, 800);
-
-					});
-
-				});
-
-			});
-
-		</script>
 		<%= javascript_include_tag "application" %>
+		<%= yield :script %>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery(function() {
+					var scrollDiv = document.createElement("div");
+					jQuery(scrollDiv).attr("id", "toTop").html("^ Subir").appendTo("body");
+					jQuery(window).scroll(function() {
+						if(jQuery(this).scrollTop() != 0) {
+							jQuery("#toTop").fadeIn();
+						} else {
+							jQuery("#toTop").fadeOut();
+						}
+					});
+					jQuery("#toTop").click(function() {
+						jQuery("body,html").animate({
+							scrollTop : 0
+						}, 800);
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

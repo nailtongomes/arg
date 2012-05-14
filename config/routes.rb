@@ -7,6 +7,7 @@ Arg::Application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   resources :arguments,     only: [:create, :destroy, :index]
   resources :facts,         only: [:create, :destroy, :index]
+  resources :sandargs,      except: [:new]
   resources :relationships, only: [:create, :destroy]
 
   match '/signup',  to: 'users#new'
@@ -14,8 +15,6 @@ Arg::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   root to: 'static_pages#home'
-
-  match '/signup',  to: 'users#new'
 
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

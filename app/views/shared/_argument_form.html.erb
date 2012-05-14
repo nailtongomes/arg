@@ -1,9 +1,11 @@
 <%= form_for(@argument) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, :placeholder => "Argumente aqui!"%>
-  </div>
-  <%= f.submit "Inserir", class: "btn btn-large btn-primary" %> 
-  <hr/>
-  <center><a class="btn btn-large btn-info">Quero ajuda para argumentar</a></center>
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.text_area :content, :placeholder => "Argumente aqui!"%>
+
+<div class="pull-right">
+	<%= f.submit "Inserir", class: "btn btn-large btn-primary" %>
+</div>
+<%= link_to "Quero ajuda para argumentar", sandargs_path, class: "btn btn-large btn-info" %>
+
 <% end %>

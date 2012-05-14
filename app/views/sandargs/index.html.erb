@@ -1,0 +1,300 @@
+<% provide(:title, 'Assistente') %>
+<div class="row">
+	<div class="span8">
+		<h1>Guia de Argumentação
+		<br/>
+		Notas rápidas</h1>
+		<blockquote class="pull-right">
+			<p>
+				"Argumentos são interações humanas pelas quais se formulam, se debatem e/ou se confrontam linhas de raciocínio."
+			</p>
+			<small>Stephen Toulmin</small>
+		</blockquote>
+		<div class="tabbable tabs-below">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#lA" data-toggle="tab">Meus Rascunhos</a>
+				</li>
+				<li>
+					<a href="#lB" data-toggle="tab">Estrutura um Argumento</a>
+				</li>
+				<li>
+					<a href="#lC" data-toggle="tab">Qualidade em um argumento</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="lA">
+					<% if @sandargs.any? %>
+					<% @sandargs.each do |sandarg| %>
+					<div class="well">
+						<h3>Rascunho [ <%= sandarg.id %> ]
+						<%= link_to "Ver", sandarg, class: "btn btn-small" %>
+						<%= link_to "Excluir", sandarg, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %> </h3>
+						<p>
+							<% if sandarg.content.present? %>
+							<%= sandarg.content %>
+							<% else %>
+							O texto do seu rascunho ainda não foi construído.
+							<% end %>
+						</p>
+					</div>
+					<% end %>
+					<% else %>
+					<p>
+						Você ainda não possui rascunhos...
+					</p>
+					<% end %>
+
+				</div>
+				<div class="tab-pane" id="lB">					
+					<div class="accordion" id="accordion2">
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"> Pretensão/Conclusão [C] </a>
+							</div>
+							<div id="collapseOne" class="accordion-body collapse in">
+								<div class="accordion-inner">
+										<p>
+											Aquela proposição que defende/sustenta/afirma/nega ou pede algo;
+										</p>
+										<p>
+											O objetivo que vem por trás do argumento;
+										</p>
+										<p>
+											A resposta para as questões:
+										</p>
+										<ul>
+											<li>
+												O que você está tentando provar?
+											</li>
+											<li>
+												Qual sua tese?
+											</li>
+											<li>
+												Qual você quer/pretende?
+											</li>
+										</ul>									
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> Razões/Dados [G/D] </a>
+							</div>
+							<div id="collapseTwo" class="accordion-body collapse">
+								<div class="accordion-inner">									
+										<p>
+											São os motivos, evidências, provas, causas e/ou circunstâncias que apoiam sua tese/pretensão;
+										</p>
+										<p>
+											Aquilo que irá convencer/persuadir o oponente, auditório e/ou juiz;
+										</p>
+										<p>
+											Normalmente, são assertivas mais concretas ou restritas (ou uma verdade geralmente aceita);
+										</p>
+										<p>
+											Não devem ser suscetíveis de contestação OU, se forem, deverão ser suportadas/justificadas futuramente;
+										</p>
+										<p>
+											Algum fenômeno pode fornecer as razões para algum argumento. (Ex.: Gravidez, Hematomas...);
+										</p>
+										<p>
+											Um testemunho pessoal e/ou experiências pessoais podem enraizar um argumento;
+										</p>
+										<p>
+											Testemunhos de autoridades ou de especialistas e dados estatísticos;
+										</p>
+										<p>
+											Quando possível e adequado, os fatos poderão ser transformados em imagens;
+										</p>
+										<p>
+											A resposta para as questões:
+										</p>
+										<ul>
+											<li>
+												O que justifica o seu pedido?
+											</li>
+											<li>
+												Por que você supõe isso?
+											</li>
+											<li>
+												Prove!
+											</li>
+										</ul>									
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> Garantia/Permissão de Inferência [W] </a>
+							</div>
+							<div id="collapseThree" class="accordion-body collapse">
+								<div class="accordion-inner">									
+										<p>
+											Um princípio Lógico ou de Raciocínio;
+										</p>
+										<p>
+											Geralmente, uma fórmula, uma licença ou regra formal;
+										</p>
+										<p>
+											Normalmente não declarada, uma hipótese implicitamente aceita pelo oponente, auditório e/ou juiz;
+										</p>
+										<p>
+											Fundamental que a garantia possa ser aplicada a diferentes situações (não especificamente àquela situação);
+										</p>
+										<p>
+											A interpretação/entendimento de determinado Artigo/Princípio.
+										</p>
+										<p>
+											A regra de inferência deve ser JUSTIFICADA e BASEADA sobre fundamento sólido.
+										</p>
+										<p>
+											A resposta para as questões:
+										</p>											
+											<ul>
+												<li>
+													Qual a relação da Conclusão com as Razões?
+												</li>
+												<li>
+													O que permite vincular uma coisa (Razões) com a outra (Pretensão)?
+												</li>
+											</ul>										
+										<p>
+											De acordo com a finalidade do argumento, as garantias podem ser:
+										</p>	
+											<ul>
+												<li>
+													AUTORITÁRIAS quando baseadas em opinião de especialistas;
+												</li>
+												<li>
+													MOTIVACIONAIS quando baseada em convicções, virtudes e/ou valores do auditório/oponente/juiz;
+												</li>
+												<li>
+													SUBSTANTIVAS quando baseadas nas formas tradicionais de raciocínio lógico, como, por exemplo, causa-efeito, modus ponens, modus tollens etc.
+												</li>
+											</ul>
+										</li>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour"> Respaldo/Fundamento [B] </a>
+							</div>
+							<div id="collapseFour" class="accordion-body collapse">
+								<div class="accordion-inner">									
+										<p>
+											Um fundamento sólido ou material para a regra de inferência;
+										</p>
+										<p>
+											Ajuda na compreensão do raciocínio utilizado na regra de inferência. De outro modo, sem o respaldo os membros do auditório podem questionar o raciocínio do argumento;
+										</p>
+										<p>
+											Estatísticas, uso de números para quantificar informações, podem exercer a função de respaldo, podendo criar uma alusão de verdade. (Ex.: Dados censitários, pesquisas de opinião, estudos científicos, pesquisas informais etc.)
+										</p>
+										<p>
+											Testemunhos podem exercer a função de respaldo. (Ex.: Perícia, citações de especialistas e experiência pessoal que adicionam credibilidade ao que está sendo dito.)
+										</p>
+										<p>
+											A resposta para as questões:
+										</p>
+										<ul>
+											<li>
+												Por conta de quê?
+											</li>
+											<li>
+												O quê valida/autoriza a garantia?
+											</li>
+										</ul>									
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive"> Refutador/Reserva/Anulador [R] </a>
+							</div>
+							<div id="collapseFive" class="accordion-body collapse">
+								<div class="accordion-inner">									
+										<p>
+											É uma exceção aplicada à pretensão;
+										</p>
+										<p>
+											Pode reduzir ou anular a força da pretensão.
+										</p>
+										<p>
+											A resposta para as questões:
+										</p>
+										<ul>
+											<li>
+												Há alguma situação em que seu argumento não se sustenta?
+											</li>
+											<li>
+												A menos que?
+											</li>
+										</ul>									
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix"> Qualificador [Q] </a>
+							</div>
+							<div id="collapseSix" class="accordion-body collapse">
+								<div class="accordion-inner">
+										<p>
+											Representa a verbalização da força do argumento.
+										</p>
+										<p>
+											A resposta para as questões:
+										</p>
+										<ul>
+											<li>
+												É certo, necessário ou possível, provável?
+											</li>
+										</ul>									
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div>
+				<div class="tab-pane" id="lC">
+					<p>
+						Conclusão clara e certa.
+					</p>
+					<p>
+						Razões suficientes e relevantes.
+					</p>
+					<p>
+						Garantia válida e justificada.
+					</p>
+					<p>
+						Respaldo estritamente aplicável ao caso.
+					</p>
+					<p>
+						Excessões bem entendidas.
+					</p>
+					<p>
+						Força do argumento expressa de forma explicíta.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+
+	</div>
+	<div class="span4">
+		<h3>Rascunho de Argumento</h3>
+		<hr/>
+		<%= render 'form' %>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+
+	</div>
+</div>

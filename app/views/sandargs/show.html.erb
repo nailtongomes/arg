@@ -1,0 +1,53 @@
+<% provide(:title, 'Assistente') %>
+<div class="row">
+	<div class="span8">
+		<h3>Rascunho do Argumento:</h3>
+		<hr />
+		<ul class="arguments">
+			<p>
+				<% if @sandarg.content.present? %>
+				<%= @sandarg.content %>
+				<% else %>
+				O texto deste rascunho ainda não foi construído.
+				<% end %>
+			</p>
+		<hr />
+			<% if @sandarg.content.present? %>
+			<h3>Corrija seu argumento:</h3>
+			<% else %>
+			<h3>Construa seu argumento:</h3>
+			<% end %>
+			<hr />
+			<%= form_for(@sandarg) do |f| %>
+			<%= f.text_area :content, :placeholder => "Construa o texto do seu argumento.", :rows => "10"%>
+			<%= f.hidden_field :overwrite, :value => false %>
+			
+			<div class="pull-right">								
+				<%= f.submit "Gravar", class: "btn btn-large btn-primary" %>
+			</div>
+			<a href="#" class="btn btn-large btn-info">Como posso aprimorar meu argumento?</a>
+			<% end %>
+		</ul>
+	</div>
+	<div class="span4">
+		<h3>Forma Padrão</h3>
+		<ul class="arguments">
+			<% if @sandarg.qualifier.present? %>
+			<li><b><a title="Qualificador">[Q]</a> </b><%= @sandarg.qualifier %></li> 
+			<% end %>
+			<li><b><a title="Pretensão">[C]</a> </b><%= @sandarg.claim %></li>			
+			<li><b><a title="Razões">[G]</a> </b><%= @sandarg.ground %></li>
+			<% if @sandarg.warrant.present? %>			
+			<li><b><a title="Garantia">[W]</a> </b><%= @sandarg.warrant %></li>
+			<% end %>
+			<% if @sandarg.backing.present? %>
+			<li><b><a title="Respaldo">[B]</a> </b><%= @sandarg.backing %></li>
+			<% end %>
+			<% if @sandarg.rebuttal.present? %>
+			<li><b><a title="Refutador">[R]</a> </b><%= @sandarg.rebuttal %></li> 
+			<% end %>
+		</ul>
+		<hr/>
+		<a href="<%= sandargs_path %>/<%= @sandarg.id %>/edit" class="btn pull-right">Editar</a>
+	</div>
+</div>
