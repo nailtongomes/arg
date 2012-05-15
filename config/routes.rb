@@ -5,7 +5,7 @@ Arg::Application.routes.draw do
     end
   end
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :arguments,     only: [:create, :destroy, :index]
+  resources :arguments,     except: [:new, :edit]
   resources :facts,         only: [:create, :destroy, :index]
   resources :sandargs,      except: [:new]
   resources :relationships, only: [:create, :destroy]

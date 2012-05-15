@@ -1,7 +1,10 @@
 class ArgumentsController < ApplicationController
-before_filter :signed_in_user, only: [:create, :destroy]
+before_filter :signed_in_user, only: [:create, :destroy, :show]
 before_filter :correct_user,   only: :destroy
-before_filter :admin_user,     only: :index  
+
+  def show
+    @argument = Argument.find(params[:id])
+  end
 
   def index
     @arguments = Argument.search(params[:search]).paginate(:per_page => 30, :page => params[:page])
@@ -30,8 +33,4 @@ before_filter :admin_user,     only: :index
       @argument = current_user.arguments.find_by_id(params[:id])
       redirect_to root_path if @argument.nil?
     end
-
-    def admin_user
-     redirect_to(root_path) unless current_user.admin?
-   end
 end
