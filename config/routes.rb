@@ -1,11 +1,17 @@
-Arg::Application.routes.draw do
+Arg::Application.routes.draw do    
   resources :users do
     member do
     get :following, :followers
     end
   end
+  #resources :arguments, :member => {:rate => :post}
+  resources :arguments do
+  post 'rate', :on => :member
+end
+  
   resources :sessions,      only: [:new, :create, :destroy]
   resources :arguments,     except: [:new, :edit]
+    
   resources :facts,         only: [:create, :destroy, :index]
   resources :sandargs,      except: [:new]
   resources :relationships, only: [:create, :destroy]

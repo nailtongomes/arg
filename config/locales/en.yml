@@ -10,6 +10,12 @@ en:
   error_message_header: "%{count} erro(s) impediram este %{model} de ser gravado:"
   or: ou
 
+  ajaxful_rating:
+    helper:
+    global_average: "Média de Avaliações: %{value} de %{max}"
+    user_rating: "Sua avaliação: %{value} de %{max}"
+    hover: "%{value} de %{max}"
+
   will_paginate:
     previous_label: "&#8592; Anterior"
     next_label: "Próximo &#8594;"

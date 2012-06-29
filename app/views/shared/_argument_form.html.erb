@@ -1,7 +1,7 @@
 <%= form_for(@argument) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.text_area :content, :placeholder => "Argumente aqui!"%>
+<%= f.text_area :content, :placeholder => "Argumente aqui..."%>
 
 <div class="pull-right">
 	<%= f.submit "Inserir", class: "btn btn-large btn-primary" %>

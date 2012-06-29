@@ -2,18 +2,14 @@
 <html>
 	<head>
 		<title><%= full_title(yield(:title)) %></title>
-		<%= stylesheet_link_tag    "application", media: "all" %>
+		<%= stylesheet_link_tag "custom", media: "all" %>
+		<%= ajaxful_rating_style %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= csrf_meta_tags %>
 		<meta name="author" content="Nailton Gomes">
 		<meta name="description" content="Arg. - O Assistente de Argumentação Jurídica (ARG.) que irá auxiliá-lo no armazenamento, produção e aprimoramento de argumentos jurídicos.">
-		<meta name="keywords" content="argumentos, direito, juridico, sistema, argumentacao">		
+		<meta name="keywords" content="argumentação jurídica, argumentos do direito penal, arg, software de argumentação">		
 		<%= render 'layouts/shim' %>
-		<style type="text/css">
-			.fb_ltr {
-				height: 500px !important;
-			}
-		</style>
 	</head>
 	<body>
 		<%= render 'layouts/header' %>

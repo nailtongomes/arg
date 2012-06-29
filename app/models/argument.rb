@@ -13,6 +13,9 @@ class Argument < ActiveRecord::Base
   attr_accessible :content
   belongs_to :user
 
+  #ajaxful_rateable :stars => 10, :dimensions => [:speed, :beauty, :price]
+  ajaxful_rateable :stars => 5, :dimensions => [:comunidade, :moderador]
+
   validates :content, presence: true, length: { maximum: 1100}
   validates :user_id, presence: true
 

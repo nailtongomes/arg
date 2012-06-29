@@ -1,0 +1,2 @@
+$("#<%= @argument.wrapper_dom_id(params) %>").html("<%= escape_javascript(ratings_for(@argument, params.merge(:wrap => false))) %>");
+$("#<%= @argument.wrapper_dom_id(params) %>").effect("highlight",{},3000);
