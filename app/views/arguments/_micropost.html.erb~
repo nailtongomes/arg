@@ -1,6 +1,0 @@
-<li>
-  <span class="content"><%= argument.content %></span>
-  <span class="timestamp">
-    Incluído em: <%= time_ago_in_words(argument.created_at) %>.
-  </span>
-</li>
