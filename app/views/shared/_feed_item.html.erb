@@ -3,15 +3,16 @@
     <span class="user">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
-    <span class="content"><%= feed_item.content %></span>
+    <span class="content"><%= feed_item.content %>
+    </span>    	
     <br/>
     <span class="timestamp">
       Incluído há <%= time_ago_in_words(feed_item.created_at) %>
     </span>
-  <%= link_to "Comentar", feed_item, class: "btn btn-small btn-info" %>
+  <%= link_to "Avaliar", feed_item, class: "btn btn-small btn-info" %>
   <% if current_user?(feed_item.user) %>
     <%= link_to "Excluir", feed_item, method:  :delete,
                                      confirm: "Tem certeza?",
                                      class: "btn btn-small btn-danger" %>
-  <% end %>  
+  <% end %>   
 </li>

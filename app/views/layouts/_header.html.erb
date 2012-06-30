@@ -5,19 +5,19 @@
 			<nav>
 				<ul class="nav pull-right">
 					<li>
-						<%= link_to "Início", root_path %>
+						<%= link_to "INICIO", root_path %>
 					</li>
 					<% if signed_in? %>
 					<li>
-						<%= link_to "Usuários", users_path %>
+						<%= link_to "USUARIOS", users_path %>
 					</li>
 					<% if current_user.admin? %>
 					<li>
-						<%= link_to "Casos", facts_path %>
+						<%= link_to "CASOS", facts_path %>
 					</li>
 					<% end %>
 					<li>
-						<%= link_to "Perquisar", arguments_path %>
+						<%= link_to "PESQUISAR", arguments_path %>
 					</li>					
 					<li id="fat-menu" class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <%= current_user.name %> <b class="caret"></b> </a>
@@ -35,11 +35,11 @@
 					</li>
 					<% else %>
 					<li>
-						<%= link_to "Entrar", signin_path %>
+						<%= link_to "ENTRAR", signin_path %>
 					</li>
 					<% end %>
 					<li>
-						<%= link_to "Ajuda", help_path %>
+						<%= link_to "AJUDA", help_path %>
 					</li>
 				</ul>
 			</nav>

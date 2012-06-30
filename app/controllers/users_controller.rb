@@ -2,7 +2,13 @@ class UsersController < ApplicationController
   before_filter :signed_in_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]
   before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :admin_user,     only: [:destroy, :toggle_moderator]
+  
+  def toggle_moderator
+    @user = User.find(params[:id])
+    @user.toggle!(:moderator)
+    redirect_to @user
+  end
 
   def index
     @users = User.paginate(page: params[:page])
@@ -48,14 +54,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Acompanhando"
+    @title = "Seguindo"
     @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "Me acompanham"
+    @title = "Seguidores"
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'

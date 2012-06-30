@@ -4,11 +4,14 @@ Arg::Application.routes.draw do
     get :following, :followers
     end
   end
-  #resources :arguments, :member => {:rate => :post}
   resources :arguments do
   post 'rate', :on => :member
 end
-  
+
+resources :users do  
+  get 'toggle_moderator', :on => :member  
+end  
+
   resources :sessions,      only: [:new, :create, :destroy]
   resources :arguments,     except: [:new, :edit]
     

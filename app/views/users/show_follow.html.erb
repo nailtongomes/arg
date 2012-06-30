@@ -25,6 +25,9 @@
         <%= render @users %>
       </ul>
       <%= will_paginate @users %>
+    <% else %>
+    	<br/>
+    	<p>Você não segue ou não possui seguidores... </p>
     <% end %>
   </div>
 </div>

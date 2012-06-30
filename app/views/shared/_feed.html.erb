@@ -3,4 +3,9 @@
     <%= render partial: 'shared/feed_item', collection: @feed_items %>
   </ol>
   <%= will_paginate @feed_items %>
+<% else %>
+	<p>
+		Você ainda não possui argumentos... Construa um argumento e mostre seu potencial persuasivo 
+		ou clique em <% link_to 'usuários', users_path %> e acompanhe os argumentos de alguém. 
+	</p>  
 <% end %>

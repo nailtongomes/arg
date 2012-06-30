@@ -1,24 +1,33 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="span8">
-    <%= render 'follow_form' if signed_in? %>
-    <% if @user.arguments.any? %>
-      <h3>Argumentos (<%= @user.arguments.count %>)</h3>
-      <ol class="arguments">
-        <%= render @arguments %>
-      </ol>
-      <%= will_paginate @arguments %>
-    <% end %>
-  </div>
+	<aside class="span4">
+		<section>
+			<h1> <%= gravatar_for @user %>
+			<%= @user.name %> </h1>
+		</section>
+		<section>
+			<%= render 'shared/stats' %>
+		</section>
+		<section>
+			<center>
+				<%= render 'follow_form' if signed_in? %>
+			</center>
+		</section>
+		<% unless not current_user.admin? %>
+		<div class="field">
+			Priviégios de Moderator:	
+			<%= link_to moderator_link_text(@user), toggle_moderator_user_path(@user) %> 		
+		</div>
+		<% end %>	
+	</aside>
+	<div class="span8">
+		<% if @user.arguments.any? %>
+		<h3>Argumentos (<%= @user.arguments.count %>)</h3>
+		<% unless @user.id != current_user.id %><a>Seu perfil</a> <% end  %>
+		<ol class="arguments">
+			<%= render @arguments %>
+		</ol>
+		<%= will_paginate @arguments %>
+		<% end %>
+	</div>
 </div>
