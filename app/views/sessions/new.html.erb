@@ -11,7 +11,7 @@
       <%= f.label :password, "Senha" %>
       <%= f.password_field :password %>
 
-      <%= f.submit "Entrar", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Entrar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
     <% end %>
 
     <p>Ainda não é cadastrado? <%= link_to "Cadastre-se!", signup_path %></p>

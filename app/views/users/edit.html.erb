@@ -18,11 +18,11 @@
 		<%= f.label :password_confirmation %>
 		<%= f.password_field :password_confirmation %>
 
-		<%= f.submit "Gravar", class: "btn btn-large btn-primary" %>
+		<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %> %>
 		<% end %>
 	</div>
 	<div class="span4 pull-right ">	
 	<%= gravatar_for(@user, :size => 200) %>
-	<a href="http://gravatar.com/emails" class="btn btn-info">Alterar</a>		
+	<a href="http://gravatar.com/emails" target="_blank" class="btn btn-info">Alterar</a>		
 	</div>	
 </div>

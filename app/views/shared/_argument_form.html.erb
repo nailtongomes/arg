@@ -4,7 +4,7 @@
 <%= f.text_area :content, :placeholder => "Argumente aqui..."%>
 
 <div class="pull-right">
-	<%= f.submit "Inserir", class: "btn btn-large btn-primary" %>
+	<%= f.submit "Inserir", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
 </div>
 <%= link_to "Quero ajuda para argumentar", sandargs_path, class: "btn btn-large btn-info" %>
 

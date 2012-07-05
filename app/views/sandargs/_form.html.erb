@@ -1,16 +1,16 @@
 <%= form_for(@sandarg) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>		
-	Cada argumento deve deve propor, reivindicar ou concluir alguma coisa:
+	Cada argumento deve deve propor, reivindicar ou concluir alguma coisa [C]:
 	<%= f.text_area :claim,   :placeholder => "Ou seja, o que você está tentando provar?", :rows => "5"%>		
-	Cada conclusão deve ser sustentada por fatos:
+	Cada conclusão deve ser sustentada por fatos [G]:
 	<%= f.text_area :ground,   :placeholder => "Por que você supõe isso?", :rows => "5"%>	
-	Deve existir uma regra, um vínculo, entre a conclusão e os fatos:
+	Deve existir uma regra, um vínculo, entre a conclusão e os fatos [W]:
 	<%= f.text_area :warrant,   :placeholder => "Explique seu raciocínio...", :rows => "5"%>
-	As regras provém de um fundamento:
+	As regras provém de um fundamento [B]:
 	<%= f.text_area :backing,   :placeholder => "O quê fundamenta seu raciocínio?", :rows => "5"%>
-	Cada argumento pode admitir excessões:
+	Cada argumento pode admitir excessões [R]:
 	<%= f.text_area :rebuttal,   :placeholder => "Há alguma situação em que seu argumento não se sustenta?", :rows => "5"%>
-	Cada argumento tem sua força verbalizada:
+	Cada argumento tem sua força verbalizada [Q]:
 	<%= f.text_field :qualifier, :placeholder => "Você acha provável ou é certo?",
 					 :data => {:provide => "typeahead", 
 					 		   :items => "4", 
@@ -24,6 +24,6 @@
 	Sobrescrever texto do argumento? 
 	<% end %> 
 	<%= f.check_box :overwrite %> | 
-	<%= f.submit "Gravar", class: "btn btn-large btn-primary" %>
+	<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
 </div>
 <% end %>
