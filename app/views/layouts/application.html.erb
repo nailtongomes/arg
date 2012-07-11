@@ -3,14 +3,28 @@
 	<head>
 		<title><%= full_title(yield(:title)) %></title>
 		<%= favicon_link_tag "atom.ico"%>
-		<%= stylesheet_link_tag "application" %>		
+		<%= stylesheet_link_tag "application" %>
 		<%= ajaxful_rating_style %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= csrf_meta_tags %>
 		<meta name="author" content="Nailton Gomes">
-		<meta name="description" content="Arg. - O Assistente de Argumentação Jurídica (ARG.) que irá auxiliá-lo no armazenamento, produção e aprimoramento de argumentos jurídicos.">
-		<meta name="keywords" content="argumentação jurídica, argumentos do direito penal, arg, software de argumentação">		
+		<meta name="description" content="O Arg. é um assistente de Argumentação Jurídica que auxilia no armazenamento, produção e aprimoramento de argumentos jurídicos.">
+		<meta name="keywords" content="arg, software, argumentação jurídica, direito, argumento, argumentar, ajuda, assistente">
 		<%= render 'layouts/shim' %>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-21817757-4']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
 	</head>
 	<body>
 		<%= render 'layouts/header' %>

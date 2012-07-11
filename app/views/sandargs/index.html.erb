@@ -303,15 +303,17 @@
 					</p>
 				</div>
 				<div class="tab-pane" id="lD">
-					<h3>
-						Sugestões de Leitura:
-					</h3>		
-					<br/>			
-					<a href="<%= image_path("Bons.pdf") %>" target="_blank" >Artigo - Bons Argumentos</a>
+					<h3> Sugestões de Leitura: </h3>
+					<br/>
+
+					<table>
+						<tr>
+							<td> Artigo - Bons Argumentos no Direito Penal => </td>
+							<td><iframe id='pagsocial_buttonMini' src='http://www.pagsocial.com/buttons.aspx?bt=2&id=23X' width='192px' height='50px' frameborder='no' scrolling='no'></iframe></td>
+						</tr>
+					</table>
 					<hr/>
-					<h3>
-						Referências
-					</h3>
+					<h3> Referências </h3>
 					<p>
 						<br/>
 						ATIENZA, M. As razões do direito: teorias da argumentação jurídica. São Paulo: Landy, 2005.
@@ -328,9 +330,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div>
-
+		<div id="single-social" class="pull-right">
+			<div class="fb-like" data-send="false" data-layout="box_count" data-width="56" data-show-faces="false"></div>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="nailtongomes" data-lang="pt-BR" data-text="Guia de Argumentação Jurídica - Arg."
+			data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a>
+		</div>
 	</div>
 	<div class="span4">
 		<h3>Rascunho de Argumento</h3>
@@ -339,7 +343,30 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span12">
-
-	</div>
+	<div class="span12"></div>
 </div>
+<% content_for :script do %>
+<script>
+	! function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if(!d.getElementById(id)) {
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}
+	}(document, "script", "twitter-wjs");
+</script>
+
+<div id="fb-root"></div>
+<script>
+	( function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if(d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+<% end %>
