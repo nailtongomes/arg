@@ -1,11 +1,26 @@
 <% if @feed_items.any? %>
-  <ol class="arguments">
-    <%= render partial: 'shared/feed_item', collection: @feed_items %>
-  </ol>
-  <%= will_paginate @feed_items %>
+<ol class="arguments">
+	<%= render partial: 'shared/feed_item', collection: @feed_items %>
+</ol>
+<%= will_paginate @feed_items %>
 <% else %>
-	<p>
-		Você ainda não possui argumentos... Construa um argumento e mostre seu potencial persuasivo 
-		ou clique em <% link_to 'usuários', users_path %> e acompanhe os argumentos de alguém. 
-	</p>  
+<hr/>
+<% if @argument.errors.any? %>
+<p>
+	Ocorreu um erro que proibiu o resgate do seu histórico de argumentos...
+</p>
+<% else %>
+<p>
+	Você ainda não possui argumentos no seu histórico... Não deixe de construir um argumento e exibir seu potencial persuasivo.
+</p>
+<p>
+	Você também pode clicar em <%= link_to 'usuários', users_path %> e acompanhar os argumentos de alguém.
+</p>
+<p>
+	Caso queira inserir um caso gerador, clique em <%= link_to 'casos', facts_path %>.
+</p>
+<p>
+	Com dúvida? Clique em <%= link_to 'ajuda', help_url %>.
+</p>
+<% end %>
 <% end %>

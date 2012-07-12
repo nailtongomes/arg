@@ -1,9 +1,26 @@
 # encoding: UTF-8
-User.create!([:name =>  "Katchanga",
+User.create!([:name =>  "Nailton G. Silva",
   :email => "nailtongomes@ig.com.br",
   :password => "123456",
   :password_confirmation => "123456",
   :admin => true], :without_protection => true)
+
+User.create!([:name =>  "Administrador",
+  :email => "administrador@ig.com.br",
+  :password => "123456",
+  :password_confirmation => "123456",
+  :admin => true], :without_protection => true)
+
+User.create!(:name =>  "Analista",
+  :email => "analista@ig.com.br",
+  :password => "123456",
+  :password_confirmation => "123456")
+
+User.create!(:name =>  "Moderador",
+  :email => "moderador@ig.com.br",
+  :password => "123456",
+  :password_confirmation => "123456",
+  :moderator => true)
 
 Argument.create!([:content =>  %{No delito de furto/roubo quando há clandestinidade e ausência de testemunhas, assume-se que
                  predomina o interesse da vítima de apontar o culpado e não condenar o inocente. Deste modo,
@@ -387,16 +404,24 @@ Argument.create!([:content =>  %{Numa análise dos fatos, se percebe dos depoime
                  },
   :user_id => 1], :without_protection => true)
 
-Fact.create!(:content =>  %{Caim e o seu irmão mais novo Abel, em determinada ocasião, deram presentes ao seu pai. Caim entregou frutas que havia cultivado e Abel entregou as primeiras ovelhas que nasceram do seu rebanho. O presente de Abel teria agradado, enquanto o de Caim, não. Após essa ocasião, Abel teria provocado Caim com as seguintes palavras: "Você é uma decepção para nosso pai." Possuído por ódio e ciúmes, Caim arquitetou uma emboscada para seu irmão. Sugeriu a Abel que ambos fossem ao campo e, lá chegando, Caim esfaqueou seu irmão. <b>#C01</b>.
+Fact.create!(:content =>  %{Caim e o seu irmão mais novo Abel, em determinada ocasião, deram presentes ao seu pai. Caim entregou frutas que havia cultivado e Abel entregou as primeiras ovelhas que nasceram do seu rebanho. O presente de Abel teria agradado, enquanto o de Caim, não. Após essa ocasião, Abel teria provocado Caim com as seguintes palavras: "Você é uma decepção para nosso pai." Possuído por ódio e ciúmes, Caim arquitetou uma emboscada para seu irmão. Sugeriu a Abel que ambos fossem ao campo e, lá chegando, Caim esfaqueou seu irmão.
         },
-             :problem => %{Diante de tal situação e amparado pela ordenamento jurídico brasileiro vigente:
-        \na. como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.
-        \nb. como ADVOGADO de Caim, tendo o promotor denunciado pelo art. 121, § 2º, incisos I e IV, elabore o argumento que irá compor a defesa.
-        \nc. como MAGISTRADO, tendo o promotor denuciado pelo art. 121, § 2º, incisos I e IV, e o advogado sustentado o art. 121, § 1º, elabore o argumento que irá motivar sua decisão.
-        }
+             :problem => %{Como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.},
+             :active => true,
+             :user_id => 2
 )
 
-
+Fact.create!(:content =>  %{Pedro, temeroso de assaltos, blinda seu automóvel na oficina de Antônio. Este, fraudulentamente, emprega vidros de resistência 
+  inferior. Certo dia, em um cruzamento de duas movimentadas ruas de Balneário do Norte, Pedro encontra-se parado com o veículo, 
+  aguardandoo sinal verde. José, ilegalmente armado de revólver e pretendendo assaltá-lo, aproxima-se e lhe aponta a arma.
+  Verificando que tratar-se de um automóvel blindado, desapontado, desiste. Ocorre que Pedro, percebendo o fracasso do bandido,
+  lança-lhe um sorriso desdenhoso. José, respondendo à provocação, aponta-lhe a arma e dispara, supondo que irá apenas
+  estilhaçar o vidro. O projétil, entretanto, atravessa-o e atinge a vítima, provocando-lhe a morte (Damásio de Jesus, com adaptações).
+  <a href="http://pt.scribd.com/doc/7035019/Casos-Praticos-de-Direito-Penal-Direito-USP">[FONTE]</a>},
+             :problem => %{Como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.},
+             :active => true,
+             :user_id => 1
+)
 
 Sandarg.create!([:claim =>  "a lesão sofrida pela vítima foi de natureza leve",
                  :ground =>  "não há, no processo, qualquer elemento para que se possa aferir a natureza das lesões; no caso dos autos, 

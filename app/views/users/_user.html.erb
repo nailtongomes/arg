@@ -1,10 +1,14 @@
 <li>
   <%= gravatar_for user, size: 52 %>
+  <% if user.admin? %>
+  	<span class="label label-important">A</span>
+  <% end %>
+  <% if user.moderator? %>
+	<span class="label label-info">M</span>
+  <% end %>
   <%= link_to user.name, user %>
-  	<% if user.moderator? %>
-  | [ Moderador ]
-  	<% end %> 
+  <br/><%= user.email if current_user.admin? %>  	 
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "Excluir", user, method: :delete, confirm: "Tem certeza?" %>
+  <%= link_to "Excluir", user, method: :delete, confirm: "Tem certeza?", :class => "btn btn-danger btn-small pull-right" %>
   <% end %>
 </li>

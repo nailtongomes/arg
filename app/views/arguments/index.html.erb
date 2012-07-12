@@ -1,5 +1,6 @@
+<% provide(:title, 'Pesquisa') %>
 <div class="row">
-	<div class="span12">
+	<div class="span10 offset1">
 		<%= form_tag arguments_path, :method => 'get' do %>
 		<p>
 			<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar" %>
@@ -10,24 +11,22 @@
 			<% @arguments.each do |argument| %>
 			<li>
 				<span class="content"><%= argument.content %> <%= link_to '[+]', argument %> </span>
+				<% if current_user.moderator? %>
 				<div align="right">
 					<table border="1" style="margin-top: 10px">
 					<thead>						
 						<td>Nota (Moderadores):</td>
 					</thead>
 					<tbody>
-						<td style="margin-left: 10px">
-						<% if current_user.moderator? %>
-						<%= ratings_for argument, :dimension => :moderador%>
-						<% else %>
-						<%= ratings_for argument, :static, :dimension => :moderador%>
-						<% end %>
+						<td style="margin-left: 10px">						
+						<%= ratings_for argument, :dimension => :moderador%>						
 						</td>
 					</tbody>
 				</table>								
 				</div>
-				<span class="timestamp"> Incluído há <%= time_ago_in_words(argument.created_at) %>
-					por <%= User.find_by_id(argument.user_id).name %> </span>
+				<% end %>
+				<span class="timestamp">Incluído por <a href="users/<%= argument.user_id %>"><%= User.find_by_id(argument.user_id).name %></a> - há <%= time_ago_in_words(argument.created_at) %>
+					 </span>
 					<hr/>
 			</li>
 			<% end %>

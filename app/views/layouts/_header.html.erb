@@ -10,12 +10,10 @@
 					<% if signed_in? %>
 					<li>
 						<%= link_to "USUARIOS", users_path %>
-					</li>
-					<% if current_user.admin? %>
+					</li>					
 					<li>
 						<%= link_to "CASOS", facts_path %>
-					</li>
-					<% end %>
+					</li>					
 					<li>
 						<%= link_to "PESQUISAR", arguments_path %>
 					</li>					

@@ -1,10 +1,13 @@
 <div class="well">
 	<p>
-		<%= textilize @f.content %>
+		<%= textilize @f.content %>		
 	</p>
 </div>
 <div class="alert alert-info">
 	<p>
-		<%= textilize @f.problem %>
+		<%= textilize @f.problem %>		
 	</p>
+	<%= link_to "Propor outro caso...", facts_path, :class => "btn btn-primary pull-right" %>
+	<p style="text-align: center">O argumento referente a este caso deverá conter a chave <b>#C<%= @f.id %></b> no final do seu conteúdo.</p>
+	
 </div>

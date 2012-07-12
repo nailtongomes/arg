@@ -4,7 +4,7 @@
 		<div>
 			<% if @f.present? %>
 			<a class="close" data-dismiss="alert" href="#">&times;</a>
-			<h1>[ Caso da Semana ] </h1>
+			<h1>Caso Gerador [#C<%= @f.id %>]</h1>
 			<%= render 'facts/fact' %>
 			<% end %>
 		</div>
@@ -21,7 +21,7 @@
 		</section>		
 	</aside>
 	<div class="span8">
-		<h3>Argumentos</h3>
+		<h3>Histórico de Argumentos</h3>
 		<%= render 'shared/feed' %>
 	</div>
 </div>

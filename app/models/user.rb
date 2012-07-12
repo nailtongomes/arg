@@ -24,8 +24,11 @@
 #
 class User < ActiveRecord::Base
   ajaxful_rater
+  
   attr_accessible :name, :email, :password, :password_confirmation, :moderator
+  
   has_secure_password
+  
   has_many :arguments, dependent: :destroy
   has_many :sandargs, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -39,13 +42,15 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 40 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  default_scope order: 'users.name ASC'
 
   def feed
     Argument.from_users_followed_by(self)

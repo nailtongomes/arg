@@ -15,7 +15,7 @@ end
   resources :sessions,      only: [:new, :create, :destroy]
   resources :arguments,     except: [:new, :edit]
     
-  resources :facts,         only: [:create, :destroy, :index]
+  resources :facts,         except: [:new]
   resources :sandargs,      except: [:new]
   resources :relationships, only: [:create, :destroy]
 

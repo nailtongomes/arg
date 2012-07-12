@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120630142700) do
+ActiveRecord::Schema.define(:version => 20120712202254) do
 
   create_table "arguments", :force => true do |t|
     t.text     "content"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(:version => 20120630142700) do
   create_table "facts", :force => true do |t|
     t.text     "content"
     t.text     "problem"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "active",     :default => false
+    t.integer  "user_id"
   end
 
   create_table "rates", :force => true do |t|

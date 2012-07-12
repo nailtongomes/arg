@@ -4,6 +4,12 @@
 		<section>
 			<h1> <%= gravatar_for @user %>
 			<%= @user.name %> </h1>
+			<% if @user.admin? %>
+			<a>[Administrador]</a>
+			<% end %>
+			<% if @user.moderator? %>
+			<a>[Moderador]</a>
+			<% end %>
 		</section>
 		<section>
 			<%= render 'shared/stats' %>
@@ -13,17 +19,16 @@
 				<%= render 'follow_form' if signed_in? %>
 			</center>
 		</section>
-		<% unless not current_user.admin? %>
+		<% if current_user.admin? && current_user != @user %>
 		<div class="field">
-			Priviégios de Moderator:	
-			<%= link_to moderator_link_text(@user), toggle_moderator_user_path(@user) %> 		
+			Priviégios de Moderator:
+			<%= link_to moderator_link_text(@user), toggle_moderator_user_path(@user) %>
 		</div>
-		<% end %>	
+		<% end %>
 	</aside>
 	<div class="span8">
 		<% if @user.arguments.any? %>
 		<h3>Argumentos (<%= @user.arguments.count %>)</h3>
-		<% unless @user.id != current_user.id %><a>Seu perfil</a> <% end  %>
 		<ol class="arguments">
 			<%= render @arguments %>
 		</ol>

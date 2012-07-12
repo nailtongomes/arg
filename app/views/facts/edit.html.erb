@@ -1,0 +1,24 @@
+<% provide(:title, 'Editando Casos') %>
+<div class="row">
+	<div class="span10 offset1">
+		<div class="alert alert-success">
+			<h3>Editando Caso</h3>
+		</div>
+		<%= form_for(@fact) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<%= f.text_area :content, :placeholder => "Quais os fatos?", :rows => "5"%>
+		<%= f.text_area :problem, :placeholder => "Qual o problema?", :rows => "5"%>
+
+		<% if current_user.admin? %>
+		Ativo? <%= f.check_box :active %>
+		<% end %>
+		<div class="pull-right">
+			<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+		</div>
+		<% end %>
+	</div>
+</div>
+<% content_for :script do %>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+<% end %>

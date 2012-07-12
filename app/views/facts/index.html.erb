@@ -1,22 +1,78 @@
-<% provide(:title, 'Casos') %>
-<% if @facts.any? %>
-<% @facts.each do |f| %>
-<div class="well">
-	<h3>Caso [ <%= f.id %> ] - Criado em [ <%= f.created_at %> ]
-	<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %>
-	</h3> 
-	<p>
-		<%= textilize f.content %>
-	</p>
-	<h3>Problema</h3>
-	<p>
-		<%= textilize f.problem %>
-	</p>
+<% provide(:title, 'Casos Geradores') %>
+<div class="row">
+	<div class="span10 offset1">
+		<div class="tabbable tabs-below">
+			<ul class="nav nav-tabs">
+				<li>
+					<a href="#lA" data-toggle="tab">Ativos</a>
+				</li>
+				<% if current_user.admin? %>
+				<li>
+					<a href="#lB" data-toggle="tab">Pendentes</a>
+				</li>
+				<% end %>
+				<li class="active">
+					<a href="#lC" data-toggle="tab">Propor</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane" id="lA">
+					<% if @facts.any? %>
+					<% @facts.each do |f| %>
+					<div class="well">
+						<h3>[#C<%= f.id %>] - <%= f.created_at.strftime("Incluído em [%d/%m/%Y]") %> - por [ <%= User.find_by_id(f.user_id).name %> ]
+						<% if current_user.admin? %>
+						<%= link_to "Editar", edit_fact_path(f), class: "btn btn-small" %>
+						<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %>
+						<% end %> </h3>
+						<p>
+							<%= textilize f.content %>
+						</p>
+						<h3>Problema</h3>
+						<p>
+							<%= textilize f.problem %>
+						</p>
+					</div>
+					<% end %>
+					<% else %>
+					<p>
+						Não há casos ativos...
+					</p>
+					<% end %>
+				</div>
+				<% if current_user.admin? %>
+				<div class="tab-pane" id="lB">
+					<% if @unactives.any? %>
+					<% @unactives.each do |f| %>
+					<div class="well">
+						<h3>[#C<%= f.id %>] - <%= f.created_at.strftime("Criado em [%d/%m/%Y]") %> - por [ <%= User.find_by_id(f.user_id).name %> ]
+						<% if current_user.admin? %>
+						<%= link_to "Editar", edit_fact_path(f), class: "btn btn-small" %>
+						<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %>
+						<% end %> </h3>
+						<p>
+							<%= textilize f.content %>
+						</p>
+						<h3>Problema</h3>
+						<p>
+							<%= textilize f.problem %>
+						</p>
+					</div>
+					<% end %>
+					<% else %>
+					<p>
+						Não há casos pendentes...
+					</p>
+					<% end %>
+				</div>
+				<% end %>
+				<div class="tab-pane active" id="lC">
+					<div class="alert alert-success">
+						<h3>Novo Caso</h3>
+					</div>
+					<%= render 'form' %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<% end %>
-<% end %>
-<hr/>
-<div class="alert alert-success">
-<h3>Novo Caso</h3>
-</div>
-<%= render 'form' %>
