@@ -27,10 +27,10 @@ before_filter :admin_user,     only: [:destroy, :update, :edit]
   def create
     @fact = Fact.create(params[:fact])
     if @fact.save
-      flash[:success] = "Caso criado"
+      flash[:success] = "Caso criado com sucesso e submetido aos administradores."
       redirect_to facts_path
     else      
-      flash[:error] = "Erro ao criar o caso!"
+      flash[:error] = "Erro ao criar o caso..."
       @facts = []
       @unactives = []
       render "index" 
@@ -39,8 +39,8 @@ before_filter :admin_user,     only: [:destroy, :update, :edit]
 
   def destroy
     Fact.find(params[:id]).destroy
-    flash[:success] = "Caso removido"
-    redirect_back_or root_path
+    flash[:success] = "Caso removido..."
+    redirect_to facts_path
   end
   
     private

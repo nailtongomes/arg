@@ -8,7 +8,7 @@
 		<%= render 'shared/error_messages', object: f.object %>
 		<%= f.text_area :content, :placeholder => "Quais os fatos?", :rows => "5"%>
 		<%= f.text_area :problem, :placeholder => "Qual o problema?", :rows => "5"%>
-
+		<hr/>
 		<% if current_user.admin? %>
 		Ativo? <%= f.check_box :active %>
 		<% end %>

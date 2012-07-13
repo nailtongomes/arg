@@ -18,7 +18,7 @@
 		</section>
 		<section>
 			<%= render 'shared/argument_form' %>
-		</section>		
+		</section>
 	</aside>
 	<div class="span8">
 		<h3>Histórico de Argumentos</h3>
@@ -26,29 +26,67 @@
 	</div>
 </div>
 <% else %>
-<div class="center hero-unit">
-	<h1>Bem vindo ao Arg.</h1>
+<div class="row">
+	<div class="span11">
+		<div id="myCarousel" class="carousel slide">
+			<!-- Carousel items -->
+			<div class="carousel-inner">
+				<div class="active item" align="center">					
+						<%= image_tag("intro.png", :size => "800x394", :alt => "Logo") %>					
+				</div>
+				<div class="item" align="center">					
+						<%= image_tag("intro1.png", :size => "800x394", :alt => "Janela Inicial") %>
+				</div>
+				<div class="item" align="center">
+						<%= image_tag("intro2.png", :size => "800x394", :alt => "Janela Pesquisa") %>
+				</div>
+				<div class="item" align="center">					
+						<%= image_tag("intro3.png", :size => "800x394", :alt => "Janela Casos") %>					
+				</div>
+				<div class="item" align="center">
+						<%= image_tag("intro4.png", :size => "800x394", :alt => "Janela Guia") %>
+				</div>
+			</div>
+			<!-- Carousel nav -->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+	</div>
+	<div class="span1">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-via="nailtongomes" data-lang="pt-BR" data-text="Arg. - O Assistente de Argumentação Jurídica"
+		data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a>
+		<hr/>
+		<div class="fb-like" data-send="false" data-layout="box_count" data-width="56px" data-show-faces="false"></div>
+	</div>
+	<div class="span3 offset5">
+		
+	</div>
+	<div class="span6" align="center" >
+		<%= link_to "Inscreva-se no Arg.", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+	<div class="span6">
+		<blockquote class="pull-right">
+			<p>
+				Não tema aqueles que argumentam, mas aqueles que se esquivam.
+			</p>
+			<small>Dale Carnegie</small>
+		</blockquote>
+	</div>
 
-	<h2>O Assistente de Argumentação Jurídica (ARG.) que irá auxiliá-lo no armazenamento, produção e aprimoramento de argumentos jurídicos.</h2>
-
-	<%= link_to "Cadastre-se!", signup_path, class: "btn btn-large btn-primary" %>	
 </div>
-<blockquote class="pull-right">
-  <p>Não tema aqueles que argumentam, mas aqueles que se esquivam.</p>
-  <small>Dale Carnegie</small>
-</blockquote>
-<div class="fb-like" data-send="true" data-width="450" data-show-faces="true" data-font="tahoma"></div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="nailtongomes" data-lang="pt-BR" data-text="Arg. - O Assistente de Argumentação Jurídica"
-			data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a>
 <% content_for :script do %>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>  
+<script>
+	( function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if(d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+</script>
 <script>
 	! function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
@@ -58,7 +96,7 @@
 			js.src = "https://platform.twitter.com/widgets.js";
 			fjs.parentNode.insertBefore(js, fjs);
 		}
-	}(document, "script", "twitter-wjs");
+	}(document, "script", "twitter-wjs");
 </script>
 <% end %>
 <% end %>
