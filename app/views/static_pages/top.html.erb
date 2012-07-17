@@ -1,0 +1,92 @@
+<% provide(:title, 'Melhores Argumentos') %> <h1>Melhores Argumentos</h1>
+<hr/>
+<div class="row">
+	<% unless @top_c.empty? && @top_m.empty? %>
+	<div class="span10 offset1">
+		<div id="myCarousel" class="carousel slide">
+			<!-- Carousel items -->
+			<div class="carousel-inner">				
+				<div class="active item">
+					<div class="span7 offset1">
+						<% if @top_m.keys[0].present? %>
+						<p style="text-align: right">
+							Nota dos Moderadores: <b><%= @top_m.values[0].to_f %></b>
+						</p>
+						<hr/>
+						<p style="font-size: 11px">
+							<%= Argument.find_by_id(@top_m.keys[0]).content %> | <%= link_to '[+ informações]', Argument.find_by_id(@top_m.keys[0]) %>
+						</p>
+						<p style="text-align: right">1/<%= @top_m.count.to_s %></p><br/>
+						<% end %>						
+						<% if @top_c.present? %>
+						<p style="text-align: right">
+							Nota dos Usuários: <b><%= @top_c.values[0].to_s %></b>
+						</p>
+						<hr/>
+						<p style="font-size: 11px">
+							<%= Argument.find_by_id(@top_c.keys[0]).content %> | <%= link_to '[+ informações]', Argument.find_by_id(@top_c.keys[0]) %>
+						</p>
+						<p class="pull-right">1/<%= @top_c.count.to_s %></p>
+						<% end %>						
+					</div>
+				</div>
+				<% if @top_c.keys[1].present? || @top_m.keys[1].present? %>
+				<div class="item" align="right">
+					<div class="span7 offset1">
+						<% if @top_m.keys[1].present? %>
+						<p style="text-align: right">
+							Nota dos Moderadores: <b><%= @top_m.values[1].to_f %></b>
+						</p>
+						<hr/>
+						<p style="font-size: 11px">
+							<%= Argument.find_by_id(@top_m.keys[1]).content %> | <%= link_to '[+ informações]', Argument.find_by_id(@top_m.keys[1]) %>
+						</p>
+						<p style="text-align: right">2/<%= @top_m.count.to_s %></p><br/>
+						<% end %>						
+						<% if @top_c.present? %>
+						<p style="text-align: right">
+							Nota dos Usuários: <b><%= @top_c.values[1].to_s %></b>
+						</p>
+						<hr/>
+						<p style="font-size: 11px">
+							<%= Argument.find_by_id(@top_c.keys[1]).content %> | <%= link_to '[+ informações]', Argument.find_by_id(@top_c.keys[1]) %>
+						</p>
+						<p class="pull-right">2/<%= @top_c.count.to_s %></p>
+						<% end %>						
+					</div>
+				</div>
+				<% end %>
+				<% if @top_c.keys[2].present? || @top_m.keys[2].present? %>
+				<div class="item" align="right">
+					<div class="span7 offset1">
+						<% if @top_m.keys[2].present? %>
+						<p style="text-align: right">
+							Nota dos Moderadores: <b><%= @top_m.values[2].to_f %></b>
+						</p>
+						<hr/>
+						<p style="font-size: 11px">
+							<%= Argument.find_by_id(@top_m.keys[2]).content %> | <%= link_to '[+ informações]', Argument.find_by_id(@top_m.keys[2]) %>
+						</p>
+						<p style="text-align: right">3/<%= @top_m.count.to_s %></p><br/>
+						<% end %>						
+						<% if @top_c.present? %>
+						<p style="text-align: right">
+							Nota dos Usuários: <b><%= @top_c.values[2].to_s %></b>
+						</p>
+						<hr/>
+						<p style="font-size: 11px">
+							<%= Argument.find_by_id(@top_c.keys[2]).content %> | <%= link_to '[+ informações]', Argument.find_by_id(@top_c.keys[2]) %>
+						</p>
+						<p class="pull-right">3/<%= @top_c.count.to_s %></p>
+						<% end %>						
+					</div>
+				</div>
+				<% end %>
+			</div>
+			<!-- Carousel nav -->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+	</div>
+	<% end %>
+</div>

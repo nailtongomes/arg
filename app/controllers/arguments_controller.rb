@@ -14,9 +14,8 @@ class ArgumentsController < ApplicationController
   end
 
   def index
-    @arguments = Argument.search(params[:search]).paginate(:per_page => 30, :page => params[:page])
-  end
-
+    @arguments = Argument.search(params[:search]).paginate(:per_page => 30, :page => params[:page])                          
+   end
   def create
     @argument = current_user.arguments.build(params[:argument])
     if @argument.save
@@ -39,5 +38,5 @@ class ArgumentsController < ApplicationController
   def correct_user
     @argument = current_user.arguments.find_by_id(params[:id])
     redirect_to root_path if @argument.nil?
-  end
+  end     
 end

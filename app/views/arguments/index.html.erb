@@ -6,6 +6,8 @@
 			<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar" %>
 		</p>
 		<% end %>
+	</div>	
+	<div class="span10 offset1">
 		<% if @arguments.any? %>
 		<ol>
 			<% @arguments.each do |argument| %>
@@ -14,20 +16,17 @@
 				<% if current_user.moderator? %>
 				<div align="right">
 					<table border="1" style="margin-top: 10px">
-					<thead>						
-						<td>Nota (Moderadores):</td>
-					</thead>
-					<tbody>
-						<td style="margin-left: 10px">						
-						<%= ratings_for argument, :dimension => :moderador%>						
-						</td>
-					</tbody>
-				</table>								
+						<thead>
+							<td>Nota (Moderadores):</td>
+						</thead>
+						<tbody>
+							<td style="margin-left: 10px"> <%= ratings_for argument, :dimension => :moderador%> </td>
+						</tbody>
+					</table>
 				</div>
 				<% end %>
-				<span class="timestamp">Incluído por <a href="users/<%= argument.user_id %>"><%= User.find_by_id(argument.user_id).name %></a> - há <%= time_ago_in_words(argument.created_at) %>
-					 </span>
-					<hr/>
+				<span class="timestamp">Incluído por <a href="users/<%= argument.user_id %>"><%= User.find_by_id(argument.user_id).name %></a> - há <%= time_ago_in_words(argument.created_at) %> </span>
+				<hr/>
 			</li>
 			<% end %>
 		</ol>

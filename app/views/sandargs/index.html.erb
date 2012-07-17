@@ -1,6 +1,6 @@
-<% provide(:title, 'Assistente') %>
+<% provide(:title, 'Guia de Argumentação - Toulmin') %>
 <div class="row">
-	<div class="span8">
+	<div class="span12">
 		<h1>Guia de Argumentação
 		<br/>
 		Toulmin</h1>
@@ -13,6 +13,9 @@
 		<div class="tabbable tabs-below">
 			<ul class="nav nav-tabs">
 				<li class="active">
+					<a href="#lE" data-toggle="tab">Construa seu Argumento</a>
+				</li>
+				<li>
 					<a href="#lA" data-toggle="tab">Meus Rascunhos</a>
 				</li>
 				<li>
@@ -26,50 +29,20 @@
 				</li>
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane active" id="lA">
-					<% if @sandargs.any? %>
-					<% @sandargs.each do |sandarg| %>
-					<div class="well">
-						<h3>Rascunho [ <%= sandarg.id %> ]
-						<%= link_to "Ver", sandarg, class: "btn btn-small" %>
-						<%= link_to "Excluir", sandarg, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %> </h3>
-						<p>
-							<% if sandarg.content.present? %>
-							<%= sandarg.content %>
-							<% else %>
-							O texto do seu rascunho ainda não foi construído.
-							<% end %>
-						</p>
-					</div>
-					<% end %>
-					<% else %>
-					<p>
-						Você ainda não possui rascunhos...
-					</p>
-					<% end %>
-				</div>
-				<div class="tab-pane" id="lB">
-					<center>
-						<%= image_tag("Estrutura.png", :size => "250x400", :alt => "Estrutura de um Argumento") %> <a class="pull-right" href="<%= image_path("Exemplo.png") %>" target="_blank" >Exemplo</a>
-					</center>
-					<p style="font-size: 11px">
-						<br/>
-						Em um argumento existe uma proposição que propõe/reivindica/conclui algo, expõe um pedido ou sustenta determinado ponto de vista
-						com base em razões ou dados (Claim). Estes, por sua vez, podem ser motivos, circunstâncias, fatos ou, sinteticamente, são o
-						porquê de se pedir (Data/Grounds). Assim, dado que se tem pedido e uma causa de pedir, uma proposição estabelece, implícita ou
-						explicitamente, um vínculo entre esses elementos (Warrant). Caso o vínculo precise ser validado, recorrer-se-á a uma proposição
-						que o respalde, dê apoio, fundamento ou força (Backing). Igualmente, podem existir certas situações em que a conclusão não se
-						sustenta, neste caso, uma proposição pode funcionar como ressalva/exceção (Rebuttal). Finalmente, determinada expressão
-						delimita a força da conclusão (Qualifier).
-						<hr/>
-					</p>
-					<div class="accordion" id="accordion2">
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"> Pretensão/Conclusão [C] </a>
-							</div>
-							<div id="collapseOne" class="accordion-body collapse">
-								<div class="accordion-inner">
+				<div class="tab-pane active" id="lE">
+					<%= form_for(@sandarg) do |f| %>
+					<%= render 'shared/error_messages', object: f.object %>
+					<div id="myCarousel" class="carousel slide">
+						<div class="carousel-inner">
+							<div class="active item">
+								<div class="span8 offset2">
+									<a class="pull-right">1/6</a>
+									<p>
+										Cada argumento deve deve propor, reivindicar ou concluir alguma coisa [C]:
+									</p>
+									<%= f.text_area :claim,   :placeholder => "Ou seja, o que você está tentando provar?", :rows => "5"%>
+									<h2>1. Pretensão/Conclusão</h2>
+									<hr/>
 									<p>
 										Aquela proposição que defende/sustenta/afirma/nega ou pede algo;
 									</p>
@@ -79,7 +52,7 @@
 									<p>
 										A resposta para as questões:
 									</p>
-									<ul>
+									<ul class="unstyled">
 										<li>
 											O que você está tentando provar?
 										</li>
@@ -92,14 +65,15 @@
 									</ul>
 								</div>
 							</div>
-						</div>
-
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> Razões/Dados [G/D] </a>
-							</div>
-							<div id="collapseTwo" class="accordion-body collapse">
-								<div class="accordion-inner">
+							<div class="item">
+								<div class="span8 offset2">
+									<a class="pull-right">2/6</a>
+									<p>
+										Cada conclusão deve ser sustentada por fatos [G]:
+									</p>
+									<%= f.text_area :ground,   :placeholder => "Por que você supõe isso?", :rows => "5"%>
+									<h2>2. Razões/Dados</h2>
+									<hr/>
 									<p>
 										São os motivos, evidências, provas, causas e/ou circunstâncias que apoiam sua tese/pretensão;
 									</p>
@@ -127,7 +101,7 @@
 									<p>
 										A resposta para as questões:
 									</p>
-									<ul>
+									<ul class="unstyled">
 										<li>
 											O que justifica o seu pedido?
 										</li>
@@ -140,14 +114,15 @@
 									</ul>
 								</div>
 							</div>
-						</div>
-
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> Garantia/Permissão de Inferência [W] </a>
-							</div>
-							<div id="collapseThree" class="accordion-body collapse">
-								<div class="accordion-inner">
+							<div class="item">
+								<div class="span8 offset2">
+									<a class="pull-right">3/6</a>
+									<p>
+										Deve existir uma regra, um vínculo, entre a conclusão e os fatos [W]:
+									</p>
+									<%= f.text_area :warrant,   :placeholder => "Explique seu raciocínio...", :rows => "5"%>
+									<h2>3. Garantia/Regra de Inferência</h2>
+									<hr/>
 									<p>
 										Um princípio Lógico ou de Raciocínio;
 									</p>
@@ -169,7 +144,7 @@
 									<p>
 										A resposta para as questões:
 									</p>
-									<ul>
+									<ul class="unstyled">
 										<li>
 											Qual a relação da Conclusão com as Razões?
 										</li>
@@ -191,16 +166,17 @@
 											SUBSTANTIVAS quando baseadas nas formas tradicionais de raciocínio lógico, como, por exemplo, causa-efeito, modus ponens, modus tollens etc.
 										</li>
 									</ul>
-									</li>
 								</div>
 							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour"> Respaldo/Fundamento [B] </a>
-							</div>
-							<div id="collapseFour" class="accordion-body collapse">
-								<div class="accordion-inner">
+							<div class="item">
+								<div class="span8 offset2">
+									<a class="pull-right">4/6</a>
+									<p>
+										As regras provém de um fundamento [B]:
+									</p>
+									<%= f.text_area :backing,   :placeholder => "O quê fundamenta seu raciocínio?", :rows => "5"%>
+									<h2>4. Respaldo</h2>
+									<hr/>
 									<p>
 										Um fundamento sólido ou material para a regra de inferência;
 									</p>
@@ -216,7 +192,7 @@
 									<p>
 										A resposta para as questões:
 									</p>
-									<ul>
+									<ul class="unstyled">
 										<li>
 											Por conta de quê?
 										</li>
@@ -226,14 +202,15 @@
 									</ul>
 								</div>
 							</div>
-						</div>
-
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive"> Refutador/Reserva/Anulador [R] </a>
-							</div>
-							<div id="collapseFive" class="accordion-body collapse">
-								<div class="accordion-inner">
+							<div class="item">
+								<div class="span8 offset2">
+									<a class="pull-right">5/6</a>
+									<p>
+										Cada argumento pode admitir excessões [R]:
+									</p>
+									<%= f.text_area :rebuttal,   :placeholder => "Há alguma situação em que seu argumento não se sustenta?", :rows => "5"%>
+									<h2>5. Reserva/Refutador/Anulador</h2>
+									<hr/>
 									<p>
 										É uma exceção aplicada à pretensão;
 									</p>
@@ -243,7 +220,7 @@
 									<p>
 										A resposta para as questões:
 									</p>
-									<ul>
+									<ul class="unstyled">
 										<li>
 											Há alguma situação em que seu argumento não se sustenta?
 										</li>
@@ -253,21 +230,26 @@
 									</ul>
 								</div>
 							</div>
-						</div>
-
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix"> Qualificador [Q] </a>
-							</div>
-							<div id="collapseSix" class="accordion-body collapse">
-								<div class="accordion-inner">
+							<div class="item">
+								<div class="span8 offset2">
+									<a class="pull-right">6/6</a>
+									<p>
+										Cada argumento tem sua força verbalizada [Q]:
+									</p>
+									<%= f.text_field :qualifier, :placeholder => "Você acha provável ou é certo?",
+                    :data => {:provide => "typeahead",
+                    :items => "4",
+                    :source => '["necessariamente","possivelmente","é plausível","é inconteste", "não resta dúvida", "estes fatos, aqui expostos, tornam inafastável que", "demonstra-se de forma irrefutável"]'
+                    }%>
+									<h2>6. Qualificador</h2>
+									<hr/>
 									<p>
 										Representa a verbalização da força do argumento.
 									</p>
 									<p>
 										A resposta para as questões:
 									</p>
-									<ul>
+									<ul class="unstyled">
 										<li>
 											É certo, necessário ou possível, provável?
 										</li>
@@ -275,7 +257,59 @@
 								</div>
 							</div>
 						</div>
+						<!-- Carousel nav -->
+						<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+						<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 					</div>
+					<div class="pull-right">
+						<% if @sandarg.content.blank? %>
+						Gerar texto automático?
+						<% else %>
+						Sobrescrever texto do argumento?
+						<% end %>
+						<%= f.check_box :overwrite %> |
+						<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+					</div>
+					<% end %>
+				</div>
+				<div class="tab-pane" id="lA">
+					<% if @sandargs.any? %>
+					<% @sandargs.each do |sandarg| %>
+					<div class="well">
+						<h3>Rascunho [ <%= sandarg.id %> ]
+						<%= link_to "Ver", sandarg, class: "btn btn-small" %>
+						<%= link_to "Excluir", sandarg, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %> </h3>
+						<p>
+							<% if sandarg.content.present? %>
+							<%= sandarg.content %>
+							<% else %>
+							O texto do seu rascunho ainda não foi construído.
+							<% end %>
+						</p>
+					</div>
+					<% end %>
+					<% else %>
+					<p>
+						Você ainda não possui rascunhos...
+					</p>
+					<% end %>
+				</div>
+				<div class="tab-pane" id="lB">
+					<div class="span10 offset1">
+						<p>
+							Em um argumento existe uma proposição que propõe/reivindica/conclui algo, expõe um pedido ou sustenta determinado ponto de vista
+							com base em razões ou dados (Claim). Estes, por sua vez, podem ser motivos, circunstâncias, fatos ou, sinteticamente, são o
+							porquê de se pedir (Data/Grounds). Assim, dado que se tem pedido e uma causa de pedir, uma proposição estabelece, implícita ou
+							explicitamente, um vínculo entre esses elementos (Warrant). Caso o vínculo precise ser validado, recorrer-se-á a uma proposição
+							que o respalde, dê apoio, fundamento ou força (Backing). Igualmente, podem existir certas situações em que a conclusão não se
+							sustenta, neste caso, uma proposição pode funcionar como ressalva/exceção (Rebuttal). Finalmente, determinada expressão
+							delimita a força da conclusão (Qualifier).
+						</p>
+						<div align="center">
+							<%= image_tag("Estrutura.png", :size => "250x400", :alt => "Estrutura de um Argumento") %>
+						</div>
+					</div>
+
 				</div>
 				<div class="tab-pane" id="lC">
 					<p>
@@ -305,7 +339,6 @@
 				<div class="tab-pane" id="lD">
 					<h3> Sugestões de Leitura: </h3>
 					<br/>
-
 					<table>
 						<tr>
 							<td> Artigo - Bons Argumentos no Direito Penal => </td>
@@ -330,10 +363,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="span4">
-		<h3>Rascunho de Argumento</h3>
-		<hr/>
-		<%= render 'form' %>
 	</div>
 </div>

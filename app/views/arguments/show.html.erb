@@ -6,7 +6,7 @@
 				<span class="timestamp"> Incluído há <%= time_ago_in_words(@argument.created_at) %>
 					por <%= User.find_by_id(@argument.user_id).name %> </span>
 			</li>
-			<center>
+			<div align="center">
 				<table border="1" style="margin-top: 10px">
 					<thead>
 						<td>Nota (Usuários):</td>
@@ -19,7 +19,7 @@
 						<% end %> </td>
 					</tbody>
 				</table>
-			</center>
+			</div>
 			<span>Nota (Moderadores):
 				<div id="rating">
 					<% if current_user.moderator? %>

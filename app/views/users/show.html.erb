@@ -15,9 +15,9 @@
 			<%= render 'shared/stats' %>
 		</section>
 		<section>
-			<center>
+			<div align="center">
 				<%= render 'follow_form' if signed_in? %>
-			</center>
+			</div>
 		</section>
 		<% if current_user.admin? && current_user != @user %>
 		<div class="field">

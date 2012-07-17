@@ -7,6 +7,8 @@
 #  problem    :text
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  active     :boolean         default(FALSE)
+#  user_id    :integer
 #
 
 class Fact < ActiveRecord::Base

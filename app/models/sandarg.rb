@@ -11,6 +11,7 @@
 #  qualifier  :text
 #  content    :text
 #  user_id    :integer
+#  overwrite  :boolean         default(TRUE)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
