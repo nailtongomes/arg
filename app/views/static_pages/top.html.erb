@@ -18,7 +18,7 @@
 						</p>
 						<p style="text-align: right">1/<%= @top_m.count.to_s %></p><br/>
 						<% end %>						
-						<% if @top_c.present? %>
+						<% if @top_c.keys[0].present? %>
 						<p style="text-align: right">
 							Nota dos Usuários: <b><%= @top_c.values[0].to_s %></b>
 						</p>
@@ -43,7 +43,7 @@
 						</p>
 						<p style="text-align: right">2/<%= @top_m.count.to_s %></p><br/>
 						<% end %>						
-						<% if @top_c.present? %>
+						<% if @top_c.keys[1].present? %>
 						<p style="text-align: right">
 							Nota dos Usuários: <b><%= @top_c.values[1].to_s %></b>
 						</p>
@@ -69,7 +69,7 @@
 						</p>
 						<p style="text-align: right">3/<%= @top_m.count.to_s %></p><br/>
 						<% end %>						
-						<% if @top_c.present? %>
+						<% if @top_c.keys[2].present? %>
 						<p style="text-align: right">
 							Nota dos Usuários: <b><%= @top_c.values[2].to_s %></b>
 						</p>
@@ -87,6 +87,10 @@
 			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 		</div>
+	</div>
+	<% else %>
+	<div class="span10 offset1">
+	<p>Nenhum argumento encontrado... :/</p>
 	</div>
 	<% end %>
 </div>
