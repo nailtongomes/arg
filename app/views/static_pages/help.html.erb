@@ -1,9 +1,23 @@
 <% provide(:title, 'Ajuda') %>
 <h1>Ajuda</h1>
+<hr/>
 <% if signed_in? %>
 <b><p>1. Como mudo minha foto?</p></b>
 <p>
 	O <a href="http://br.gravatar.com">Gravatar</a>, um Avatar Globalmente Reconhecido, é o responsável por armazernar sua foto de perfil. 	
+</p>
+<b><p>2. Posso enviar um caso?</p></b>
+<p>
+	Sim. Há uma opção de propor casos <%= link_to 'aqui', facts_path %>. 	
+</p>
+<b><p>3. Como faço para acompanhar os argumentos de alguém?</p></b>
+<p>
+	Primeiro, clique em <%= link_to 'usuários', users_path %>. Em seguida, procure pelo usuário que você deseja acompanhar e clique em seu nome. 
+	Estando no perfil do usuário desejado, clique em seguir. 	
+</p>
+<b><p>4. Posso editar meu argumento?</p></b>
+<p>
+	Não. O argumento não poderá ser editado.   	
 </p>
 <% else %>
 <p>

@@ -1,11 +1,12 @@
 <% provide(:title, 'Pesquisa') %>
 <div class="row">
-	<div class="span10 offset1">
+	<div class="span6 offset2">
 		<%= form_tag arguments_path, :method => 'get' do %>
-		<p>
-			<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar" %>
-		</p>
+			<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar", :size => '90' %>						
 		<% end %>
+	</div>	
+	<div class="span3">
+	<%= link_to 'Melhores Argumentos', top_url, class: "btn btn-large btn-info" %>
 	</div>	
 	<div class="span10 offset1">
 		<% if @arguments.any? %>
@@ -13,7 +14,7 @@
 			<% @arguments.each do |argument| %>
 			<li>
 				<span class="content"><%= argument.content %> <%= link_to '[+]', argument %> </span>
-				<% if current_user.moderator? %>
+				<% if current_user.present? && current_user.moderator? %>
 				<div align="right">
 					<table border="1" style="margin-top: 10px">
 						<thead>

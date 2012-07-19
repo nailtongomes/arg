@@ -7,16 +7,16 @@
 					<li>
 						<%= link_to "INICIO", root_path %>
 					</li>
+					<li>
+						<%= link_to "PESQUISAR", arguments_path %>
+					</li>					
 					<% if signed_in? %>
 					<li>
 						<%= link_to "USUARIOS", users_path %>
 					</li>					
 					<li>
 						<%= link_to "CASOS", facts_path %>
-					</li>					
-					<li>
-						<%= link_to "PESQUISAR", arguments_path %>
-					</li>					
+					</li>										
 					<li id="fat-menu" class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <%= current_user.name %> <b class="caret"></b> </a>
 						<ul class="dropdown-menu">

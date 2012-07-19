@@ -19,7 +19,7 @@
 				<%= render 'follow_form' if signed_in? %>
 			</div>
 		</section>
-		<% if current_user.admin? && current_user != @user %>
+		<% if  current_user.present? && current_user.admin? && current_user != @user %>
 		<div class="field">
 			Priviégios de Moderator:
 			<%= link_to moderator_link_text(@user), toggle_moderator_user_path(@user) %>
