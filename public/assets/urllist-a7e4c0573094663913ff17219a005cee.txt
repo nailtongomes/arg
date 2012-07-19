@@ -1,0 +1,13 @@
+http://argumentos.herokuapp.com/
+http://argumentos.herokuapp.com/arguments
+http://argumentos.herokuapp.com/signin
+http://argumentos.herokuapp.com/help
+http://argumentos.herokuapp.com/signup
+http://argumentos.herokuapp.com/about
+http://argumentos.herokuapp.com/contact
+http://argumentos.herokuapp.com/top
+http://argumentos.herokuapp.com/users/1
+http://argumentos.herokuapp.com/arguments?page=1
+http://argumentos.herokuapp.com/arguments?page=2
+http://argumentos.herokuapp.com/users/1?page=1
+http://argumentos.herokuapp.com/users/1?page=2
