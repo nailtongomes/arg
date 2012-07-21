@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712202254) do
+ActiveRecord::Schema.define(:version => 20120720012959) do
 
   create_table "arguments", :force => true do |t|
     t.text     "content"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(:version => 20120712202254) do
   end
 
   add_index "sandargs", ["user_id"], :name => "index_sandargs_on_user_id"
+
+  create_table "schemes", :force => true do |t|
+    t.string   "name"
+    t.text     "form"
+    t.text     "cq"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "schemes", ["name"], :name => "index_schemes_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "name"

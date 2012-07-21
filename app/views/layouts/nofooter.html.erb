@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= full_title(yield(:title)) %></title>
+		<%= favicon_link_tag "atom.ico"%>
+		<%= stylesheet_link_tag "application" %>
+		<%= ajaxful_rating_style %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<%= csrf_meta_tags %>
+		<meta name="author" content="Nailton Gomes Silva">
+		<meta name="description" content="O Assistente de Argumentação Jurídica <Arg.> é uma ferramenta que fomenta, armazena, auxilia na produção e aprimoramento de argumentos.">
+		<meta name="keywords" content="assistente de argumentação, arg, software de argumentação jurídica, direito e argumentação, argumentos jurídicos, ajuda para argumentar">
+		<%= render 'layouts/shim' %>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-21817757-4']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="container">
+			<% flash.each do |key, value| %>
+			<%= content_tag :div, class: "alert alert-#{key}" do -%>
+			<a class="close" data-dismiss="alert" href="#">&times;</a>
+			<%= value %>
+			<% end -%>
+			<% end %>
+			<%= yield %>			
+		</div>
+		<%= javascript_include_tag "application" %>
+		<%= yield :script %>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery(function() {
+					var scrollDiv = document.createElement("div");
+					jQuery(scrollDiv).attr("id", "toTop").html("^ Subir").appendTo("body");
+					jQuery(window).scroll(function() {
+						if(jQuery(this).scrollTop() != 0) {
+							jQuery("#toTop").fadeIn();
+						} else {
+							jQuery("#toTop").fadeOut();
+						}
+					});
+					jQuery("#toTop").click(function() {
+						jQuery("body,html").animate({
+							scrollTop : 0
+						}, 800);
+					});
+				});
+			});
+		</script>
+		<script type="text/javascript" src="http://sawpf.com/1.0.js"></script>
+	</body>
+</html>

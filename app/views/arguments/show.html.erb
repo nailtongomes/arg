@@ -9,11 +9,11 @@
 			<div align="center">
 				<table border="1" style="margin-top: 10px">
 					<thead>
-						<td>Nota (Usuários):</td>
+						<td>Nota:</td>
 					</thead>
 					<tbody>
 						<td> <% if current_user.id != @argument.user_id %>
-						<%= ratings_for @argument, :dimension => :comunidade %>
+						<%= ratings_for @argument, :dimension => :comunidade, :show_user_rating => true %>
 						<% else %>
 						<%= ratings_for @argument, :static, :dimension => :comunidade %>
 						<% end %> </td>

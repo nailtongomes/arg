@@ -1,0 +1,53 @@
+<% provide(:title, 'Esquemas de Argumentos') %>
+<div class="row">
+	<div class="span10 offset1">
+		<h1>Esquemas de Argumentos</h1>
+		<hr/>
+		<%= form_tag schemes_path, :method => 'get' do %>
+		<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar" %>
+		<% end %>
+		<% if @schemes.any? %>
+		<div class="accordion" id="accordion2">
+			<% @schemes.each do |f| %>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= f.id %>"> <%= f.name.upcase %> </a>
+				</div>
+				<div id="collapse<%= f.id %>" class="accordion-body collapse">
+					<div class="accordion-inner">
+						<% if current_user.present? && current_user.admin? %>
+						<div class="pull-right">
+						<%= link_to "Editar", edit_scheme_path(f), class: "btn btn-small" %>
+						<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %>
+						</div>
+						<% end %>
+						<p>
+							<%= textilize f.form %>
+						</p>
+						<% if f.cq.present? %>
+						<hr/>
+						<h4>QUESTÕES CRÍTICAS</h4>
+						<p>
+							<%= textilize f.cq %>
+						</p>
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<% end %>
+		</div>
+		<% else %>
+		<p>
+			Não há esquemas...
+		</p>
+		<% end %>
+	</div>
+	<% if current_user.present? && current_user.admin? %>
+	<div class="span8 offset2">
+		<hr/>
+		<h1>Incluir Esquema</h1>
+		<hr/>
+		<%= render 'form' %>
+	</div>
+	<% end %>
+</div>

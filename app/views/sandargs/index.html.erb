@@ -277,6 +277,7 @@
 					<% @sandargs.each do |sandarg| %>
 					<div class="well">
 						<h3>Rascunho [ <%= sandarg.id %> ]
+						<%= link_to "Aprimorar", improve_sandarg_path(sandarg), class: "btn btn-small btn-info" %>
 						<%= link_to "Ver", sandarg, class: "btn btn-small" %>
 						<%= link_to "Excluir", sandarg, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %> </h3>
 						<p>

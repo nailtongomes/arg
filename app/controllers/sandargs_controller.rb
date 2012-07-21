@@ -1,6 +1,13 @@
 class SandargsController < ApplicationController
+  layout :resolve_layout
   before_filter :signed_in_user
   before_filter :correct_user,   only: :destroy
+     
+  def improve
+    @sandarg  = current_user.sandargs.find(params[:id])
+    @schemes = Scheme.search(params[:search])
+  end
+
   def index
     @sandargs = current_user.sandargs
     @sandarg  = Sandarg.new
@@ -47,5 +54,14 @@ class SandargsController < ApplicationController
   def correct_user
     @sandarg = current_user.sandargs.find_by_id(params[:id])
     redirect_to sandargs_path if @sandarg.nil?
+  end
+  
+   def resolve_layout
+    case action_name
+    when "improve"
+      "nofooter"
+    else
+      "application"
+    end
   end
 end

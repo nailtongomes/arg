@@ -25,7 +25,7 @@
 			<div class="pull-right">								
 				<%= f.submit "Gravar", class: "btn btn-large btn-primary" %>
 			</div>
-			<a href="#" class="btn btn-large btn-info">Como posso aprimorar meu argumento?</a>
+			<%= link_to 'Aprimorar meu argumento', improve_sandarg_path(@sandarg), :class => "btn btn-large btn-info" %>
 			<% end %>
 		</ul>
 	</div>

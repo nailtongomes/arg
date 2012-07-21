@@ -250,3 +250,10 @@ aside {
   text-transform:lowercase;
   font-size:0.7em;
 }
+
+#improveleft {
+ float: left;
+ position: fixed;
+ overflow: hidden;
+ height: 100%;
+}
