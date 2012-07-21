@@ -18,7 +18,7 @@
 	<div class="span6 pull-right" style="position: relative">
 		<h3>Esquemas de Argumentos</h3>
 		<hr/>
-		<%= form_tag improve_url, :method => 'get' do %>
+		<%= form_tag improve_sandarg_patu(@sandarg), :method => 'get' do %>
 		<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar" %>
 		<span>Lembre-se que ao filtrar as alterações não gravadas serão descartadas.</span>
 		<% end %>
