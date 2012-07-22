@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def signup_notification(user)
     recipients "#{user.name} <#{user.email}>"
     from       "nailton.arg@gmail.com"
-    subject    "Seu usuário #{user.name} foi criado."
+    subject    "Seu usuario #{user.name} foi criado."
     sent_on    Time.now
   end
 
