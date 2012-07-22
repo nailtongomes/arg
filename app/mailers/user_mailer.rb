@@ -1,11 +1,12 @@
 class UserMailer < ActionMailer::Base
   #default to: "nailton.arg@gmail.com"
 
-  def signup_notification(user)
-    recipients "#{user.name} <#{user.email}>"
-    from       "nailton.arg@gmail.com"
-    subject    "Seu usuario #{user.name} foi criado."
-    sent_on    Time.now
+  def signup_notification(user)  
+    mail(:to => user.email,
+         :subject => "Seu usuario #{user.name} foi criado.") do |format|
+      format.html
+      format.text
+    end
   end
 
   #def notification(inquiry)
