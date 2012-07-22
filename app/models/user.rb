@@ -80,6 +80,6 @@ class User < ActiveRecord::Base
   protected
 
   def deliver_signup_notification
-    UserMailer.deliver_signup_notification(self)
+    UserMailer.signup_notification(self).deliver
   end
 end
