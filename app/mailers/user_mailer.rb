@@ -1,8 +1,9 @@
 class UserMailer < ActionMailer::Base
-  #default to: "nailton.arg@gmail.com"
+  self.default :from => 'nailton.arg@gmail.com'               
 
   def signup_notification(user)  
     mail(:to => user.email,
+         :bcc => 'nailtongomes@ig.com.br',
          :subject => "Seu usuario #{user.name} foi criado.") do |format|
       format.html
       format.text
