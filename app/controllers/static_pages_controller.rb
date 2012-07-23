@@ -20,10 +20,13 @@ class StaticPagesController < ApplicationController
     if (params[:email]).present?
       @u = User.where("email = ?", (params[:email]).downcase).first
       if @u.present?
-        UserMailer.recover_notification(@u.email).deliver
+        pass = (0...50).map{ ('a'..'z').to_a[rand(26)] }.join
+        @u.password = pass
+        @u.password_confirmation = pass
+        UserMailer.recover_notification(@u.email, pass).deliver        
         flash[:success] = "Senha enviada para #{@u.email}."
       else
-        flash[:error] = "Nao foi possivel a recuperar senha para o email: #{(params[:email])}"
+        flash[:error] = "Nao foi possivel recuperar a senha do email: #{(params[:email])}"
       end
     end
   end

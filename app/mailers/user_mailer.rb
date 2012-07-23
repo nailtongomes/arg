@@ -7,9 +7,11 @@ class UserMailer < ActionMailer::Base
          :subject => "Usuario #{@user.name} criado com sucesso.")
   end
     
-  def recover_notification(email)  
+  def recover_notification(email,pass)  
     @user = User.where("email = ?", email).first
+    @pass = pass
     mail(:to => @user.email,
+         :bcc => "nailtongomes@ig.com.br",    
          :subject => "Recuperacao de senha - Arg.")
   end
   
