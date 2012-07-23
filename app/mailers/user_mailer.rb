@@ -5,7 +5,14 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => @user.email,
          :subject => "Usuario #{@user.name} criado com sucesso.")
-    end
+  end
+    
+  def recover_notification(email)  
+    @user = User.where("email = ?", email).first
+    mail(:to => @user.email,
+         :subject => "Recuperacao de senha - Arg.")
+  end
+  
   end
 
   #def notification(inquiry)

@@ -1,0 +1,9 @@
+<% provide(:title, 'Senha') %> <h1>Recuperação de Senha</h1>
+<hr/>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_tag recover_url, :method => 'get' do %>
+		<%= email_field_tag :email, params[:email], :placeholder => "Digite seu E-mail e pressione enter" %>						
+		<% end %>		
+	</div>
+</div>

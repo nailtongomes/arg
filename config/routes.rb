@@ -26,7 +26,8 @@ Arg::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/top',     to: 'static_pages#top'  
+  match '/top',     to: 'static_pages#top'
+  match '/recover', to: 'static_pages#recover'  
 
   root to: 'static_pages#home'
 

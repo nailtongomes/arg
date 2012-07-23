@@ -12,14 +12,13 @@
 #  admin           :boolean         default(FALSE)
 #  moderator       :boolean         default(FALSE)
 #
-
 class User < ActiveRecord::Base
   ajaxful_rater
-  
+
   attr_accessible :name, :email, :password, :password_confirmation, :moderator
-  
+
   has_secure_password
-  
+
   has_many :arguments, dependent: :destroy
   has_many :sandargs, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -33,7 +32,7 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
-  after_create :deliver_signup_notification  
+  after_create :deliver_signup_notification
 
   validates :name, presence: true, length: { maximum: 40 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -60,13 +59,13 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
   end
- 
+
   private
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
   end
-  
+
   protected
 
   def deliver_signup_notification

@@ -16,8 +16,20 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def recover
+    if (params[:email]).present?
+      @u = User.where("email = ?", (params[:email]).downcase).first
+      if @u.present?
+        UserMailer.recover_notification(@u.email).deliver
+        flash[:success] = "Senha enviada para #{@u.email}."
+      else
+        flash[:error] = "Nao foi possivel a recuperar senha para o email: #{(params[:email])}"
+      end
+    end
+  end
+
   def top
-    #hash com os melhores argumentos pelos usuários  
+    #hash com os melhores argumentos pelos usuários
     #@top_c = Rate.average(:stars, :conditions => "rateable_type = 'Argument' AND dimension = 'comunidade'", :group => [:rateable_id], :order => 'stars DESC, rateable_id')
     @top_c = Rate.group(:rateable_id).average(:stars, :conditions => "rateable_type = 'Argument' AND dimension = 'comunidade'")
     @top_c.delete_if {|k, v| v < 4 }
