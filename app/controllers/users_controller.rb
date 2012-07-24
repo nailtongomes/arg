@@ -3,7 +3,6 @@ class UsersController < ApplicationController
                 only: [:index, :edit, :update, :destroy, :following, :followers]
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user,     only: [:destroy, :toggle_moderator]
-  
   def toggle_moderator
     @user = User.find(params[:id])
     @user.toggle!(:moderator)
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -48,6 +47,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    if (User.find(params[:id])).arguments.any?
+      UserMailer.save_arguments_notification(User.find(params[:id])).deliver
+    end
     User.find(params[:id]).destroy
     flash[:success] = "Usuario removido."
     redirect_to users_path
@@ -66,7 +68,7 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
-  
+
   private
 
   def signed_in_user

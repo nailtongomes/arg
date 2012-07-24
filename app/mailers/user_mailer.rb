@@ -15,6 +15,12 @@ class UserMailer < ActionMailer::Base
          :subject => "Recuperacao de senha - Arg.")
   end
   
+  def save_arguments_notification(user)  
+    @user = user
+    mail(:to => @user.email,
+         :subject => "Backup dos seus argumentos - #{@user.name}")
+  end
+  
   end
 
   #def notification(inquiry)

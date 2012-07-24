@@ -3,7 +3,10 @@
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_tag recover_url, :method => 'get' do %>
-		<%= email_field_tag :email, params[:email], :placeholder => "Digite seu E-mail e pressione enter" %>						
+		E-Mail:
+		<%= email_field_tag :email, params[:email], :placeholder => "Digite seu E-mail e pressione enter" %>
+		<hr/>
+		Após digitar seu e-mail e pressionar [enter] uma nova senha será gerada e enviada para o seu e-mail.						
 		<% end %>		
 	</div>
 </div>

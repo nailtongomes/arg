@@ -1,0 +1,20 @@
+Prezado (a) <%= @user.name %>,
+
+Sua conta foi excluída do Arg., razão pela qual todos os seus dados foram apagados.
+Por esse fato, estamos enviando todos os argumentos incluídos por você.
+------------------------------
+Foi uma satisfação tê-lo junto conosco, esperamos vê-lo novamente.
+Guarde este e-mail, pois ele pode lhe ser útil
+------------------------------
+
+<% if @user.arguments.any? %>
+ARGUMENTOS
+------------------------------
+<% @user.arguments.each do |argument| %>
+<%= argument.content %>
+------------------------------
+<% end %>
+<% end %>
+
+Cordialmente,
+A equipe do Arg.

@@ -25,7 +25,7 @@ class StaticPagesController < ApplicationController
         @u.update_attribute(:password_confirmation, pass)
         UserMailer.recover_notification(@u.email, pass).deliver        
         flash[:success] = "Senha enviada para #{@u.email}."
-        #redirect_to 
+        redirect_to root_path
       else
         flash[:error] = "Nao foi possivel recuperar a senha do email: #{(params[:email])}"
       end
