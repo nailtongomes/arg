@@ -12,13 +12,13 @@
 #  admin           :boolean         default(FALSE)
 #  moderator       :boolean         default(FALSE)
 #
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base 
   ajaxful_rater
 
-  attr_accessible :name, :email, :password, :password_confirmation, :moderator
+  attr_accessible :name, :email, :password, :password_confirmation, :moderator, :show_fact
 
   has_secure_password
-
+  
   has_many :arguments, dependent: :destroy
   has_many :sandargs, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   private
 
   def create_remember_token
-    self.remember_token = SecureRandom.urlsafe_base64
+    self.remember_token = SecureRandom.urlsafe_base64   
   end
 
   protected

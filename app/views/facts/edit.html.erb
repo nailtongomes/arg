@@ -6,8 +6,14 @@
 		</div>
 		<%= form_for(@fact) do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
+		<p>Fatos/Dados do Caso:</p>
 		<%= f.text_area :content, :placeholder => "Quais os fatos?", :rows => "5"%>
+		<hr/>
+		<p>Problema:</p>
 		<%= f.text_area :problem, :placeholder => "Qual o problema?", :rows => "5"%>
+		<hr/>
+		<p>Orientação/Guia:</p>
+		<%= f.text_area :orientation, :placeholder => "Orientação...", :rows => "5"%>
 		<hr/>
 		<% if current_user.admin? %>
 		Ativo? <%= f.check_box :active %>

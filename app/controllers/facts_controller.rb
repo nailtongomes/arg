@@ -1,11 +1,20 @@
 class FactsController < ApplicationController
-  before_filter :signed_in_user, only: [:create]
+  before_filter :signed_in_user
   before_filter :admin_user,     only: [:destroy, :update, :edit]
   def index
     @facts = Fact.active
     @unactives = Fact.unactive
     @fact = Fact.new
+    @argument  = current_user.arguments.build
   end
+
+  def show
+    @fact  = Fact.find(params[:id])
+    if not @fact.active
+      redirect_to(facts_path) unless current_user.admin?
+    end
+    @argument  = current_user.arguments.build
+    end
 
   def edit
     @fact  = Fact.find(params[:id])

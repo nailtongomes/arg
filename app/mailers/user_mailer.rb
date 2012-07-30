@@ -19,6 +19,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => @user.email,
          :subject => "Backup dos seus argumentos - #{@user.name}")
+    #gerar pdf com os argumentos e enviar como anexo > depois
   end
   
   end

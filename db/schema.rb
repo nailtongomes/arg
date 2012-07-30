@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720012959) do
+ActiveRecord::Schema.define(:version => 20120730171226) do
 
   create_table "arguments", :force => true do |t|
     t.text     "content"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(:version => 20120720012959) do
   create_table "facts", :force => true do |t|
     t.text     "content"
     t.text     "problem"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "active",     :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "active",      :default => false
     t.integer  "user_id"
+    t.text     "orientation"
   end
 
   create_table "rates", :force => true do |t|
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20120720012959) do
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
     t.boolean  "moderator",       :default => false
+    t.boolean  "show_fact",       :default => true
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

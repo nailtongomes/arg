@@ -12,7 +12,7 @@
 #
 
 class Fact < ActiveRecord::Base
-  attr_accessible :content, :problem, :user_id, :active 
+  attr_accessible :content, :problem, :user_id, :active, :orientation 
 
   validates :content, presence: true
   validates :problem, presence: true

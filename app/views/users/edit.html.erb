@@ -1,28 +1,34 @@
 <% provide(:title, "Atualizando perfil") %> <h1>Atualize seu perfil</h1>
-
+<hr/>
 <div class="row">
-	<div class="span4 offset3">
-				
-		<%= form_for(@user) do |f| %>
-		<%= render 'shared/error_messages', object: f.object %>
+	<div class="span10">
+		<div class="span5 pull-right">
+			<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
 
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+			<%= f.label :name %>
+			<%= f.text_field :name, :maxlength => 40 %>
 
-		<%= f.label :email %>
-		<%= f.text_field :email %>
+			<%= f.label :email %>
+			<%= f.email_field :email %>
 
-		<%= f.label :password %>
-		<%= f.password_field :password %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
 
-		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation %>
-
-		<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
-		<% end %>
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation %>
+			Mostre-me o caso da semana:  
+			<%= f.check_box :show_fact %>
+			<hr/>			
+			<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>			
+			<% end %>
+		</div>
+		<div class="span3 offset1">
+			<%= gravatar_for(@user, :size => 200) %>
+		</div>
+		<div class="span3 offset1" align="center">
+			<hr/>
+			<a href="http://gravatar.com/emails" target="_blank" class="btn btn-info">Alterar</a>
+		</div>
 	</div>
-	<div class="span4 pull-right ">	
-	<%= gravatar_for(@user, :size => 200) %>
-	<a href="http://gravatar.com/emails" target="_blank" class="btn btn-info">Alterar</a>		
-	</div>	
 </div>
