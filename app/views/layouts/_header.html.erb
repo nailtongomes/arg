@@ -23,7 +23,7 @@
 						<%= link_to "CASOS", facts_path %>
 					</li>
 					<li id="fat-menu" class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <%= current_user.name %> <b class="caret"></b> </a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-white"></i> <%= current_user.name %> <b class="caret"></b> </a>
 						<ul class="dropdown-menu">
 							<li>
 								<%= link_to "Perfil", current_user %>
@@ -48,6 +48,11 @@
 					<li>
 						<%= link_to "AJUDA", help_path %>
 					</li>
+					<% if signed_in? && current_user.admin? %>
+					<li>
+						<a href="<%= pages_path %>"> <i class="icon-edit icon-white"></i></a>						  
+					</li>
+					<% end %>
 				</ul>
 			</nav>
 		</div>

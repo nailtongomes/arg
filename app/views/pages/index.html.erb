@@ -1,0 +1,22 @@
+<% provide(:title, 'Páginas') %>
+<div class="row">
+	<div class="span10 offset1">
+		<h1>Conteúdo de Página</h1>
+		<hr/>
+		<% if @pages.any? %>
+		<% @pages.each do |f| %>
+		<div class="span4 offset3">			
+			<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", :class => "btn btn-danger" %> | |
+			<%= link_to f.key.upcase, edit_page_path(f)%> 			
+		</div>		
+		<% end %>
+		<% end %>
+
+	</div>
+	<div class="span8 offset2">
+		<hr/>
+		<h1>Incluir Página</h1>
+		<hr/>
+		<%= render 'form' %>
+	</div>
+</div>

@@ -24,12 +24,10 @@
 						<%= link_to "[ + ]", f, class: "btn btn-small" %>
 						<% if current_user.admin? %>
 						<%= link_to "Editar", edit_fact_path(f), class: "btn btn-small" %>
-						<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %><% end %> 
-						<a class="btn btn-primary" data-toggle="modal" href="#myModal" >Argumentar</a>  						
-						</h3>
+						<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %><% end %> <a class="btn btn-primary" data-toggle="modal" href="#myModal" >Argumentar</a></h3>
 						<p>
 							<%= textilize f.content %>
-						</p>						
+						</p>
 						<h3>Problema</h3>
 						<p>
 							<%= textilize f.problem %>
@@ -69,9 +67,8 @@
 				</div>
 				<% end %>
 				<div class="tab-pane active" id="lC">
-					<div class="alert alert-success">
-						<h3>Novo Caso</h3>
-					</div>
+					<h1>Incluindo Caso</h1>
+					<hr/>
 					<%= render 'form' %>
 				</div>
 			</div>
@@ -103,3 +100,15 @@
 	</div>
 	<% end %>
 </div>
+<% if current_user.show_html? %>
+<% content_for :script do %>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+	bkLib.onDomLoaded(function() {
+		nicEditors.allTextAreas({
+			fullPanel : true
+		});
+	}); 
+</script>
+<% end %>
+<% end %>

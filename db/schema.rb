@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730171226) do
+ActiveRecord::Schema.define(:version => 20120802033739) do
 
   create_table "arguments", :force => true do |t|
     t.text     "content"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20120730171226) do
     t.integer  "user_id"
     t.text     "orientation"
   end
+
+  create_table "pages", :force => true do |t|
+    t.string   "key"
+    t.text     "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["key"], :name => "index_pages_on_key"
 
   create_table "rates", :force => true do |t|
     t.integer  "rater_id"
@@ -92,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20120730171226) do
     t.boolean  "admin",           :default => false
     t.boolean  "moderator",       :default => false
     t.boolean  "show_fact",       :default => true
+    t.boolean  "show_html",       :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

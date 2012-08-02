@@ -9,6 +9,6 @@
 	</p>		
 </div>
 
-	<p style="text-align: center">O argumento referente a este caso deverá conter a chave <b>#C<%= @f.id %></b> no final do seu conteúdo.	
+	<p style="text-align: center">O argumento referente a este caso deverá conter a chave <b><%= link_to "#C#{@f.id}", @f %></b> no final do seu conteúdo.	
 	<%= link_to 'Pesquisar argumentos deste caso.', arguments_path(:search => "#C#{@f.id}"), :class => "btn" %></p><hr/>
 

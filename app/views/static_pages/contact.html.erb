@@ -1,5 +1,3 @@
 <% provide(:title, 'Contato') %> <h1>Fale Conosco</h1>
 <hr/>
-<p>
-	Qualquer dúvida, sugestão, crítica > <a href="https://twitter.com/nailtongomes" target="_blank">@nailtongomes<a>
-</p>
+<%= textilize Page.find_by_key('contato').value %>

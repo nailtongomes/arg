@@ -1,4 +1,5 @@
 http://argumentos.herokuapp.com/
+http://argumentos.herokuapp.com/schemes
 http://argumentos.herokuapp.com/arguments
 http://argumentos.herokuapp.com/signin
 http://argumentos.herokuapp.com/help
@@ -9,5 +10,8 @@ http://argumentos.herokuapp.com/top
 http://argumentos.herokuapp.com/users/1
 http://argumentos.herokuapp.com/arguments?page=1
 http://argumentos.herokuapp.com/arguments?page=2
+http://argumentos.herokuapp.com/arguments?page=3
+http://argumentos.herokuapp.com/recover
 http://argumentos.herokuapp.com/users/1?page=1
 http://argumentos.herokuapp.com/users/1?page=2
+http://argumentos.herokuapp.com/users/1?page=3

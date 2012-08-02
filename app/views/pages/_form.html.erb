@@ -1,0 +1,10 @@
+<%= form_for(@page) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.text_field :key, :placeholder => "Chave" %>
+<%= f.text_area :value, :placeholder => "Página", :rows => "5"%>
+<hr/>
+<div class="pull-right">
+	<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+</div>
+<% end %>

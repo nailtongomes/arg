@@ -17,8 +17,10 @@
 
 			<%= f.label :password_confirmation %>
 			<%= f.password_field :password_confirmation %>
-			Mostre-me o caso da semana:  
-			<%= f.check_box :show_fact %>
+			Mostrar o caso da semana?  
+			<%= f.check_box :show_fact %><br/>			
+			Habilitar o editor html?  
+			<%= f.check_box :show_html %>
 			<hr/>			
 			<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>			
 			<% end %>

@@ -1,9 +1,14 @@
 <%= form_for(@fact) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
+Fatos/Dados:
 <%= f.text_area :content, :placeholder => "Quais os fatos?", :rows => "5"%>
+Problema:
 <%= f.text_area :problem, :placeholder => "Qual o problema?", :rows => "5"%>
-
+<% if current_user.moderator? %>
+Orientação/Guia:
+<%= f.text_area :orientation, :placeholder => "Informe o que é necessário saber para argumentar sobre esse caso...", :rows => "5"%>
+<% end %>
 <hr/>
 <% if current_user.admin? %>
 Ativo? <%= f.check_box :active %>
@@ -14,9 +19,3 @@ Ativo? <%= f.check_box :active %>
 	<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
 </div>
 <% end %> 
-<% if current_user.admin? %>
-<% content_for :script do %>
-<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-<% end %>
-<% end %>

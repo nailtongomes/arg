@@ -8,15 +8,23 @@
      <link>http://argumentos.herokuapp.com/</link>
      <title>Arg.</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://argumentos.herokuapp.com/schemes</link>
+     <title>Arg. | Esquemas de Argumentos</title>
+     <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
      <link>http://argumentos.herokuapp.com/arguments</link>
      <title>Arg. | Pesquisa</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -24,7 +32,7 @@
      <link>http://argumentos.herokuapp.com/signin</link>
      <title>Arg. | Entrar</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -32,7 +40,7 @@
      <link>http://argumentos.herokuapp.com/help</link>
      <title>Arg. | Ajuda</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -40,7 +48,7 @@
      <link>http://argumentos.herokuapp.com/signup</link>
      <title>Arg. | Registrar</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -48,7 +56,7 @@
      <link>http://argumentos.herokuapp.com/about</link>
      <title>Arg. | Sobre</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -56,7 +64,7 @@
      <link>http://argumentos.herokuapp.com/contact</link>
      <title>Arg. | Contato</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -64,7 +72,7 @@
      <link>http://argumentos.herokuapp.com/top</link>
      <title>Arg. | Melhores Argumentos</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -72,7 +80,7 @@
      <link>http://argumentos.herokuapp.com/users/1</link>
      <title>Arg. | Nailton G. Silva</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -80,7 +88,7 @@
      <link>http://argumentos.herokuapp.com/arguments?page=1</link>
      <title>Arg. | Pesquisa</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -88,7 +96,23 @@
      <link>http://argumentos.herokuapp.com/arguments?page=2</link>
      <title>Arg. | Pesquisa</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://argumentos.herokuapp.com/arguments?page=3</link>
+     <title>Arg. | Pesquisa</title>
+     <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://argumentos.herokuapp.com/recover</link>
+     <title>Arg. | Senha</title>
+     <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -96,7 +120,7 @@
      <link>http://argumentos.herokuapp.com/users/1?page=1</link>
      <title>Arg. | Nailton G. Silva</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>3</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -104,7 +128,15 @@
      <link>http://argumentos.herokuapp.com/users/1?page=2</link>
      <title>Arg. | Nailton G. Silva</title>
      <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
-     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://argumentos.herokuapp.com/users/1?page=3</link>
+     <title>Arg. | Nailton G. Silva</title>
+     <description>O Assistente de ArgumentaÃ§Ã£o JurÃ­dica <Arg.</description>
+     <ror:updatePeriod>hourly</ror:updatePeriod>
      <ror:sortOrder>3</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>

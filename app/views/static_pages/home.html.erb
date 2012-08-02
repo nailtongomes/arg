@@ -1,10 +1,11 @@
+<% provide(:title, 'Assistente de Argumentação') %>
 <% if signed_in? %>
 <div class="row">
 	<aside class="span12">
 		<div>
 			<% if @f.present? && current_user.show_fact? %>
 			<a class="close" data-dismiss="alert" href="#">&times;</a>
-			<h1>Caso Gerador [#C<%= @f.id %>]</h1>
+			<h1>Caso Gerador [<%= link_to "#C#{@f.id}", @f %>]</h1>
 			<%= render 'facts/fact' %>
 			<% end %>
 		</div>
@@ -73,10 +74,7 @@
 	</div>
 	<div class="span6">
 		<blockquote class="pull-right">
-			<p>
-				Não tema aqueles que argumentam, mas aqueles que se esquivam.
-			</p>
-			<small>Dale Carnegie</small>
+			<%= textilize Page.find_by_key('frase').value if Page.find_by_key('frase').value.present? %>
 		</blockquote>
 	</div>
 

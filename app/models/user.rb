@@ -15,7 +15,7 @@
 class User < ActiveRecord::Base 
   ajaxful_rater
 
-  attr_accessible :name, :email, :password, :password_confirmation, :moderator, :show_fact
+  attr_accessible :name, :email, :password, :password_confirmation, :moderator, :show_fact, :show_html
 
   has_secure_password
   

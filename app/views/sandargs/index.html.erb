@@ -297,15 +297,7 @@
 				</div>
 				<div class="tab-pane" id="lB">
 					<div class="span10 offset1">
-						<p>
-							Em um argumento existe uma proposição que propõe/reivindica/conclui algo, expõe um pedido ou sustenta determinado ponto de vista
-							com base em razões ou dados (Claim). Estes, por sua vez, podem ser motivos, circunstâncias, fatos ou, sinteticamente, são o
-							porquê de se pedir (Data/Grounds). Assim, dado que se tem pedido e uma causa de pedir, uma proposição estabelece, implícita ou
-							explicitamente, um vínculo entre esses elementos (Warrant). Caso o vínculo precise ser validado, recorrer-se-á a uma proposição
-							que o respalde, dê apoio, fundamento ou força (Backing). Igualmente, podem existir certas situações em que a conclusão não se
-							sustenta, neste caso, uma proposição pode funcionar como ressalva/exceção (Rebuttal). Finalmente, determinada expressão
-							delimita a força da conclusão (Qualifier).
-						</p>
+						<%= textilize Page.find_by_key('estrutura_t').value if Page.find_by_key('estrutura_t').value.present? %>
 						<div align="center">
 							<%= image_tag("Estrutura.png", :size => "250x400", :alt => "Estrutura de um Argumento") %>
 						</div>
@@ -313,53 +305,15 @@
 
 				</div>
 				<div class="tab-pane" id="lC">
-					<p>
-						TOULMIN elenca as seguintes características ou méritos racionais que um argumento deve possuir: (TOULMIN et al., 2003. p.238)
-						<hr/>
-						a) Clareza sobre o tipo de questão que o argumento tenta levantar e o que é proposto implicitamente;
-						<br/>
-						b) Dados relevantes e suficientes para sustentar a conclusão;
-						<br/>
-						c) Garantia baseada sobre fundamento sólido e aplicável ao caso sob discussão;
-						<br/>
-						d) Modalidade, ou força, da conclusão obtida deve ser feita de forma explicita e as possíveis refutações ou exceções devem ser bem entendidas.
-					</p>
-					<hr/>
-					<p>
-						David HITCHCOCK, em uma análise aprofundada ao modelo de TOULMIN, propôs os seguintes critérios de análise: (HITCHCOCK, 2005. p. 1)
-						<hr/>
-						a) Deve-se fundamentar o raciocínio em razões justificadas;
-						<br/>
-						b) As razões devem incluir todas as informações relevantes e justificadas obtidas praticamente;
-						<br/>
-						c) A conclusão deve seguir em virtude de uma garantia justificada;
-						<br/>
-						d) Se a garantia não é universal, deve-se assumir que, no caso concreto, não há anuladores que excluem a aplicação da garantia.
-					</p>
+					<%= textilize Page.find_by_key('qualidade_t').value if Page.find_by_key('qualidade_t').value.present? %>					
 				</div>
 				<div class="tab-pane" id="lD">
 					<h3> Sugestões de Leitura: </h3>
 					<br/>
-					<table>
-						<tr>
-							<td> Artigo - Bons Argumentos no Direito Penal => </td>
-							<td><iframe id='pagsocial_buttonMini' src='http://www.pagsocial.com/buttons.aspx?bt=2&id=23X' width='192px' height='50px' frameborder='no' scrolling='no'></iframe></td>
-						</tr>
-					</table>
+					<%= textilize Page.find_by_key('leituras').value if Page.find_by_key('leituras').value.present? %>
 					<hr/>
-					<h3> Referências </h3>
-					<p>
-						<br/>
-						ATIENZA, M. As razões do direito: teorias da argumentação jurídica. São Paulo: Landy, 2005.
-						<br/>
-						HITCHCOCK, D. Good reasoning on the Toulmin model. Argumentation (2005) 19:373-391
-						<br/>
-						TOULMIN, Stephen. Os usos do Argumento. 2. ed. São Paulo: Ed. Martins Fontes, 2006.
-						<br/>
-						TOULMIN, S.; RIEKE, R.; JANIK, A. An introduction to reasoning. 2. ed. Nova Iorque: Ed. Macmillan, 2003.
-						<br/>
-						WALTON, D.; REED, C.; MACAGNO, F. Argumentation Schemes. Nova Iorque: Ed. Cambridge University Press, 2008.
-					</p>
+					<h3> Referências </h3><br/>
+					<%= textilize Page.find_by_key('referencias').value if Page.find_by_key('referencias').value.present? %>
 					<hr/>
 				</div>
 			</div>

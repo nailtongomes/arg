@@ -1,19 +1,14 @@
 Arg::Application.routes.draw do       
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :toggle_moderator
     end
   end
-  resources :arguments do
+  resources :arguments, except: [:new, :edit] do
     post 'rate', :on => :member
   end
 
-  resources :users do
-    get 'toggle_moderator', :on => :member
-  end
-
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :arguments,     except: [:new, :edit]
   resources :schemes,       except: [:new]
   resources :facts,         except: [:new]
   resources :sandargs, except: [:new] do
@@ -22,6 +17,7 @@ Arg::Application.routes.draw do
     end
   end    
   resources :relationships, only: [:create, :destroy]
+  resources :pages, except: [:new]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

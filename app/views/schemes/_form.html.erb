@@ -2,7 +2,9 @@
 <%= render 'shared/error_messages', object: f.object %>
 
 <%= f.text_field :name, :placeholder => "Nome ou Título do Esquema" %>
+Forma do Esquema:
 <%= f.text_area :form, :placeholder => "Forma do Esquema", :rows => "5"%>
+Questões Críticas:
 <%= f.text_area :cq, :placeholder => "Questões Críticas", :rows => "5"%>
 
 <hr/>
@@ -10,8 +12,3 @@
 	<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
 </div>
 <% end %> 
-
-<% content_for :script do %>
-<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-<% end %>
