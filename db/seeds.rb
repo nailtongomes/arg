@@ -6,7 +6,7 @@ User.create!([:name =>  "Nailton G. Silva",
   :admin => true], :without_protection => true)
 
 User.create!([:name =>  "Administrador",
-  :email => "administrador@ig.com.br",
+  :email => "nailtongomes@outlook.com",
   :password => "123456",
   :password_confirmation => "123456",
   :admin => true], :without_protection => true)
@@ -411,12 +411,7 @@ Fact.create!(:content =>  %{Caim e o seu irmão mais novo Abel, em determinada o
 :user_id => 2
 )
 
-Fact.create!(:content =>  %{Pedro, temeroso de assaltos, blinda seu automóvel na oficina de Antônio. Este, fraudulentamente, emprega vidros de resistência
-  inferior. Certo dia, em um cruzamento de duas movimentadas ruas de Balneário do Norte, Pedro encontra-se parado com o veículo,
-  aguardandoo sinal verde. José, ilegalmente armado de revólver e pretendendo assaltá-lo, aproxima-se e lhe aponta a arma.
-  Verificando que tratar-se de um automóvel blindado, desapontado, desiste. Ocorre que Pedro, percebendo o fracasso do bandido,
-  lança-lhe um sorriso desdenhoso. José, respondendo à provocação, aponta-lhe a arma e dispara, supondo que irá apenas
-  estilhaçar o vidro. O projétil, entretanto, atravessa-o e atinge a vítima, provocando-lhe a morte (Damásio de Jesus, com adaptações).
+Fact.create!(:content =>  %{Pedro, temeroso de assaltos, blinda seu automóvel na oficina de Antônio. Este, fraudulentamente, emprega vidros de resistência inferior. Certo dia, em um cruzamento de duas movimentadas ruas de Balneário do Norte, Pedro encontra-se parado com o veículo, aguardando o sinal verde. José, ilegalmente armado de revólver e pretendendo assaltá-lo, aproxima-se e lhe aponta a arma. Verificando que tratar-se de um automóvel blindado, desapontado, desiste. Ocorre que Pedro, percebendo o fracasso do bandido, lança-lhe um sorriso desdenhoso. José, respondendo à provocação, aponta-lhe a arma e dispara, supondo que irá apenas estilhaçar o vidro. O projétil, entretanto, atravessa-o e atinge a vítima, provocando-lhe a morte (Damásio de Jesus, com adaptações).
   <a href="http://pt.scribd.com/doc/7035019/Casos-Praticos-de-Direito-Penal-Direito-USP">[FONTE]</a>},
 :problem => %{Como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.},
 :active => true,
@@ -444,12 +439,7 @@ necessário entender que a lesão sofrida pela vítima foi de natureza leve.},
   :user_id => 1], :without_protection => true)
 
 Scheme.create!(:name => "Argumento de Autoridade/Especialista",
-:form => %{<b>PREMISSAS</b>
-\r\nFulano* é um especialista em Especialidade*;
-\r\nFulano* afirma que Declaração* é verdadeiro/falso;
-\r\nDeclaração* pertence à Especialidade*;
-\r\n<b>CONCLUSÃO</b>
-\r\nÉ plausível que Declaração* seja verdadeira/falsa.  
+:form => %{<b>PREMISSAS</b>&nbsp;<div>Fulano* é um especialista em Especialidade*;</div><div>Fulano* afirma que Declaração* é verdadeiro/falso;</div><div>Declaração* pertence à Especialidade*;&nbsp;<div><b><br></b></div><div><b>CONCLUSÃO</b>&nbsp;</div><div>É plausível que Declaração* seja verdadeira/falsa.</div><div><div><br></div><div><b>ESQUEMA DO ARGUMENTO</b><br></div><div><img src="http://i.imgur.com/86rDd.png" alt="" align="none"><br></div></div></div>
 },
 :cq =>  %{a) Fulano* é realmente um especialista em Especialidade*?
 \r\nb) Fulano* realmente afirmou que Declaração* é verdadeira/falsa?
@@ -475,3 +465,38 @@ Scheme.create!(:name => "Depoimento de Testemunha",
 \r\nc) Há ou pode existir algum tipo de tendência que pode ser atribuída ao relato dado pela testemunha?
 \r\nd) A testemunha é confiável?}
 )  
+
+Page.create!(:key => "frase",
+:value => %{<p style="margin-bottom: 0px; font-size: 16px; line-height: 22.5px; text-align: right; ">Não tema aqueles que argumentam, mas aqueles que se esquivam.</p><small style="font-size: 13px; display: block; color: rgb(153, 153, 153); text-align: right; ">Dale Carnegie</small>
+}
+)  
+
+Page.create!(:key => "estrutura_t",
+:value => %{<span style="font-size: 14px; line-height: 24px; text-align: justify; ">Em um argumento existe uma proposição que propõe/reivindica/conclui algo, expõe um pedido ou sustenta determinado ponto de vista com base em razões ou dados (Claim). Estes, por sua vez, podem ser motivos, circunstâncias, fatos ou, sinteticamente, são o porquê de se pedir (Data/Grounds). Assim, dado que se tem pedido e uma causa de pedir, uma proposição estabelece, implícita ou explicitamente, um vínculo entre esses elementos (Warrant). Caso o vínculo precise ser validado, recorrer-se-á a uma proposição que o respalde, dê apoio, fundamento ou força (Backing). Igualmente, podem existir certas situações em que a conclusão não se sustenta, neste caso, uma proposição pode funcionar como ressalva/exceção (Rebuttal). Finalmente, determinada expressão delimita a força da conclusão (Qualifier).</span>
+}
+)
+
+Page.create!(:key => "referencias",
+:value => %{<div>ATIENZA, M.&nbsp;<b>As razões do direito</b>: teorias da argumentação jurídica. São Paulo: Landy, 2005.&nbsp;</div><div>HITCHCOCK, D.&nbsp;<b>Good reasoning on the Toulmin model</b>. Argumentation (2005) 19:373-391&nbsp;</div><div>TOULMIN, Stephen.<b>&nbsp;Os usos do Argumento</b>. 2. ed. São Paulo: Ed. Martins Fontes, 2006.&nbsp;</div><div>TOULMIN, S.; RIEKE, R.; JANIK, A.&nbsp;<b>An introduction to reasoning</b>. 2. ed. Nova Iorque: Ed. Macmillan, 2003.&nbsp;</div><div>WALTON, D.; REED, C.; MACAGNO, F.&nbsp;<b>Argumentation Schemes</b>. Nova Iorque: Ed. Cambridge University Press, 2008.</div>
+}
+)
+
+Page.create!(:key => "contato",
+:value => %{Qualquer dúvida, sugestão, crítica &gt;&nbsp;<a href="https://twitter.com/nailtongomes" target="_blank">@nailtongomes</a>&nbsp;<br>
+}
+)
+
+Page.create!(:key => "qualidade_t",
+:value => %{<p>TOULMIN elenca as seguintes características ou méritos racionais que um argumento deve possuir: (TOULMIN et al., 2003. p.238)</p><hr style="border-bottom-color: white; ">a) Clareza sobre o tipo de questão que o argumento tenta levantar e o que é proposto implicitamente;&nbsp;<br>b) Dados relevantes e suficientes para sustentar a conclusão;&nbsp;<br>c) Garantia baseada sobre fundamento sólido e aplicável ao caso sob discussão;&nbsp;<br>d) Modalidade, ou força, da conclusão obtida deve ser feita de forma explicita e as possíveis refutações ou exceções devem ser bem entendidas.<p></p><hr style="border-bottom-color: white; "><p>David HITCHCOCK, em uma análise aprofundada ao modelo de TOULMIN, propôs os seguintes critérios de análise: (HITCHCOCK, 2005. p. 1)</p><hr style="border-bottom-color: white; ">a) Deve-se fundamentar o raciocínio em razões justificadas;&nbsp;<br>b) As razões devem incluir todas as informações relevantes e justificadas obtidas praticamente;&nbsp;<br>c) A conclusão deve seguir em virtude de uma garantia justificada;&nbsp;<br>d) Se a garantia não é universal, deve-se assumir que, no caso concreto, não há anuladores que excluem a aplicação da garantia.&nbsp;&nbsp;<br>
+}
+)
+
+Page.create!(:key => "leituras",
+:value => %{Artigo - <a href="http://argumentos.herokuapp.com/assets/art_bons.pdf" title="Bons Argumentos no Direito Penal" target="_blank">Bons Argumentos no Direito Penal</a>.<br>Guia - <a href="http://argumentos.herokuapp.com/assets/guia_prof.pdf" title="Guia de Orientação para Professores" target="_blank">Guia de Orientação para Professores</a>.
+}
+)
+
+Page.create!(:key => "ajuda_log",
+:value => %{<b><p>1. Como mudo minha foto?</p></b><p>O&nbsp;<a href="http://br.gravatar.com/">Gravatar</a>, um Avatar Globalmente Reconhecido, é o responsável por armazernar sua foto de perfil.</p><b><p>2. Posso enviar um caso?</p></b><p>Sim. Há uma opção de propor casos&nbsp;<a href="http://argumentos.herokuapp.com/facts">aqui</a>.</p><b><p>3. Como faço para acompanhar os argumentos de alguém?</p></b><p>Primeiro, clique em&nbsp;<a href="http://argumentos.herokuapp.com/users">usuários</a>. Em seguida, procure pelo usuário que você deseja acompanhar e clique em seu nome. Estando no perfil do usuário desejado, clique em seguir.</p><b><p>4. Posso editar meu argumento?</p></b><p>Não. O argumento não poderá ser editado.</p>
+}
+)

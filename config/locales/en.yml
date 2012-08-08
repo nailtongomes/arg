@@ -12,10 +12,11 @@ en:
 
   ajaxful_rating:
     helper:
-    global_average: "Média de Avaliações: %{value} de %{max}"
-    user_rating: "Sua avaliação: %{value} de %{max}"
-    hover: "%{value} de %{max}"
-
+      global_average: "Nota Média: %{value}/%{max}"
+      user_rating: "Sua nota: %{value}/%{max}"
+      hover: "Nota %{value}/%{max}"
+      no_ratings: "Não avaliado..."  
+  
   will_paginate:
     previous_label: "&#8592; Anterior"
     next_label: "Próximo &#8594;"

@@ -6,11 +6,6 @@ class CreatePages < ActiveRecord::Migration
       t.timestamps
     end
     add_index :pages, [:key]
-    add_column :users, :show_html, :boolean, :default => false
-    
-    keys = ['ajuda_log','frase', 'estrutura_t', 'qualidade_t', 'referencias', 'contato', 'leituras']
-    for key in keys
-      Page.create!(:key => key)
-    end    
+    add_column :users, :show_html, :boolean, :default => false       
   end
 end
