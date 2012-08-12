@@ -427,18 +427,11 @@ a esta prova, a própria vítima corroborou a ocorrência, sem divergir dos fato
   :warrant =>  "a deformidade deve, além de ser aparente, causar constrangimento à vítima perante a sociedade e precisa ser significativa, a ponto de causar vexame ao portador e repulsa a quem vê",
   :backing =>  "art. 129, §2º, IV do CPB",
   :qualifier =>  "é necessário entender que",
-  :content =>  %{Com base no art. 129, §2º, IV do CPB, assume-se que a deformidade deve, além de ser aparente, causar
-constrangimento à vítima perante a sociedade e precisa ser significativa, a ponto de causar vexame ao portador e repulsa a
-quem vê. Posto que: não há, no processo, qualquer elemento para que se possa aferir a natureza das lesões; no caso dos autos,
-a vítima com cicatrizes nos ombros e pescoço, compareceu a este plenário, com uma blusa de alça, sem demonstrar qualquer
-constrangimento ou complexo; o Laudo de Exame de Lesão Corporal de fls. 39/39v atinente a vítima, é expresso no sentido de que
-da ofensa não resultou perigo de vida à vítima e nem incapacidade para as ocupações habituais por mais de trinta dias; e
-a esta prova, a própria vítima corroborou a ocorrência, sem divergir dos fatos descritos na prova técnica. Deste modo, é
-necessário entender que a lesão sofrida pela vítima foi de natureza leve.},
+  :content =>  %{Com base no art. 129, §2º, IV do CPB, assume-se que a deformidade deve, além de ser aparente, causar constrangimento à vítima perante a sociedade e precisa ser significativa, a ponto de causar vexame ao portador e repulsa a quem vê. Posto que: não há, no processo, qualquer elemento para que se possa aferir a natureza das lesões; no caso dos autos, a vítima com cicatrizes nos ombros e pescoço, compareceu a este plenário, com uma blusa de alça, sem demonstrar qualquer constrangimento ou complexo; o Laudo de Exame de Lesão Corporal de fls. 39/39v atinente a vítima, é expresso no sentido de que da ofensa não resultou perigo de vida à vítima e nem incapacidade para as ocupações habituais por mais de trinta dias; e a esta prova, a própria vítima corroborou a ocorrência, sem divergir dos fatos descritos na prova técnica. Deste modo, é necessário entender que a lesão sofrida pela vítima foi de natureza leve.},
   :overwrite =>  false,
   :user_id => 1], :without_protection => true)
 
-Scheme.create!(:name => "Argumento de Autoridade/Especialista",
+Scheme.create!(:name => "Autoridade/Especialista",
 :form => %{<b>PREMISSAS</b>&nbsp;<div>Fulano* é um especialista em Especialidade*;</div><div>Fulano* afirma que Declaração* é verdadeiro/falso;</div><div>Declaração* pertence à Especialidade*;&nbsp;<div><b><br></b></div><div><b>CONCLUSÃO</b>&nbsp;</div><div>É plausível que Declaração* seja verdadeira/falsa.</div><div><div><br></div><div><b>ESQUEMA DO ARGUMENTO</b><br></div><div><img src="http://i.imgur.com/86rDd.png" alt="" align="none"><br></div></div></div>
 },
 :cq =>  %{a) Fulano* é realmente um especialista em Especialidade*?
@@ -454,49 +447,83 @@ Scheme.create!(:name => "Argumento de Autoridade/Especialista",
 \r\nk) A Declaração* está coerente com as evidências conhecidas em Especialidade*?}
 )
 
-Scheme.create!(:name => "Depoimento de Testemunha",
+Scheme.create!(:name => "Testemunha",
 :form => %{<b>PREMISSAS</b>
 \r\nTestemunha* diz Declaração*
 \r\n<b>CONCLUSÃO</b>
-\r\nÉ plausível que a Declaração* seja verdadeira/falsa.  
+\r\nÉ plausível que a Declaração* seja verdadeira/falsa.
 },
 :cq =>  %{a) O que a testemunha diz está internamente consistente?
 \r\nb) O que a testemunha diz está coerente com o suporte fático e com o que sustentam outras testemunhas?
 \r\nc) Há ou pode existir algum tipo de tendência que pode ser atribuída ao relato dado pela testemunha?
 \r\nd) A testemunha é confiável?}
-)  
+)
+
+Scheme.create!(:name => "Analogia",
+:form => %{<b>PREMISSAS&nbsp;</b><div>Geralmente, CASO_1 é semelhante ao caso CASO_2&nbsp;</div><div>Propriedade_A* é verdadeiro (falso) no CASO_1&nbsp;</div><div><br></div><div><b>CONCLUSÃO&nbsp;</b></div><div>Propriedade_A* é verdadeiro (falso) no CASO_2</div>
+},
+:cq =>  %{<div>a) CASO_1 e CASO_2 são realmente similares na propriedade citada?</div><div>b) Propriedade_A* é realmente verdadeira (falsa) no CASO_1?</div><div>c) Existem diferenças entre CASO_1 e CASO_2 que tendem a minar/comprometer/enfraquecer a força da semelhança dos casos?</div><div>d) Existe um CASO_3 semelhante ao CASO_1 em que a Propriedade_A* é diferente?</div>
+}
+)
+
+Scheme.create!(:name => "Causa e Efeito",
+:form => %{<b>PREMISSAS</b><br>Geralmente, se FATO_A* ocorrer, FATO_B* irá (ou deverá) suceder.<br>Deverá FATO_A* ocorrer.<br><br><b>CONCLUSÃO</b><br>FATO_B irá (ou deverá) suceder.<br>
+},
+:cq =>  %{a) Quão forte é a causa de generalização (ela é sempre verdadeira)? <br>b) A evidência/fato citado - se existe algum(a) - é forte o bastante para garantir a generalização?<br>c) Há outros fatores que irão (ou podem) interferir ou anular a produção do efeito?
+}
+)
 
 Page.create!(:key => "frase",
 :value => %{<p style="margin-bottom: 0px; font-size: 16px; line-height: 22.5px; text-align: right; ">Não tema aqueles que argumentam, mas aqueles que se esquivam.</p><small style="font-size: 13px; display: block; color: rgb(153, 153, 153); text-align: right; ">Dale Carnegie</small>
 }
-)  
+)
 
 Page.create!(:key => "estrutura_t",
-:value => %{<span style="font-size: 14px; line-height: 24px; text-align: justify; ">Em um argumento existe uma proposição que propõe/reivindica/conclui algo, expõe um pedido ou sustenta determinado ponto de vista com base em razões ou dados (Claim). Estes, por sua vez, podem ser motivos, circunstâncias, fatos ou, sinteticamente, são o porquê de se pedir (Data/Grounds). Assim, dado que se tem pedido e uma causa de pedir, uma proposição estabelece, implícita ou explicitamente, um vínculo entre esses elementos (Warrant). Caso o vínculo precise ser validado, recorrer-se-á a uma proposição que o respalde, dê apoio, fundamento ou força (Backing). Igualmente, podem existir certas situações em que a conclusão não se sustenta, neste caso, uma proposição pode funcionar como ressalva/exceção (Rebuttal). Finalmente, determinada expressão delimita a força da conclusão (Qualifier).</span>
-}
-)
+:value => %{<span style="font-size: 14px; line-height: 24px; text-align: justify; ">Em um argumento existe uma proposição que propõe/reivindica/conclui algo, expõe um pedido ou sustenta determinado ponto de vista com base em razões ou dados (Claim). Estes, por sua vez, podem ser motivos, circunstâncias, fatos ou, sinteticamente, são o porquê de se pedir (Data/Grounds). Assim, dado que se tem pedido e uma causa de pedir, uma proposição estabelece, implícita ou explicitamente, um vínculo entre esses elementos (Warrant). Caso o vínculo precise ser validado, recorrer-se-á a uma proposição que o respalde, dê apoio, fundamento ou força (Backing). Igualmente, podem existir certas situações em que a conclusão não se sustenta, neste caso, uma proposição pode funcionar como ressalva/exceção (Rebuttal). Finalmente, determinada expressão delimita a força da conclusão (Qualifier).<br></span><br>
+<p class="western" style="margin-bottom: 0cm; border: none; padding: 0cm" align="JUSTIFY">G - Razões; Q - Qualificador; C - Pretensão; W - Garantia; B - Respaldo; R - Refutação</p>
+<br>
+})
 
 Page.create!(:key => "referencias",
-:value => %{<div>ATIENZA, M.&nbsp;<b>As razões do direito</b>: teorias da argumentação jurídica. São Paulo: Landy, 2005.&nbsp;</div><div>HITCHCOCK, D.&nbsp;<b>Good reasoning on the Toulmin model</b>. Argumentation (2005) 19:373-391&nbsp;</div><div>TOULMIN, Stephen.<b>&nbsp;Os usos do Argumento</b>. 2. ed. São Paulo: Ed. Martins Fontes, 2006.&nbsp;</div><div>TOULMIN, S.; RIEKE, R.; JANIK, A.&nbsp;<b>An introduction to reasoning</b>. 2. ed. Nova Iorque: Ed. Macmillan, 2003.&nbsp;</div><div>WALTON, D.; REED, C.; MACAGNO, F.&nbsp;<b>Argumentation Schemes</b>. Nova Iorque: Ed. Cambridge University Press, 2008.</div>
-}
-)
+:value => %{HAFT, F. <b>Direito e Linguagem</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.<br><br>HITCHCOCK, D. <b>Good reasoning on the Toulmin model</b>. Argumentation (2005) 19:373-391.<br><br>NEUMANN, U. <b>Lógica Jurídica</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.<br><br>REED, C.A.; ROWE, G.W.A. <b>Araucaria</b>: Software for Argument Analysis, Diagramming and Representation, International Journal of AI Tools 14 (3-4) pp961-980. 2004.<br><br>SCHNEIDER, J. <b>Processamento eletrônico de dados – Informática Jurídica</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.<br><br>TOULMIN PROJECT. University of Nebraska-Lincoln. Acesso em: 24 de junho de 2011. Disponível em: &lt; <a target="_blank" href="http://www.unl.edu/speech/comm109/Toulmin/index.htm"> http://www.unl.edu/speech/comm109/Toulmin/index.htm</a> &gt;<br><br>TOULMIN, S. <b>Os usos do Argumento</b>. 2. ed. São Paulo: Ed. Martins Fontes, 2006.<br><br>TOULMIN, S.; RIEKE, R.; JANIK, A. <b>An introduction to reasoning</b>. 2. ed. Nova Iorque: Ed. Macmillan, 2003.<br><br>WALTON, D.; REED, C.; MACAGNO, F. <b>Argumentation Schemes</b>. Nova Iorque: Ed. Cambridge University Press, 2008.
+})
 
 Page.create!(:key => "contato",
 :value => %{Qualquer dúvida, sugestão, crítica &gt;&nbsp;<a href="https://twitter.com/nailtongomes" target="_blank">@nailtongomes</a>&nbsp;<br>
-}
-)
+})
 
 Page.create!(:key => "qualidade_t",
 :value => %{<p>TOULMIN elenca as seguintes características ou méritos racionais que um argumento deve possuir: (TOULMIN et al., 2003. p.238)</p><hr style="border-bottom-color: white; ">a) Clareza sobre o tipo de questão que o argumento tenta levantar e o que é proposto implicitamente;&nbsp;<br>b) Dados relevantes e suficientes para sustentar a conclusão;&nbsp;<br>c) Garantia baseada sobre fundamento sólido e aplicável ao caso sob discussão;&nbsp;<br>d) Modalidade, ou força, da conclusão obtida deve ser feita de forma explicita e as possíveis refutações ou exceções devem ser bem entendidas.<p></p><hr style="border-bottom-color: white; "><p>David HITCHCOCK, em uma análise aprofundada ao modelo de TOULMIN, propôs os seguintes critérios de análise: (HITCHCOCK, 2005. p. 1)</p><hr style="border-bottom-color: white; ">a) Deve-se fundamentar o raciocínio em razões justificadas;&nbsp;<br>b) As razões devem incluir todas as informações relevantes e justificadas obtidas praticamente;&nbsp;<br>c) A conclusão deve seguir em virtude de uma garantia justificada;&nbsp;<br>d) Se a garantia não é universal, deve-se assumir que, no caso concreto, não há anuladores que excluem a aplicação da garantia.&nbsp;&nbsp;<br>
-}
-)
+})
 
 Page.create!(:key => "leituras",
 :value => %{Artigo - <a href="http://argumentos.herokuapp.com/assets/art_bons.pdf" title="Bons Argumentos no Direito Penal" target="_blank">Bons Argumentos no Direito Penal</a>.<br>Guia - <a href="http://argumentos.herokuapp.com/assets/guia_prof.pdf" title="Guia de Orientação para Professores" target="_blank">Guia de Orientação para Professores</a>.
-}
-)
+})
 
 Page.create!(:key => "ajuda_log",
 :value => %{<b><p>1. Como mudo minha foto?</p></b><p>O&nbsp;<a href="http://br.gravatar.com/">Gravatar</a>, um Avatar Globalmente Reconhecido, é o responsável por armazernar sua foto de perfil.</p><b><p>2. Posso enviar um caso?</p></b><p>Sim. Há uma opção de propor casos&nbsp;<a href="http://argumentos.herokuapp.com/facts">aqui</a>.</p><b><p>3. Como faço para acompanhar os argumentos de alguém?</p></b><p>Primeiro, clique em&nbsp;<a href="http://argumentos.herokuapp.com/users">usuários</a>. Em seguida, procure pelo usuário que você deseja acompanhar e clique em seu nome. Estando no perfil do usuário desejado, clique em seguir.</p><b><p>4. Posso editar meu argumento?</p></b><p>Não. O argumento não poderá ser editado.</p>
-}
-)
+})
+
+Page.create!(:key => "con_razoes",
+:value => %{<p>uma vez que</p><p>pois</p><p>porque</p><p>haja vista que</p><p>dado as seguintes razões</p><p>a razão é que</p><p>ademais, sustenta-se essa pretensão em razão de</p>
+})
+
+Page.create!(:key => "con_pretensao",
+:value => %{<p>portanto</p><p>logo</p><p>então</p><p>destarte</p><p>assim sendo</p><p>segue-se que</p><p>conclui-se que</p><p>ou seja</p>
+})
+
+Page.create!(:key => "con_garantia",
+:value => %{<p>assumindo que</p><p>admitindo que</p><p>entende-se que</p><p>sabe-se que</p>
+})
+
+Page.create!(:key => "con_respaldo",
+:value => %{<p>por conta do</p><p>amparado pelo</p><p>sustentado por</p><p>acolhido por</p><p>agasalhado pelo</p><p>com base no(a)</p>
+})
+
+Page.create!(:key => "qualificador",
+:value => %{<p>não resta dúvida</p><p>é inconteste,</p><p>é inegável que</p><p>é invencível que</p><p>necessariamente</p><p>indubitavelmente</p><p>é inevitável</p><p>é irrefutável</p><p>é possível</p><p>é plausível</p><p>é provável</p><p>possivelmente</p><p>é necessário</p><p>estes fatos, aqui expostos, tornam inafastável que</p><p>o que é inequívoco é que</p><p>demonstra-se de forma irrefutável</p>
+})
+
+Page.create!(:key => "con_ressalva",
+:value => %{<p>salvo se</p><p>exceto se</p><p>a não ser que</p><p>excluindo que</p><p>contanto que</p>
+})

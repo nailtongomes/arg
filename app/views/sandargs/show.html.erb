@@ -1,53 +1,114 @@
 <% provide(:title, 'Assistente') %>
 <div class="row">
 	<div class="span8">
-		<h3>Rascunho do Argumento:</h3>
+		<h1>Rascunho:</h1>
 		<hr />
 		<ul class="arguments">
-			<p>
-				<% if @sandarg.content.present? %>
-				<%= @sandarg.content %>
-				<% else %>
-				O texto deste rascunho ainda não foi construído.
-				<% end %>
-			</p>
-		<hr />
 			<% if @sandarg.content.present? %>
 			<h3>Corrija seu argumento:</h3>
 			<% else %>
 			<h3>Construa seu argumento:</h3>
-			<% end %>
-			<hr />
-			<%= form_for(@sandarg) do |f| %>
+			<% end %>			
+			<hr />			
+			<%= form_for(@sandarg) do |f| %>		
 			<%= f.text_area :content, :placeholder => "Construa o texto do seu argumento.", :rows => "10"%>
-			<%= f.hidden_field :overwrite, :value => false %>
-			
-			<div class="pull-right">								
+			<%= f.hidden_field :overwrite, :value => false %>		
+			<div class="pull-right">
 				<%= f.submit "Gravar", class: "btn btn-large btn-primary" %>
-			</div>
-			<%= link_to 'Aprimorar meu argumento', improve_sandarg_path(@sandarg), :class => "btn btn-large btn-info" %>
+			</div>		
+			<%= link_to 'Aprimorar meu argumento', improve_sandarg_path(@sandarg), :class => "btn btn-large btn-info" %>			
 			<% end %>
+			<hr/>
+			<a class="btn pull-right" data-toggle="modal" href="#conectores" >Opções de conectores</a>						
 		</ul>
 	</div>
 	<div class="span4">
-		<h3>Forma Padrão</h3>
+		<h3>Forma:</h3>
 		<ul class="arguments">
 			<% if @sandarg.qualifier.present? %>
-			<li><b><a title="Qualificador">[Q]</a> </b><%= @sandarg.qualifier %></li> 
+			<li>
+				<b><a title="Qualificador">[Q]</a> </b><%= @sandarg.qualifier %>
+			</li>
 			<% end %>
-			<li><b><a title="Pretensão">[C]</a> </b><%= @sandarg.claim %></li>			
-			<li><b><a title="Razões">[G]</a> </b><%= @sandarg.ground %></li>
-			<% if @sandarg.warrant.present? %>			
-			<li><b><a title="Garantia">[W]</a> </b><%= @sandarg.warrant %></li>
+			<li>
+				<b><a title="Pretensão">[C]</a> </b><%= @sandarg.claim %>
+			</li>
+			<li>
+				<b><a title="Razões">[G]</a> </b><%= @sandarg.ground %>
+			</li>
+			<% if @sandarg.warrant.present? %>
+			<li>
+				<b><a title="Garantia">[W]</a> </b><%= @sandarg.warrant %>
+			</li>
 			<% end %>
 			<% if @sandarg.backing.present? %>
-			<li><b><a title="Respaldo">[B]</a> </b><%= @sandarg.backing %></li>
+			<li>
+				<b><a title="Respaldo">[B]</a> </b><%= @sandarg.backing %>
+			</li>
 			<% end %>
 			<% if @sandarg.rebuttal.present? %>
-			<li><b><a title="Refutador">[R]</a> </b><%= @sandarg.rebuttal %></li> 
+			<li>
+				<b><a title="Refutador">[R]</a> </b><%= @sandarg.rebuttal %>
+			</li>
 			<% end %>
 		</ul>
 		<hr/>
 		<a href="<%= sandargs_path %>/<%= @sandarg.id %>/edit" class="btn pull-right">Editar</a>
+	</div>
+</div>
+
+<div class="modal hide" id="conectores">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">
+			×
+		</button>
+		<h3>Conectores</h3>
+	</div>
+	<div class="modal-body">
+		<div class="tabbable tabs-right">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#lA" data-toggle="tab">Razão</a>
+				</li>
+				<li>
+					<a href="#lB" data-toggle="tab">Pretensão</a>
+				</li>
+				<li>
+					<a href="#lC" data-toggle="tab">Garantia</a>
+				</li>
+				<li>
+					<a href="#lD" data-toggle="tab">Respaldo</a>
+				</li>
+				<li>
+					<a href="#lE" data-toggle="tab">Qualificador</a>
+				</li>
+				<li>
+					<a href="#lF" data-toggle="tab">Ressalva</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="lA">
+					<%= textilize Page.find_by_key('con_razoes').value if Page.find_by_key('con_razoes').value.present? %>					
+				</div>
+				<div class="tab-pane" id="lB">
+					<%= textilize Page.find_by_key('con_pretensao').value if Page.find_by_key('con_pretensao').value.present? %>					
+				</div>
+				<div class="tab-pane" id="lC">
+					<%= textilize Page.find_by_key('con_garantia').value if Page.find_by_key('con_garantia').value.present? %>					
+				</div>
+				<div class="tab-pane" id="lD">
+					<%= textilize Page.find_by_key('con_respaldo').value if Page.find_by_key('con_respaldo').value.present? %>
+				</div>
+				<div class="tab-pane" id="lE">
+					<%= textilize Page.find_by_key('qualificador').value if Page.find_by_key('qualificador').value.present? %>
+				</div>
+				<div class="tab-pane" id="lF">
+					<%= textilize Page.find_by_key('con_ressalva').value if Page.find_by_key('con_ressalva').value.present? %>					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">fechar</a>
 	</div>
 </div>
