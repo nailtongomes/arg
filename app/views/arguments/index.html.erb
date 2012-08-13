@@ -32,6 +32,8 @@
 			<% end %>
 		</ol>
 		<%= will_paginate @arguments %>
+		<% else %>
+		<p>Sua pesquisa não retornou resultados...</p>
 		<% end %>
 	</div>
 </div>

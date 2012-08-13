@@ -38,7 +38,7 @@
 		<p class="counter pull-right">
 			Máximo de Caracteres: 1100
 		</p>
-		<%= f.text_area :content, :placeholder => "Argumente aqui... ", :maxlength => 1100, :rows => 10 %>
+		<%= f.text_area :content, :placeholder => "Argumente aqui... #C#{@fact.id}", :maxlength => 1100, :rows => 10 %>
 		<hr/>
 		<span>Escreva a chave [<b>#C<%= @fact.id%></b>] no texto do argumento para que os moderadores possam avaliá-lo.</span>
 		<span>Fechar esta janela não irá apagar o texto do seu argumento.</span>
