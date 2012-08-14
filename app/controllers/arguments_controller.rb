@@ -1,5 +1,5 @@
 class ArgumentsController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy, :show]
+  before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user,   only: :destroy
   def rate
     @argument = Argument.find(params[:id])

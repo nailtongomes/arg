@@ -1,3 +1,4 @@
+<% provide(:title, "Argumento de #{User.find_by_id(@argument.user_id).name}") %>
 <div class="row">
 	<div class="span6">
 		<ul class="unstyled">
@@ -6,6 +7,7 @@
 				<span class="timestamp"> Incluído há <%= time_ago_in_words(@argument.created_at) %>
 					por <%= User.find_by_id(@argument.user_id).name %> </span>
 			</li>
+			<% if signed_in? %>
 			<div align="center">
 				<table border="1" style="margin-top: 10px">
 					<thead>
@@ -28,8 +30,10 @@
 					<%= ratings_for @argument, :static, :dimension => :moderador, :small => true %>
 					<% end %>
 				</div> </span>
-			<br/>
+			<% end %><br/> 
 			<div class="fb-like" data-send="true" data-width="450" data-show-faces="true" data-font="tahoma"></div>
+			<hr/>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt" data-size="large" data-hashtags="ARG" data-text="Este argumento é bem interessante! O que vocês acham?" data-dnt="true">Tweetar</a>
 		</ul>
 	</div>
 	<div class="span4">
@@ -42,12 +46,23 @@
 <script>
 	( function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
-			if(d.getElementById(id))
+			if (d.getElementById(id))
 				return;
 			js = d.createElement(s);
 			js.id = id;
 			js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
 			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
+		}(document, 'script', 'facebook-jssdk')); 
+</script>
+<script>
+	! function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (!d.getElementById(id)) {
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}
+	}(document, "script", "twitter-wjs"); 
 </script>
 <% end %>
