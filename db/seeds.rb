@@ -527,3 +527,7 @@ Page.create!(:key => "qualificador",
 Page.create!(:key => "con_ressalva",
 :value => %{<p>salvo se</p><p>exceto se</p><p>a não ser que</p><p>excluindo que</p><p>contanto que</p>
 })
+
+Page.create!(:key => "check_list",
+:value => %{  <p>Está clara a questão que o argumento tenta levantar?</p><p>Os dados/razões são relevantes, suficientes e justificados?</p><p>A garantia possui um fundamento sólido e aplicável ao caso?</p><p>O qualificador, ou força verbal do argumento, está explicito?<p><p>As possíveis refutações ou exceções, se existem, estão bem entendidas?<p>
+})

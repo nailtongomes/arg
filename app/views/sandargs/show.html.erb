@@ -19,7 +19,8 @@
 			<%= link_to 'Aprimorar meu argumento', improve_sandarg_path(@sandarg), :class => "btn btn-large btn-info" %>			
 			<% end %>
 			<hr/>
-			<a class="btn pull-right" data-toggle="modal" href="#conectores" >Opções de conectores</a>						
+			<a class="btn pull-right" data-toggle="modal" href="#conectores" >Opções de conectores</a>
+			<a class="btn pull-right" data-toggle="modal" href="#check" >Check-list</a>						
 		</ul>
 	</div>
 	<div class="span4">
@@ -107,6 +108,21 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">fechar</a>
+	</div>
+</div>
+
+<div class="modal hide" id="check">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">
+			×
+		</button>
+		<h3>Check-list</h3>
+	</div>
+	<div class="modal-body">
+		<%= textilize Page.find_by_key('check_list').value if Page.find_by_key('check_list').value.present? %>
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn" data-dismiss="modal">fechar</a>
