@@ -271,3 +271,7 @@ en:
       fact: 
         content: "Fato"
         problem: "Problema"
+        ini_term_date: "Data de Publicação"
+        fin_term_date: "Data de Termo"
+        ini_term_time: "Horário de Publicação"
+        fin_term_time: "Horário de Termo"

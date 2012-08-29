@@ -6,7 +6,7 @@
 				<li>
 					<a href="#lA" data-toggle="tab">Ativos</a>
 				</li>
-				<% if current_user.admin? %>
+				<% if current_user.admin? || current_user.moderator? %>
 				<li>
 					<a href="#lB" data-toggle="tab">Pendentes</a>
 				</li>
@@ -21,10 +21,10 @@
 					<% @facts.each do |f| %>
 					<div class="well">
 						<h3>[#C<%= f.id %>] - <%= f.created_at.strftime("Incluído em [%d/%m/%Y]") %> - por [ <%= User.find_by_id(f.user_id).name %> ]
-						<%= link_to "[ + ]", f, class: "btn btn-small" %>
+						<%= link_to "Argumentos", f, class: "btn btn-small btn-info" %>
 						<% if current_user.admin? %>
 						<%= link_to "Editar", edit_fact_path(f), class: "btn btn-small" %>
-						<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %><% end %> <a class="btn btn-primary" data-toggle="modal" href="#myModal" >Argumentar</a></h3>
+						<%= link_to "Excluir", f, method: :delete, confirm: "Tem certeza?", class: "btn btn-small btn-danger" %><% end %></h3>
 						<p>
 							<%= textilize f.content %>
 						</p>
@@ -74,31 +74,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="modal hide" id="myModal">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">
-			×
-		</button>
-		<h3>Argumentando...</h3>
-	</div>
-	<div class="modal-body">
-		<%= form_for(@argument) do |f| %>
-		<%= render 'shared/error_messages', object: f.object %>
-		<p class="counter pull-right">
-			Máximo de Caracteres: 1100
-		</p>
-		<%= f.text_area :content, :placeholder => "Argumente aqui... ", :maxlength => 1100, :rows => 10 %>
-		<hr/>
-		<span>Escreva a chave [<b>#C0X</b>] no texto do argumento para que os moderadores possam avaliá-lo.</span>
-		<span>Fechar esta janela não irá apagar o texto do seu argumento.</span>
-	</div>
-	<div class="modal-footer">
-		<%= f.submit "Inserir", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
-		<%= link_to "Ajuda para argumentar", sandargs_path, class: "btn btn-large btn-info", target: "_blank" %>
-		<a href="#" class="btn btn-large" data-dismiss="modal">Fechar</a>
-	</div>
-	<% end %>
 </div>
 <% if current_user.show_html? %>
 <% content_for :script do %>

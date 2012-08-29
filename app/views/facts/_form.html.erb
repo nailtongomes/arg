@@ -5,17 +5,37 @@ Fatos/Dados:
 <%= f.text_area :content, :placeholder => "Quais os fatos?", :rows => "5"%>
 Problema:
 <%= f.text_area :problem, :placeholder => "Qual o problema?", :rows => "5"%>
-<% if current_user.moderator? %>
+<% if current_user.moderator? || current_user.admin? %>
 Orientação/Guia:
 <%= f.text_area :orientation, :placeholder => "Informe o que é necessário saber para argumentar sobre esse caso...", :rows => "5"%>
-<% end %>
-<hr/>
-<% if current_user.admin? %>
-Ativo? <%= f.check_box :active %>
-<% end %>
-<%= f.hidden_field(:user_id, :value => current_user.id ) %>
-
-<div class="pull-right">
-	<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+<div class="span4">
+	Data de Publicação:<br/>	
+	<div class="span2">
+	<%= f.text_field :ini_term_date, :class => 'datepicker', :size => 10, :maxlength => 10 %>
+	</div>
+	<div class="span1 pull-right">
+	<%= f.text_field :ini_term_time, :size => 5, :maxlength => 5 %>
+	</div>
 </div>
-<% end %> 
+<div class="span4 pull-right">
+	Data de Termo:<br/>	
+	<div class="span2">
+	<%= f.text_field :fin_term_date, :class => 'datepicker', :size => 10, :maxlength => 10 %>
+	</div>
+	<div class="span1 pull-right">
+	<%= f.text_field :fin_term_time, :size => 5, :maxlength => 5 %>
+	</div>
+</div>
+<% end %>
+<div class="span10">
+	<hr/>
+	<div class="pull-right">
+		<% if current_user.admin? %>
+		Ativo? <%= f.check_box :active %>
+		<% end %>
+		<%= f.hidden_field(:user_id, :value => current_user.id ) %>
+
+		<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+	</div>
+	<% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 
 class Argument < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :fact_id
   belongs_to :user
 
   #ajaxful_rateable :stars => 10, :dimensions => [:speed, :beauty, :price]

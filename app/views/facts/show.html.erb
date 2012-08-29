@@ -1,6 +1,6 @@
 <% provide(:title, "Caso Gerador - C#{@fact.id}") %>
 <div class="row">
-	<div class="span10 offset1">		
+	<div class="span10 offset1">
 		<div class="well">
 			<h3>[#C<%= @fact.id %>] - <%= @fact.created_at.strftime("Incluído em [%d/%m/%Y]") %> - por [ <%= User.find_by_id(@fact.user_id).name %> ]
 			<% if current_user.admin? %>
@@ -21,7 +21,32 @@
 			<p>
 				<%= textilize @fact.orientation %>
 			</p>
+			<% end %>			
+		</div>
+		<div class="span9">			
+			<h3>Argumentos Tempestivos (<%= @arguments_in.count.to_s %>) - Data de Termo: [<%= @fact.fin_term.strftime("%d/%m/%Y - %H:%M") %>]</h3>			
+			<% if @arguments_in.any? %>
+			<ol class="arguments">
+				<%= render partial: 'shared/feed_item2', collection: @arguments_in %>
+			</ol>
+			<% else %>
+			<hr/>
+			<ol class="arguments">				
+				Não há argumentos para este caso inseridos antes da data de termo...
+			</ol>
 			<% end %>
+			<hr/>
+			<h3>Argumentos Intempestivos (<%=@arguments_out.count.to_s %>)</h3>						
+			<% if @arguments_out.any? %>
+			<ol class="arguments">
+				<%= render partial: 'shared/feed_item2', collection: @arguments_out %>
+			</ol>
+			<% else %>
+			<hr/>
+			<ol class="arguments">
+				Não há argumentos para este caso inseridos após a data de termo...
+			</ol>
+			<% end %>			
 		</div>
 	</div>
 </div>
@@ -38,7 +63,8 @@
 		<p class="counter pull-right">
 			Máximo de Caracteres: 1100
 		</p>
-		<%= f.text_area :content, :placeholder => "Argumente aqui... #C#{@fact.id}", :maxlength => 1100, :rows => 10 %>
+		<%= f.text_area :content, :placeholder => "Argumente aqui...", :maxlength => 1100, :rows => 10 %>
+		<%= f.hidden_field(:fact_id, :value => @fact.id ) %>
 		<hr/>
 		<span>Escreva a chave [<b>#C<%= @fact.id%></b>] no texto do argumento para que os moderadores possam avaliá-lo.</span>
 		<span>Fechar esta janela não irá apagar o texto do seu argumento.</span>

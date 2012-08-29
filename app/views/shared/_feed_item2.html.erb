@@ -1,0 +1,24 @@
+<li id="<%= feed_item2.id %>">
+	<span class="user"> <%= link_to feed_item2.user.name, feed_item2.user %> </span>
+	<span class="content"><%= feed_item2.content %> </span>
+	<br/>
+	<span class="timestamp"> Incluído há <%= time_ago_in_words(feed_item2.created_at) %> </span>
+	<%= link_to "Avaliar", feed_item2, class: "btn btn-small btn-info" %>
+	<% if current_user?(feed_item2.user) %>
+	<%= link_to "Excluir", feed_item2, method:  :delete,
+	confirm: "Tem certeza?",
+	class: "btn btn-small btn-danger" %>
+	<% end %>
+	<% if current_user.moderator? %>
+	<div align="right" id="rating">
+		<table border="1" style="margin-top: 10px">
+			<thead>
+				<td>Nota:</td>
+			</thead>
+			<tbody>
+				<td style="margin-left: 10px"> <%= ratings_for feed_item2, :dimension => :moderador, :show_user_rating => true %> </td>
+			</tbody>
+		</table>
+	</div>
+	<% end %>
+</li>

@@ -1,9 +1,10 @@
 class FactsController < ApplicationController
   before_filter :signed_in_user
-  before_filter :admin_user,     only: [:destroy, :update, :edit]
+  before_filter :moderator_user,     only: [:destroy, :update, :edit]
   def index
-    @facts = Fact.active
-    @unactives = Fact.unactive
+    @actives = Fact.active
+    @facts = @actives.where("ini_term < ?", DateTime.now)
+    @unactives = Fact.where("ini_term > ? OR ini_term IS NULL", DateTime.now)
     @fact = Fact.new
     @argument  = current_user.arguments.build
   end
@@ -14,7 +15,10 @@ class FactsController < ApplicationController
       redirect_to(facts_path) unless current_user.admin?
     end
     @argument  = current_user.arguments.build
-    end
+    
+    @arguments_in = Argument.where("fact_id = ? AND created_at < ?", @fact.id, @fact.fin_term)    
+    @arguments_out = Argument.where("fact_id = ? AND created_at > ?", @fact.id, @fact.fin_term)
+  end
 
   def edit
     @fact  = Fact.find(params[:id])
@@ -54,8 +58,8 @@ class FactsController < ApplicationController
 
   private
 
-  def admin_user
-    redirect_to(facts_path) unless current_user.admin?
+  def moderator_user
+    redirect_to(facts_path) unless current_user.moderator? || current_user.admin?
   end
 
 end

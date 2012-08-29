@@ -2,31 +2,7 @@
 	<p>
 		<%= textilize @f.content %>
 	</p>
-</div>
-<div class="alert alert-info span7 offset1">
-	<p>
-		<%= textilize @f.problem %>
-	</p>
-</div>
-<div class="span3 pull-right" align="left">
-	<a class="btn btn-primary btn-large" data-toggle="modal" href="#myModal" >Argumentar</a>
-</div>
-<div class="span12">
-	<p style="text-align: center">
-		O argumento referente a este caso deverá conter a chave <b><%= link_to "#C#{@f.id}", @f %></b> no final do seu conteúdo.
-		<%= link_to 'Ver argumentos deste caso', arguments_path(:search => "#C#{@f.id}"), :class => "btn" %>
-	</p>
 	<hr/>
-</div>
-
-<div class="modal hide" id="myModal">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">
-			×
-		</button>
-		<h3>Argumentando...</h3>
-	</div>
-	<div class="modal-body">
-		<%= render 'shared/argument_form' %>
-	</div>
+	<%= link_to 'Argumentos deste caso', @f, :class => "btn" %>
+	<%= link_to 'Argumentar para este caso', @f, :class => "btn btn-primary" %>
 </div>

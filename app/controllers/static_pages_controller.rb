@@ -3,7 +3,8 @@ class StaticPagesController < ApplicationController
     if signed_in?
       @argument  = current_user.arguments.build
       @feed_items = current_user.feed.paginate(page: params[:page])
-      @f = Fact.active.first
+      @facts = Fact.active
+      @f = @facts.where("fin_term > ? AND ini_term < ?", DateTime.now, DateTime.now).first
     end
   end
 
