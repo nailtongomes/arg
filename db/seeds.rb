@@ -448,15 +448,16 @@ Scheme.create!(:name => "Autoridade/Especialista",
 )
 
 Scheme.create!(:name => "Testemunha",
-:form => %{<b>PREMISSAS</b>
-\r\nTestemunha* diz Declaração*
-\r\n<b>CONCLUSÃO</b>
-\r\nÉ plausível que a Declaração* seja verdadeira/falsa.
+:form => %{<b>PREMISSA</b>
+Testemunha* diz Declaração*
+
+<br><b>CONCLUSÃO</b>
+É plausível que a Declaração* seja verdadeira/falsa.  
 },
 :cq =>  %{a) O que a testemunha diz está internamente consistente?
-\r\nb) O que a testemunha diz está coerente com o suporte fático e com o que sustentam outras testemunhas?
-\r\nc) Há ou pode existir algum tipo de tendência que pode ser atribuída ao relato dado pela testemunha?
-\r\nd) A testemunha é confiável?}
+b) O que a testemunha diz está coerente com o suporte fático e com o que sustentam outras testemunhas?
+c) Há ou pode existir algum tipo de tendência que pode ser atribuída ao relato dado pela testemunha?
+d) A testemunha é confiável?}
 )
 
 Scheme.create!(:name => "Analogia",
@@ -470,6 +471,27 @@ Scheme.create!(:name => "Causa e Efeito",
 :form => %{<b>PREMISSAS</b><br>Geralmente, se FATO_A* ocorrer, FATO_B* irá (ou deverá) suceder.<br>Deverá FATO_A* ocorrer.<br><br><b>CONCLUSÃO</b><br>FATO_B irá (ou deverá) suceder.<br>
 },
 :cq =>  %{a) Quão forte é a causa de generalização (ela é sempre verdadeira)? <br>b) A evidência/fato citado - se existe algum(a) - é forte o bastante para garantir a generalização?<br>c) Há outros fatores que irão (ou podem) interferir ou anular a produção do efeito?
+}
+)
+
+Scheme.create!(:name => "Condição de saber",
+:form => %{<b>PREMISSAS</b><br>Fulano* está na condição de saber se Declaração* é verdadeira/falsa;<br>Fulano* afirma que Declaração* é verdadeira/falsa;<br><br><b>CONCLUSÃO</b> <br>Declaração* é verdadeira/falsa<br>
+},
+:cq =>  %{<p>a) Fulano* tem realmente condições de saber se Declarão é verdadeira/falsa?</p><p>b) Fulano* é uma fonte honesta, fidedigna, confiável?</p><p>c) Fulano* realmente afirmou que Declaração* é verdadeira/falsa?</p>
+}
+)
+
+Scheme.create!(:name => "Consequências",
+:form => %{<b>PREMISSA</b><br><span id="result_box" class="" lang="pt"><span class="hps">Se A*</span> for<span class="hps"> provocada</span><span>,</span> <span class="hps">em seguida,&nbsp;</span><span class="hps">consequências boas/más serão</span> <span class="hps atn">(ou </span><span>poderão</span><span class="hps"></span><span class=""> ser) geradas.</span></span><br><br><b>CONCLUSÃO</b><br>A* (não) deve ser provocada.<br>
+},
+:cq =>  %{a) Quão forte é a probabilidade de que as citadas conseqüências ocorram?&nbsp;<div>b) Se A* é provocada, certas consequências acontecerão (ou podem acontecer). Que evidências/fatos suportam essa afirmação?&nbsp;</div><div>c) Existem consequências de valor oposto (negativas ou positivas) que devem ser levadas em consideração?</div>
+}
+)
+
+Scheme.create!(:name => "Opinião popular",
+:form => %{<b>PREMISSA</b><br>Se a grande maioria (todos, quase todos, tantos %) aceita X* como verdadeiro, então existe uma presunção em favor de X*<br>A grande maioria aceita X* como verdadeiro<br><br><b>CONCLUSÃO</b><br>Existe uma presunção em favor de X*
+},
+:cq =>  %{Não há questões críticas...<br>
 }
 )
 
@@ -521,13 +543,13 @@ Page.create!(:key => "con_respaldo",
 })
 
 Page.create!(:key => "qualificador",
-:value => %{<p>não resta dúvida</p><p>é inconteste,</p><p>é inegável que</p><p>é invencível que</p><p>necessariamente</p><p>indubitavelmente</p><p>é inevitável</p><p>é irrefutável</p><p>é possível</p><p>é plausível</p><p>é provável</p><p>possivelmente</p><p>é necessário</p><p>estes fatos, aqui expostos, tornam inafastável que</p><p>o que é inequívoco é que</p><p>demonstra-se de forma irrefutável</p>
+:value => %{<p>não resta dúvida</p><p>é inconteste</p><p>é inegável que</p><p>é invencível que</p><p>necessariamente</p><p>indubitavelmente</p><p>é inevitável</p><p>é irrefutável</p><p>é necessário</p><p>estes fatos, aqui expostos, tornam inafastável que</p><p>o que é inequívoco é que</p><p>demonstra-se de forma irrefutável</p><p></p><p>é possível</p><p>é plausível</p><p>é provável</p><p>possivelmente</p><p></p>
 })
 
 Page.create!(:key => "con_ressalva",
-:value => %{<p>salvo se</p><p>exceto se</p><p>a não ser que</p><p>excluindo que</p><p>contanto que</p>
+:value => %{<p>salvo se</p><p>exceto se</p><p>a não ser que</p><p>excluindo que</p><p>contanto que</p><p>desde que</p>
 })
 
 Page.create!(:key => "check_list",
-:value => %{<p>Está clara a questão que o argumento tenta levantar?</p><p>Os dados/razões são relevantes, suficientes e justificados?</p><p>A garantia possui um fundamento sólido e aplicável ao caso?</p><p>O qualificador, ou força verbal do argumento, está explicito?<p><p>As possíveis refutações ou exceções, se existem, estão bem entendidas?<p>
+:value => %{<p>É clara e certa a questão que o argumento tenta levantar?</p><p>Há clareza e certeza no que é proposto implicitamente (se existir)?</p><p>Os dados/razões são relevantes?&nbsp;</p><p>Os dados/razões são&nbsp;suficientes?</p><p>Os dados/razões estão&nbsp;justificados?<br></p><p>Os dados/razões foram obtidos de modo prático?&nbsp;</p> <p>A conclusão segue em virtude da garantia?</p> <p>A garantia possui fundamento sólido?</p><p>A garantia é universal? Se não, verifique se há anuladores que excluem sua aplicação no caso.&nbsp;</p><p>O respaldo (se houver) é estritamente&nbsp;aplicável ao caso?</p><p>O qualificador, ou força verbal do argumento, está explicito?</p><p></p><p>As possíveis refutações ou exceções (se existem) estão bem entendidas?</p>
 })
