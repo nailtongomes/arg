@@ -2,9 +2,8 @@ class FactsController < ApplicationController
   before_filter :signed_in_user
   before_filter :moderator_user,     only: [:destroy, :update, :edit]
   def index
-    @actives = Fact.active
-    @facts = @actives.where("ini_term < ?", DateTime.now)
-    @unactives = Fact.where("ini_term > ? OR ini_term IS NULL", DateTime.now)
+    @facts = Fact.where("ini_term < ? AND active = ?", DateTime.now, true)
+    @unactives = Fact.where("ini_term > ? OR ini_term IS NULL OR active = ?", DateTime.now, false)
     @fact = Fact.new
     @argument  = current_user.arguments.build
   end
