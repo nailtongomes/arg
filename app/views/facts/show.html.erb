@@ -65,8 +65,7 @@
 		</p>
 		<%= f.text_area :content, :placeholder => "Argumente aqui...", :maxlength => 1100, :rows => 10 %>
 		<%= f.hidden_field(:fact_id, :value => @fact.id ) %>
-		<hr/>
-		<span>Escreva a chave [<b>#C<%= @fact.id%></b>] no texto do argumento para que os moderadores possam avaliá-lo.</span>
+		<hr/>		
 		<span>Fechar esta janela não irá apagar o texto do seu argumento.</span>
 	</div>
 	<div class="modal-footer">
