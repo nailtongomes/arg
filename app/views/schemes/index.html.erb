@@ -5,7 +5,7 @@
 		<hr/>
 		<%= form_tag schemes_path, :method => 'get' do %>
 		<%= text_field_tag :search, params[:search], :placeholder => "Pesquisar" %>
-		<% end %>
+		<% end %>		
 		<% if @schemes.any? %>
 		<div class="accordion" id="accordion2">
 			<% @schemes.each do |f| %>
@@ -36,6 +36,7 @@
 			<% end %>
 			<% end %>
 		</div>
+		<%= textilize Page.find_by_key('fonte_esq').value if Page.find_by_key('fonte_esq').value.present? %>
 		<% else %>
 		<p>
 			Não há esquemas...

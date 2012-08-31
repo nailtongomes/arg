@@ -1,6 +1,12 @@
 class UserMailer < ActionMailer::Base
   self.default :from => 'nailton.arg@gmail.com'               
 
+  def backup_notification      
+    mail(:to => "nailtongomes@ig.com.br",
+         :subject => "Backup do ARG")
+  end
+
+
   def signup_notification(user)  
     @user = user
     mail(:to => @user.email,

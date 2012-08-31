@@ -16,6 +16,14 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def backup
+    if signed_in? && current_user.admin?
+     UserMailer.backup_notification.deliver        
+     flash[:success] = "Backup realizado."
+     redirect_to root_path
+    end
+  end
+
   def recover
     if (params[:email]).present?
       @u = User.where("email = ?", (params[:email]).downcase).first

@@ -24,6 +24,7 @@ Arg::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/top',     to: 'static_pages#top'
   match '/recover', to: 'static_pages#recover'  
+  match '/backup', to: 'static_pages#backup'  
 
   root to: 'static_pages#home'
 
