@@ -24,7 +24,7 @@
 		<div align="center">
 			<%= link_to 'Melhores Argumentos', top_url, class: "btn btn-large btn-info" %>
 			<% if current_user.admin? %>
-			<%= link_to 'Backup', backup_url, class: "btn btn-large btn-danger" %>
+			<%= link_to 'Backup', backup_url, class: "btn btn-large btn-danger", confirm: "Tem certeza?", %>
 			<% end %>
 		</div>
 	</aside>

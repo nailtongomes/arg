@@ -553,3 +553,7 @@ Page.create!(:key => "con_ressalva",
 Page.create!(:key => "check_list",
 :value => %{<p>É clara e certa a questão que o argumento tenta levantar?</p><p>Há clareza e certeza no que é proposto implicitamente (se existir)?</p><p>Os dados/razões são relevantes?&nbsp;</p><p>Os dados/razões são&nbsp;suficientes?</p><p>Os dados/razões estão&nbsp;justificados?<br></p><p>Os dados/razões foram obtidos de modo prático?&nbsp;</p> <p>A conclusão segue em virtude da garantia?</p> <p>A garantia possui fundamento sólido?</p><p>A garantia é universal? Se não, verifique se há anuladores que excluem sua aplicação no caso.&nbsp;</p><p>O respaldo (se houver) é estritamente&nbsp;aplicável ao caso?</p><p>O qualificador, ou força verbal do argumento, está explicito?</p><p></p><p>As possíveis refutações ou exceções (se existem) estão bem entendidas?</p>
 })
+
+Page.create!(:key => "novo_usu",
+:value => %{<p>Você ainda não possui argumentos no seu histórico... Não deixe de construir um argumento e exibir seu potencial persuasivo.</p><p>Você também pode clicar em <a href="http://www.assistentedeargumentacao.com/users">'usuários'</a> e acompanhar os argumentos de alguém.</p><p>Caso queira inserir um caso gerador, clique em <a href="http://www.assistentedeargumentacao.com/facts">'casos'</a>.</p><p>Com dúvida? Clique em <a href="http://www.assistentedeargumentacao.com/help">'ajuda'</a>.</p>
+})

@@ -10,17 +10,6 @@
 	Ocorreu um erro que proibiu o resgate do seu histórico de argumentos...
 </p>
 <% else %>
-<p>
-	Você ainda não possui argumentos no seu histórico... Não deixe de construir um argumento e exibir seu potencial persuasivo.
-</p>
-<p>
-	Você também pode clicar em <%= link_to 'usuários', users_path %> e acompanhar os argumentos de alguém.
-</p>
-<p>
-	Caso queira inserir um caso gerador, clique em <%= link_to 'casos', facts_path %>.
-</p>
-<p>
-	Com dúvida? Clique em <%= link_to 'ajuda', help_url %>.
-</p>
+<%= textilize Page.find_by_key('novo_usu').value if Page.find_by_key('novo_usu').value.present? %>
 <% end %>
 <% end %>
