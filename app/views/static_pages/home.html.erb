@@ -5,7 +5,7 @@
 		<div>
 			<% if @f.present? && current_user.show_fact? %>
 			<a class="close" data-dismiss="alert" href="#">&times;</a>
-			<h1>Caso Gerador [<%= link_to "#C#{@f.id}", @f %>]</h1> 
+			<h1>Caso Gerador [<%= link_to "#C#{@f.id}", @f %>]</h1>
 			<%= render 'facts/fact' %>
 			<% end %>
 		</div>
@@ -22,9 +22,12 @@
 		</section>
 		<hr/>
 		<div align="center">
-			<%= link_to 'Melhores Argumentos', top_url, class: "btn btn-large btn-info" %>
+			<%= link_to 'Mensagens', msgs_path, class: "btn btn-large" %>
+			<%= link_to 'Melhores Argumentos', top_url, class: "btn btn-large btn-info" %><hr/>
+			<%= link_to 'Documentos', documents_path, class: "btn btn-large btn-success" %>
+			<hr/>
 			<% if current_user.admin? %>
-			<%= link_to 'Backup', backup_url, class: "btn btn-large btn-danger", confirm: "Tem certeza?", %>
+			<%= link_to 'Backup', backup_url, class: "btn btn-large btn-danger", confirm: "Tem certeza?" %>
 			<% end %>
 		</div>
 	</aside>
@@ -96,7 +99,7 @@
 		}(document, 'script', 'facebook-jssdk'));
 </script>
 <script>
-	! function(d, s, id) {
+	!function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (!d.getElementById(id)) {
 			js = d.createElement(s);
@@ -104,7 +107,7 @@
 			js.src = "https://platform.twitter.com/widgets.js";
 			fjs.parentNode.insertBefore(js, fjs);
 		}
-	}(document, "script", "twitter-wjs");
+	}(document, "script", "twitter-wjs"); 
 </script>
 <% end %>
 <% end %>

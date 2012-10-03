@@ -1,0 +1,27 @@
+<% provide(:title, "Mensagem de #{User.find(@msg.user_id).name.to_s}") %>
+<div class="row">
+	<div class="span6 offset3">
+		<h1>Mensagem</h1>
+		<hr/>
+		<p>
+			<b>Assunto: </b><i><%= @msg.subject %></i>
+			<hr/>
+			<b>Mensagem: </b><i><%= @msg.body %></i>
+		</p>
+	</div>
+	<div class="span6 offset3">
+		<hr/>
+		<h1>Responder:</h1>
+		<hr/>
+		Destinatário - <b><%= User.find(@msg.user_id).name.to_s %></b>
+		<hr/>
+		<%= form_for(@new_msg) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<%= f.text_field :subject, :value => "RE: #{@msg.subject}" %>
+		<%= f.text_area :body, :placeholder => "Mensagem", :rows => 10 %>
+		<%= f.hidden_field(:id_receiver, :value => @msg.user_id ) %>
+		<%= f.submit "Enviar mensagem", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+		<% end %>
+		<%= link_to "Voltar p/ Mensagens", msgs_path %>
+	</div>
+</div>

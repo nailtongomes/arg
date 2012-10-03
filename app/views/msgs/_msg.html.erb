@@ -1,0 +1,11 @@
+<li>
+  <% if msg.user_id == current_user.id %>
+  	<span class="label label-important">Enviada</span>
+  <% else %>
+	<span class="label label-info">Recebida</span>
+  <% end %>
+  <%= gravatar_for User.find(msg.user_id), size: 52 %>
+  <%= link_to msg.subject, msg %>
+  <br/><%= truncate(msg.body, :length => 30, :omission => ' (continua...)') %>  	 
+  <%= link_to "Excluir", msg, method: :delete, confirm: "Tem certeza?", :class => "btn btn-danger btn-small pull-right" %>
+</li>

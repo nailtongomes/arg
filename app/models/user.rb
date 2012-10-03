@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
   
+  has_many :msgs, dependent: :destroy
+  has_many :documents, dependent: :destroy
   has_many :arguments, dependent: :destroy
   has_many :sandargs, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

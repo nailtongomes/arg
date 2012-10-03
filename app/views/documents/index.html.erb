@@ -1,0 +1,14 @@
+<% provide(:title, 'Documentos') %>
+<div class="row">
+	<div class="span9 offset2">
+	<h1>Documentos</h1>
+		<ul class="users">
+			<% if @documents.any? %>
+				<%= render @documents %>
+			<% else %>
+				<hr/><p>Não há documentos para exibir...</p><hr/>	
+			<% end %>
+		</ul>	
+	<br/><%= link_to "Inserir", new_document_path, :class => "btn btn-primary btn-large" %>	
+	</div>
+</div>

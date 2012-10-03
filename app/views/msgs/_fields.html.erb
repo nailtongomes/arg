@@ -1,0 +1,4 @@
+<%= f.text_field :subject, :placeholder => "Assunto" %>
+<%= f.text_area :body, :placeholder => "Mensagem", :rows => 10 %>
+Destinatário:
+<%= f.collection_select :id_receiver, @users, :id, :name %>

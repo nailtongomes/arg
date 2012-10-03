@@ -1,0 +1,14 @@
+<% provide(:title, "Documento de #{User.find(@document.user_id).name.to_s}") %>
+<div class="row">
+	<div class="span10 offset1">
+		<h1><%= @document.title%></h1>
+		<hr/>
+		<h2>Descrição</h2>
+		<p><i><%= @document.subject %></i></p>
+		<hr/>
+		<%= textilize @document.body %>
+		<hr/>
+		<%= link_to "Editar", edit_document_path(@document), :class => "btn btn-large" %> | 
+		<%= link_to "Voltar", documents_path %>			
+	</div>	
+</div>

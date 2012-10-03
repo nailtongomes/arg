@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828205531) do
+ActiveRecord::Schema.define(:version => 20121003155230) do
 
   create_table "arguments", :force => true do |t|
     t.text     "content"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(:version => 20120828205531) do
   add_index "arguments", ["fact_id"], :name => "index_arguments_on_fact_id"
   add_index "arguments", ["user_id", "created_at"], :name => "index_arguments_on_user_id_and_created_at"
 
+  create_table "documents", :force => true do |t|
+    t.string   "title",      :default => "Sem titulo"
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "user_id"
+    t.boolean  "active",     :default => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  add_index "documents", ["user_id", "created_at"], :name => "index_documents_on_user_id_and_created_at"
+
   create_table "facts", :force => true do |t|
     t.text     "content"
     t.text     "problem"
@@ -35,6 +47,18 @@ ActiveRecord::Schema.define(:version => 20120828205531) do
     t.datetime "ini_term"
     t.datetime "fin_term"
   end
+
+  create_table "msgs", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "id_receiver"
+    t.boolean  "read",        :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "msgs", ["user_id", "created_at"], :name => "index_msgs_on_user_id_and_created_at"
 
   create_table "pages", :force => true do |t|
     t.string   "key"

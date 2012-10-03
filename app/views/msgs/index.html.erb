@@ -1,0 +1,24 @@
+<% provide(:title, 'Mensagens') %>
+<div class="row">
+	<div class="span5 offset1">
+	<h1>Mensagens</h1>
+		<ul class="users">
+			<% if @msgs.empty? %>
+				<hr/><p>Você não possui mensagens...</p>
+			<% else %>
+				<%= render @msgs %>
+			<% end %>
+		</ul>
+	<br/>
+	<% if @msgs.count > 3 %>
+	<%= link_to "Limpar", clear_url, confirm: "Quer realmente apagar TODAS as suas mensagens?", :class => "btn btn-danger btn-large" %>
+	<% end %>
+	</div>
+	
+	<div class="span5 pull-right">
+	<h1>Nova mensagem:</h1>
+		<ul class="users">
+			<%= render 'form' %>
+		</ul>
+	</div>
+</div>

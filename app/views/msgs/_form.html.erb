@@ -1,0 +1,5 @@
+<%= form_for(@msg) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<%= render 'fields', f: f %>
+<%= f.submit "Enviar mensagem", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+<% end %>

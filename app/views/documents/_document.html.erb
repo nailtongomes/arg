@@ -1,0 +1,8 @@
+<li>
+  <%= gravatar_for User.find(document.user_id), size: 52 %>
+  <%= link_to document.title, document %><br/>
+  <%= document.subject %>
+  <% if current_user.id == document.user_id %>  	
+  <%= link_to "Excluir", document, method: :delete, confirm: "Tem certeza?", :class => "btn btn-danger btn-small pull-right" %>
+  <% end %>
+</li>

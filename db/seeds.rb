@@ -3,6 +3,7 @@ User.create!([:name =>  "Nailton G. Silva",
   :email => "nailtongomes@ig.com.br",
   :password => "123456",
   :password_confirmation => "123456",
+  :moderator => true,
   :admin => true], :without_protection => true)
 
 User.create!([:name =>  "Administrador",
@@ -411,9 +412,8 @@ Fact.create!(:content =>  %{Caim e o seu irmão mais novo Abel, em determinada o
 :user_id => 2
 )
 
-Fact.create!(:content =>  %{Pedro, temeroso de assaltos, blinda seu automóvel na oficina de Antônio. Este, fraudulentamente, emprega vidros de resistência inferior. Certo dia, em um cruzamento de duas movimentadas ruas de Balneário do Norte, Pedro encontra-se parado com o veículo, aguardando o sinal verde. José, ilegalmente armado de revólver e pretendendo assaltá-lo, aproxima-se e lhe aponta a arma. Verificando que tratar-se de um automóvel blindado, desapontado, desiste. Ocorre que Pedro, percebendo o fracasso do bandido, lança-lhe um sorriso desdenhoso. José, respondendo à provocação, aponta-lhe a arma e dispara, supondo que irá apenas estilhaçar o vidro. O projétil, entretanto, atravessa-o e atinge a vítima, provocando-lhe a morte (Damásio de Jesus, com adaptações).
-  <a href="http://pt.scribd.com/doc/7035019/Casos-Praticos-de-Direito-Penal-Direito-USP">[FONTE]</a>},
-:problem => %{Como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.},
+Fact.create!(:content =>  %{Pedro, temeroso de assaltos, blinda seu automóvel na oficina de Antônio. Este, fraudulentamente, emprega vidros de resistência inferior. Certo dia, em um cruzamento de duas movimentadas ruas de Balneário do Norte, Pedro encontra-se parado com o veículo, aguardando o sinal verde. José, ilegalmente armado de revólver e pretendendo assaltá-lo, aproxima-se e lhe aponta a arma. Verificando que tratar-se de um automóvel blindado, desapontado, desiste. Ocorre que Pedro, percebendo o fracasso do bandido, lança-lhe um sorriso desdenhoso. José, respondendo à provocação, aponta-lhe a arma e dispara, supondo que irá apenas estilhaçar o vidro. O projétil, entretanto, atravessa-o e atinge a vítima, provocando-lhe a morte (Damásio de Jesus, com adaptações).<div style="text-align: right;"><a href="http://pt.scribd.com/doc/7035019/Casos-Praticos-de-Direito-Penal-Direito-USP">[FONTE]</a></div>},
+:problem => %{<b>Como PROMOTOR de justiça, elabore o argumento que irá compor a denúncia.</b>},
 :active => true,
 :user_id => 1
 )
@@ -432,7 +432,7 @@ a esta prova, a própria vítima corroborou a ocorrência, sem divergir dos fato
   :user_id => 1], :without_protection => true)
 
 Scheme.create!(:name => "Autoridade/Especialista",
-:form => %{<b>PREMISSAS</b>&nbsp;<div>Fulano* é um especialista em Especialidade*;</div><div>Fulano* afirma que Declaração* é verdadeiro/falso;</div><div>Declaração* pertence à Especialidade*;&nbsp;<div><b><br></b></div><div><b>CONCLUSÃO</b>&nbsp;</div><div>É plausível que Declaração* seja verdadeira/falsa.</div><div><div><br></div><div><b>ESQUEMA DO ARGUMENTO</b><br></div><div><img src="http://i.imgur.com/86rDd.png" alt="" align="none"><br></div></div></div>
+:form => %{ <b>PREMISSAS</b>&nbsp;<div>Fulano* é um especialista em Especialidade*;</div><div>Fulano* afirma que Declaração* é verdadeiro/falso;</div><div>Declaração* pertence à Especialidade*;&nbsp;<div><b><br></b></div><div><b>CONCLUSÃO</b>&nbsp;</div><div>É plausível que Declaração* seja verdadeira/falsa.</div><div><div><br></div><div><b>ESQUEMA DO ARGUMENTO</b> - "Layout" de Toulmin<br></div><div><img src="http://i.imgur.com/86rDd.png" alt="" align="none"><br></div></div></div> 
 },
 :cq =>  %{a) Fulano* é realmente um especialista em Especialidade*?
 \r\nb) Fulano* realmente afirmou que Declaração* é verdadeira/falsa?
@@ -461,37 +461,135 @@ d) A testemunha é confiável?}
 )
 
 Scheme.create!(:name => "Analogia",
-:form => %{<b>PREMISSAS&nbsp;</b><div>Geralmente, CASO_1 é semelhante ao caso CASO_2&nbsp;</div><div>Propriedade_A* é verdadeiro (falso) no CASO_1&nbsp;</div><div><br></div><div><b>CONCLUSÃO&nbsp;</b></div><div>Propriedade_A* é verdadeiro (falso) no CASO_2</div>
+:form => %{<b>PREMISSAS&nbsp;</b><div>Geralmente, CASO_1 é semelhante ao caso CASO_2&nbsp;</div><div>Propriedade_A* é verdadeira/falsa no CASO_1&nbsp;</div><div><br></div><div><b>CONCLUSÃO&nbsp;</b></div><div>Propriedade_A* é verdadeira/falsa no CASO_2</div> 
 },
-:cq =>  %{<div>a) CASO_1 e CASO_2 são realmente similares na propriedade citada?</div><div>b) Propriedade_A* é realmente verdadeira (falsa) no CASO_1?</div><div>c) Existem diferenças entre CASO_1 e CASO_2 que tendem a minar/comprometer/enfraquecer a força da semelhança dos casos?</div><div>d) Existe um CASO_3 semelhante ao CASO_1 em que a Propriedade_A* é diferente?</div>
+:cq =>  %{<div>a) CASO_1 e CASO_2 são realmente similares na propriedade citada?</div><div>b) Propriedade_A* é realmente verdadeira/falsa no CASO_1?</div><div>c) Existem diferenças entre CASO_1 e CASO_2 que tendem a minar/comprometer/enfraquecer a força da semelhança dos casos?</div><div>d) Existe um CASO_3 semelhante ao CASO_1 em que a Propriedade_A* é diferente?</div>
 }
 )
 
 Scheme.create!(:name => "Causa e Efeito",
-:form => %{<b>PREMISSAS</b><br>Geralmente, se FATO_A* ocorrer, FATO_B* irá (ou deverá) suceder.<br>Deverá FATO_A* ocorrer.<br><br><b>CONCLUSÃO</b><br>FATO_B irá (ou deverá) suceder.<br>
+:form => %{<b>PREMISSAS</b><br>Geralmente, quando FATO_A* ocorre, FATO_B* sucede (ou deverá suceder)<br>FATO_A* ocorreu/aconteceu<br><br><b>CONCLUSÃO</b><br>FATO_B irá (ou deverá) suceder.<br> 
 },
 :cq =>  %{a) Quão forte é a causa de generalização (ela é sempre verdadeira)? <br>b) A evidência/fato citado - se existe algum(a) - é forte o bastante para garantir a generalização?<br>c) Há outros fatores que irão (ou podem) interferir ou anular a produção do efeito?
 }
 )
 
 Scheme.create!(:name => "Condição de saber",
-:form => %{<b>PREMISSAS</b><br>Fulano* está na condição de saber se Declaração* é verdadeira/falsa;<br>Fulano* afirma que Declaração* é verdadeira/falsa;<br><br><b>CONCLUSÃO</b> <br>Declaração* é verdadeira/falsa<br>
+:form => %{ <b>PREMISSAS</b><br>Fulano* está na condição de saber se Declaração* é verdadeira/falsa;<br>Fulano* afirma que Declaração* é verdadeira/falsa;<br><br><b>CONCLUSÃO</b> <br>Declaração* é verdadeira/falsa<br> 
 },
 :cq =>  %{<p>a) Fulano* tem realmente condições de saber se Declarão é verdadeira/falsa?</p><p>b) Fulano* é uma fonte honesta, fidedigna, confiável?</p><p>c) Fulano* realmente afirmou que Declaração* é verdadeira/falsa?</p>
 }
 )
 
-Scheme.create!(:name => "Consequências",
-:form => %{<b>PREMISSA</b><br><span id="result_box" class="" lang="pt"><span class="hps">Se A*</span> for<span class="hps"> provocada</span><span>,</span> <span class="hps">em seguida,&nbsp;</span><span class="hps">consequências boas/más serão</span> <span class="hps atn">(ou </span><span>poderão</span><span class="hps"></span><span class=""> ser) geradas.</span></span><br><br><b>CONCLUSÃO</b><br>A* (não) deve ser provocada.<br>
+Scheme.create!(:name => "Condução de probabilidade",
+:form => %{<p><b><span class="caps"><span class="caps">PREMISSAS</span></span>&nbsp;</b></p><div>"DADO_A" torna “DADO_B” possível<br>“DADO_A”<br><br></div><div><b>CONCLUSÃO&nbsp;</b></div>“DADO_B”  
 },
-:cq =>  %{a) Quão forte é a probabilidade de que as citadas conseqüências ocorram?&nbsp;<div>b) Se A* é provocada, certas consequências acontecerão (ou podem acontecer). Que evidências/fatos suportam essa afirmação?&nbsp;</div><div>c) Existem consequências de valor oposto (negativas ou positivas) que devem ser levadas em consideração?</div>
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Consequências",
+:form => %{<b>PREMISSA</b><br><span id="result_box" class="" lang="pt"><span class="hps">Se A*</span> for<span class="hps"> provocada</span><span>,</span> <span class="hps">em seguida,&nbsp;</span><span class="hps">consequências boas/más serão</span> <span class="hps atn">(ou </span><span>poderão</span><span class="hps"></span><span class=""> ser) geradas.</span></span><br><br><b>CONCLUSÃO</b><br>A* deve (ou não deve) ser provocada.<br> 
+},
+:cq =>  %{<p>a) Quão forte é a probabilidade de que as citadas conseqüências ocorram?&nbsp;</p><p>b) Se A* é provocada, certas consequências acontecerão (ou podem acontecer). Que evidências/fatos suportam essa afirmação?&nbsp;</p><p>c) Existem consequências de valor oposto (negativas ou positivas) que devem ser levadas em consideração?</p>
+}
+)
+
+Scheme.create!(:name => "Constituição de Fatos Concretos",
+:form => %{<p><b>PREMISSAS</b><br>Se há o “DADO_A”, então está consubstanciado “DADO_B”<br>“DADO_A"</p><div><b>CONCLUSÃO&nbsp;</b></div><p>Está consubstanciado “DADO_B”</p>  
+},
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Constituição de impossibilidades ",
+:form => %{<p><b><span class="caps"><span class="caps">PREMISSAS</span></span></b></p> <p>Não é possível "B" quando o DADO_A* está configurado</p><p>DADO_A está configurado<br></p> <p><b>CONCLUSÃO</b></p>Não é possível "B"<br>   
+},
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Constituição de Propriedades ",
+:form => %{<p><b><span class="caps">PREMISSAS</span></b><br>Se há o “DADO_A”, este constitui o fato de que “DADO_B” é "F"<br>“DADO_A"</p><div><b>CONCLUSÃO&nbsp;</b></div><p>“DADO_B” é "F"<br></p>    
+},
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Desperdício",
+:form => %{<p><b>PREMISSAS</b></p> <p>Se FULANO* parar de tentar realizar "A", todos os esforços anteriores de FULANO* para realizar "A" serão perdidos.</p><p>Seria um péssimo negócio se todos os esforços para realizar "A" fossem desperdiçados.<br></p><p><b>CONCLUSÃO</b></p> <p>FULANO* deve continuar tentando realizar "A"</p>     
+},
+:cq =>  %{<p>a) As tentativas de FULANO* para realizar "A" realmente possuem um valor negativo a ser considerado em qualquer decisão prática ou no que pode ser feito agora, ou elas são simples eventos passados que não podem ser alterados?</p><p>b) Há razões suficientes para crer que se FULANO* continuar "A" será realizado? Em outras palavras, "A" é possível?</p><p>c) Há boas razões para crer que o benefício decorrente da realização de "A" é maior que o custo para continuar tentando realizar "A"?</p>
+}
+)
+
+Scheme.create!(:name => "Espécie ao Gênero",
+:form => %{<p><b><span class="caps"><span class="caps"><span class="caps">PREMISSAS</span></span></span>&nbsp;</b></p><div>“G”s são espécies de "F"<br>“A” é um "G"<br><br></div><div><b>CONCLUSÃO&nbsp;</b></div><p>“A” é um "F"<br></p>     
+},
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Igualdade de significado",
+:form => %{<p><b><span class="caps">PREMISSAS</span>&nbsp;</b></p><div>"A" significa o mesmo que "B" <br></div><div>"A"<br></div><div><br></div><div><b>CONCLUSÃO&nbsp;</b></div><div>"B"<br></div>     
+},
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Implicação",
+:form => %{ <p><b><span class="caps"><span class="caps"><span class="caps"><span class="caps">PREMISSAS</span></span></span></span>&nbsp;</b></p>“A” implica logicamente "B"<br>“A”<br><br><div><b>CONCLUSÃO&nbsp;</b></div>"B"<br>     
+},
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Indícios/Vestígios",
+:form => %{<p><b><span class="caps">PREMISSAS</span></b></p> <p>DADO_A* é verdadeiro nesta situação</p><p>EVENTO_B* é geralmente indicado como verdadeiro quando seus indícios (DADO_A*) são verdadeiros neste tipo de situação<br></p> <p><b>CONCLUSÃO</b></p> <p>EVENTO_B* é verdadeiro nesta situação<br></p>      
+},
+:cq =>  %{<p>a) Quão forte é a correspondência entre DADO_A* e EVENTO_B*?</p> <p>b) Há outros eventos mais confiaveis em função do DADO_A?</p>
+}
+)
+
+Scheme.create!(:name => "Indução",
+:form => %{<b><span class="caps">PREMISSA</span></b><br>A maioria dos "F"s observados são "G"s<br><br><b>CONCLUSÃO</b><br>"F"s geralmente são "G"s<br>      
+},
+:cq =>  %{Não há questões críticas…
+}
+)
+
+Scheme.create!(:name => "Memória",
+:form => %{<p><b><span class="caps"><span class="caps">PREMISSAS</span></span></b></p> <p>Recorda-se “M”</p> <p><b>CONCLUSÃO</b></p> <p>“M”</p>      
+},
+:cq =>  %{<p>a) O agente que recorda de "M" expressa dúvidas sobre o que lembra?</p><p>b) "M" não é confiável por algum motivo?<br></p><p>c) "M" é baseado em alguma convicção falsa?<br></p>
 }
 )
 
 Scheme.create!(:name => "Opinião popular",
-:form => %{<b>PREMISSA</b><br>Se a grande maioria (todos, quase todos, tantos %) aceita X* como verdadeiro, então existe uma presunção em favor de X*<br>A grande maioria aceita X* como verdadeiro<br><br><b>CONCLUSÃO</b><br>Existe uma presunção em favor de X*
+:form => %{<b>PREMISSA</b><br>Se a grande maioria (todos, quase todos, tantos %) aceita X* como verdadeiro, então existe uma presunção em favor de X*<br>A grande maioria aceita X* como verdadeiro<br><br><b>CONCLUSÃO</b><br>Existe uma presunção em favor de X* 
 },
 :cq =>  %{Não há questões críticas...<br>
+}
+)
+
+Scheme.create!(:name => "Parte ao todo",
+:form => %{ <p><b><span class="caps"><span class="caps">PREMISSAS</span></span>&nbsp;</b></p><div>“A” é uma parte de “B” <br></div><div>“A”<br></div><div><br></div><div><b>CONCLUSÃO&nbsp;</b></div>“B”  
+},
+:cq =>  %{Não há questões críticas...<br>
+}
+)
+
+Scheme.create!(:name => "Percepção",
+:form => %{ <p><b><span class="caps">PREMISSAS</span></b></p> <p>Foi percebido "P"</p> <p><b>CONCLUSÃO</b></p> <p>"P"</p>  
+},
+:cq =>  %{<p>a) As circunstâncias em que "P" foi percebido apresentam indicadores de credibilidade?</p>
+}
+)
+
+Scheme.create!(:name => "Silogismo Estatístico",
+:form => %{<p><b><span class="caps">PREMISSAS</span></b></p> <p>"F"s geralmente (em 90% das vezes) são "G"s</p><p>"C" é um "F"</p> <p><b>CONCLUSÃO</b></p> <p>"C" é um "G"<br></p>  
+},
+:cq =>  %{a) É o caso de "C" ser também "H", sendo que coisas que são "H" não são geralmente "G"?<br>
 }
 )
 
@@ -507,11 +605,11 @@ Page.create!(:key => "estrutura_t",
 })
 
 Page.create!(:key => "referencias",
-:value => %{HAFT, F. <b>Direito e Linguagem</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.<br><br>HITCHCOCK, D. <b>Good reasoning on the Toulmin model</b>. Argumentation (2005) 19:373-391.<br><br>NEUMANN, U. <b>Lógica Jurídica</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.<br><br>REED, C.A.; ROWE, G.W.A. <b>Araucaria</b>: Software for Argument Analysis, Diagramming and Representation, International Journal of AI Tools 14 (3-4) pp961-980. 2004.<br><br>SCHNEIDER, J. <b>Processamento eletrônico de dados – Informática Jurídica</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.<br><br>TOULMIN PROJECT. University of Nebraska-Lincoln. Acesso em: 24 de junho de 2011. Disponível em: &lt; <a target="_blank" href="http://www.unl.edu/speech/comm109/Toulmin/index.htm"> http://www.unl.edu/speech/comm109/Toulmin/index.htm</a> &gt;<br><br>TOULMIN, S. <b>Os usos do Argumento</b>. 2. ed. São Paulo: Ed. Martins Fontes, 2006.<br><br>TOULMIN, S.; RIEKE, R.; JANIK, A. <b>An introduction to reasoning</b>. 2. ed. Nova Iorque: Ed. Macmillan, 2003.<br><br>WALTON, D.; REED, C.; MACAGNO, F. <b>Argumentation Schemes</b>. Nova Iorque: Ed. Cambridge University Press, 2008.
+:value => %{<div>DZENDZIK, I. T. <b>Processo de desenvolvimento de Web Sites com recursos da UML</b>. 2004. 182f. Dissertação (Mestrado em Computação Aplicada) – Instituto Nacional de Pesquisas Espaciais, São José dos Campos.</div><div>&nbsp;</div><div>HAFT, F. <b>Direito e Linguagem</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.</div><div>&nbsp;</div><div>HITCHCOCK D. <b>Good reasoning on the Toulmin model</b>: New Essays in Argument Analysis and Evaluation. In HITCHCOCK D.; VERHEIJ B. (org.). Arguing on the Toulmin Model. Vol. 10. Dordrecht: Springer, 2006. v.10. Cap. 13, p. 203-218.</div><div><br></div><div>&nbsp;</div><div>NEUMANN, U. <b>Lógica Jurídica</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.</div><div>&nbsp;</div><div>REED, C.A.; ROWE, G.W.A. <b>Araucaria</b>: Software for Argument Analysis, Diagramming and Representation, International Journal of AI Tools 14 (3-4) pp961-980. 2004.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Segunda Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e V.V.J. Juiz(a): Rosivaldo Toscano dos Santos Junior. 06 de março de 2009. Processo nº 002.08.000990-7, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Terceira Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e T.A.F. Juiz(a): Francisco de Assis Brasil Queiroz e Silva. 27 de maio de 2010. Processo nº 002.03.001666-7, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Terceira Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e L.L.M. Juiz(a): Cleanto Alves Pantaleão Filho. 25 de fevereiro de 2011. Processo nº 003.10.400247-9, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Quarta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e E.F.F.; C.C.A.A.; J.R.S.; J.M.S. Juiz(a): Henrique Baltazar Vilar dos Santos. 08 de agosto de 2008. Processo nº 001.05.023365-4, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Quarta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e &nbsp;M.B.S. Juiz(a): Maria Nadja Bezerra Cavalcanti. 25 de fevereiro de 2011. Processo nº 002.10.401036-5, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Quarta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e &nbsp;L.O.; A.P.A. Juiz(a): Raimundo Carlyle de Oliveira Costa. 15 de dezembro de 2010. Processo nº 001.06.025670-3, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Quinta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e A.M.L. Juiz(a): Ada Maria da Cunha Galvão. 05 de outubro de 2009. Processo nº 001.03.017583-7, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sexta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e S.P.S. Juiz(a): Guilherme Newton do Monte Pinto. 23 de fevereiro de 2011. Processo nº 001.10.413981-2, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sexta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e J.C. Juiz(a): Guilherme Newton do Monte Pinto. 25 de novembro de 2010. Processo nº 001.09.001970-0, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sexta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e P.S.C.S. Juiz(a): Emanuella Cristina Pereira Fernandes. 20 de janeiro de 2010. Processo nº 001.09.200021-6, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sexta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e R.G.A., R.G.A. Juiz(a): Emanuella Cristina Pereira Fernandes. 25 de maio de 2010. Processo nº 001.08.503164-0, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sexta Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e G.R.O. Juiz(a): Miriam Jácome de Carvalho Simões. 5 de novembro de 2004. Processo nº 001.03.004326-4, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sétima Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e J.S.N. Juiz(a): Fábio Wellington Ataíde Alves. 16 de março de 2009. Processo nº 001.07.219676-0, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sétima Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e J.J.M. Juiz(a): José Armando Ponte Dias Junior. 28 de maio de 2010. Processo nº 001.05.030386-5, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Sétima Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e J.C.S. Juiz(a): Sandra Simões de Souza Dantas Elali. 29 de fevereiro de 2008. Processo nº 001.07.224265-6, Natal, RN.</div><div>&nbsp;</div><div>RIO GRANDE DO NORTE. Décima Vara Criminal da Comarca de Natal. <b>Sentença</b>. Ministério Público Estadual e A.C.C. Juiz(a): Sandra Simões de Souza Dantas Elali. 26 de junho de 2009. Processo nº 001.98.901094-9, Natal, RN.</div><div>&nbsp;</div><div>SANTOS, R. F. <b>Análise de Requisitos de Software</b>. Publicado em 29 de Agosto de 2009.</div><div>Disponível em: &lt;http://www.slideshare.net/Ridlo/analise-de-requisitos-software/&gt;. Acesso em: 28/01/2012.</div><div>&nbsp;</div><div>SCHNEIDER, J. <b>Processamento eletrônico de dados – Informática Jurídica</b>. In: KAUFMANN, A.; W. HASSEMER (org.). Introdução à filosofia e à teoria do direito contemporâneas. 2 ed. Lisboa: Fundação Calouste Gulbenkian, 2009.</div><div>&nbsp;</div><div>SILVA, N. G. <b>Laboratório Virtual de Argumentos Jurídicos</b>. In: XI Congresso de Iniciação Científica da FARN, 2011, Natal. Anais do XI Congresso de Iniciação Científica da FARN: a região metropolitana de natal e o desenvolvimento do Rio Grande do Norte. Natal: FARN, 2011. v. 1. p. 109-109.</div><div>&nbsp;</div><div>___________. <b>Critérios de Avaliação de um bom argument</b>o. In: X Congresso de Iniciação Científica da FARN, 2010, Natal. Anais do X Congresso de Iniciação Científica da FARN: a pesquisa para o desenvolvimento sustentável do RN. FARN: FARN, 2010. v. 1. p. 124-124.</div><div>&nbsp;</div><div>___________. <b>Para uma superação do silogismo jurídico</b>. In: X Congresso de Iniciação Científica da FARN, 2010, Natal. Anais do X Congresso de Iniciação Científica da FARN: a pesquisa para o desenvolvimento sustentável do RN. Natal: FARN, 2010. v. 1. p. 114-114.</div><div>&nbsp;</div><div><b>TOULMIN PROJECT</b>. University of Nebraska-Lincoln. Disponível em: &lt;http://www.unl.edu/speech/comm109/Toulmin/index.htm&gt;. Acesso em: 24 de junho de 2011. Endereço indisponível em 14 de agosto de 2012.</div><div>&nbsp;</div><div>TOULMIN, S. <b>Os usos do Argumento</b>. 2. ed. São Paulo: Ed. Martins Fontes, 2006.</div><div>&nbsp;</div><div>TOULMIN, S.; RIEKE, R.; JANIK, A. <b>An introduction to reasoning</b>. 2. ed. New York: Ed.&nbsp;</div><div>Macmillan, 2003.</div><div>&nbsp;</div><div>TRISTÃO, A. D. <b>Sentença Criminal</b>: Prática de Aplicação de Pena e Medida de Segurança. 5 ed. Belo Horizonte: Del Rey, 2001.</div><div>&nbsp;</div><div>WALTON, D.; REED, C.; MACAGNO, F.<b> Argumentation Schemes</b>. New York: Ed. Cambridge University Press, 2008.</div>
 })
 
 Page.create!(:key => "contato",
-:value => %{Qualquer dúvida, sugestão, crítica &gt;&nbsp;<a href="https://twitter.com/nailtongomes" target="_blank">@nailtongomes</a>&nbsp;<br>
+:value => %{Qualquer dúvida, sugestão, crítica &gt;&nbsp;<a href="https://twitter.com/nailtongomes" target="_blank">@nailtongomes</a>&nbsp;<br> <div><br></div><div>Última atualização: 10 de Setembro de 2012.</div>
 })
 
 Page.create!(:key => "qualidade_t",
@@ -519,11 +617,11 @@ Page.create!(:key => "qualidade_t",
 })
 
 Page.create!(:key => "leituras",
-:value => %{Artigo - <a href="http://argumentos.herokuapp.com/assets/art_bons.pdf" title="Bons Argumentos no Direito Penal" target="_blank">Bons Argumentos no Direito Penal</a>.<br>Guia - <a href="http://argumentos.herokuapp.com/assets/guia_prof.pdf" title="Guia de Orientação para Professores" target="_blank">Guia de Orientação para Professores</a>.
+:value => %{ Artigo - <a href="http://argumentos.herokuapp.com/assets/art_bons.pdf" title="Bons Argumentos no Direito Penal" target="_blank">Bons Argumentos no Direito Penal</a>.<br>Guia - <a href="http://argumentos.herokuapp.com/assets/guia_prof.pdf" title="Guia de Orientação para Professores" target="_blank">Guia de Orientação para Professores</a>. [DESATUALIZADO]
 })
 
 Page.create!(:key => "ajuda_log",
-:value => %{<b><p>1. Como mudo minha foto?</p></b><p>O&nbsp;<a href="http://br.gravatar.com/">Gravatar</a>, um Avatar Globalmente Reconhecido, é o responsável por armazernar sua foto de perfil.</p><b><p>2. Posso enviar um caso?</p></b><p>Sim. Há uma opção de propor casos&nbsp;<a href="http://argumentos.herokuapp.com/facts">aqui</a>.</p><b><p>3. Como faço para acompanhar os argumentos de alguém?</p></b><p>Primeiro, clique em&nbsp;<a href="http://argumentos.herokuapp.com/users">usuários</a>. Em seguida, procure pelo usuário que você deseja acompanhar e clique em seu nome. Estando no perfil do usuário desejado, clique em seguir.</p><b><p>4. Posso editar meu argumento?</p></b><p>Não. O argumento não poderá ser editado.</p>
+:value => %{<div><b><p>1. Como mudo minha foto?</p></b><p>O&nbsp;<a href="http://br.gravatar.com/">Gravatar</a>, um Avatar Globalmente Reconhecido, é o responsável por armazernar sua foto de perfil.</p><b><p>2. Posso enviar um caso?</p></b><p>Sim. Há uma opção de propor casos&nbsp;<a href="http://argumentos.herokuapp.com/facts">aqui</a>.</p><b><p>3. Como faço para acompanhar os argumentos de alguém?</p></b><p>Primeiro, clique em&nbsp;<a href="http://argumentos.herokuapp.com/users">usuários</a>. Em seguida, procure pelo usuário que você deseja acompanhar e clique em seu nome. Estando no perfil do usuário desejado, clique em seguir.</p><b><p>4. Posso editar meu argumento?</p></b><p>Não. O argumento não poderá ser editado.</p><p><b>5. Quais os navegadores suportados?</b></p><p> O ARG suporta os navegadores Firefox 4.0+ e Google Chrome. Outros navegadores também podem funcionar, mas, para a melhor experiência de uso, recomendamos que você use um dos navegadores listados acima que não apresentaram erros de interação e navegabilidade.<br></p></div>
 })
 
 Page.create!(:key => "con_razoes",
@@ -555,5 +653,9 @@ Page.create!(:key => "check_list",
 })
 
 Page.create!(:key => "novo_usu",
-:value => %{<p>Você ainda não possui argumentos no seu histórico... Não deixe de construir um argumento e exibir seu potencial persuasivo.</p><p>Você também pode clicar em <a href="http://www.assistentedeargumentacao.com/users">'usuários'</a> e acompanhar os argumentos de alguém.</p><p>Caso queira inserir um caso gerador, clique em <a href="http://www.assistentedeargumentacao.com/facts">'casos'</a>.</p><p>Com dúvida? Clique em <a href="http://www.assistentedeargumentacao.com/help">'ajuda'</a>.</p>
+:value => %{<p> Você ainda não possui argumentos no seu histórico... Não deixe de construir um argumento e exibir seu potencial persuasivo. </p> <p> Você também pode clicar em <a href="http://www.assistentedeargumentacao.com/users">'usuários'</a> e acompanhar os argumentos de alguém. </p> <p> Caso queira inserir um caso gerador, clique em <a href="http://www.assistentedeargumentacao.com/facts">'casos'</a>. </p> <p> Com dúvida? Clique em <a href="http://www.assistentedeargumentacao.com/help">'ajuda'</a>. </p>
+})
+
+Page.create!(:key => "fonte_esq",
+:value => %{ <div style="text-align: right;"><b>FONTE DOS ESQUEMAS</b></div><div style="text-align: right;"><a href="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/walton.scm" class="urlextern" title="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/walton.scm">walton.scm</a>&nbsp;(Inglês)<span style="color: rgb(0, 0, 0); ">&nbsp;de&nbsp;</span><a href="http://www.amazon.com/exec/obidos/tg/detail/-/0805820728/qid=1095335149/sr=1-1/ref=sr_1_1/103-7643624-8351830?v=glance&amp;s=books" class="urlextern" title="http://www.amazon.com/exec/obidos/tg/detail/-/0805820728/qid=1095335149/sr=1-1/ref=sr_1_1/103-7643624-8351830?v=glance&amp;s=books">Walton, D. (1996).</a></div><div style="text-align: right;"><a href="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/pollock.scm" class="urlextern" title="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/pollock.scm">pollock.scm</a>&nbsp;(Inglês)<span style="color: rgb(0, 0, 0); ">&nbsp;de&nbsp;</span><a href="http://www.amazon.com/exec/obidos/tg/detail/-/0262161524/qid=1095335274/sr=1-1/ref=sr_1_1/103-7643624-8351830?v=glance&amp;s=books" class="urlextern" title="http://www.amazon.com/exec/obidos/tg/detail/-/0262161524/qid=1095335274/sr=1-1/ref=sr_1_1/103-7643624-8351830?v=glance&amp;s=books">Pollock, J. (1995).</a></div><div style="text-align: right;"><a href="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/pollock.scm" class="urlextern" title="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/pollock.scm"></a><a href="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/katzav-reed.scm" class="urlextern" title="http://araucaria.computing.dundee.ac.uk/downloads/schemesets/katzav-reed.scm">katzav-reed.scm</a>&nbsp;(Inglês)<span style="color: rgb(0, 0, 0); ">&nbsp;de&nbsp;</span><a href="http://arg.dundee.ac.uk/people/chris/publications/2004/ClassifyingArguments.pdf" class="urlextern" title="http://arg.dundee.ac.uk/people/chris/publications/2004/ClassifyingArguments.pdf">Katzav, J. &amp; Reed, C.A. (2004).</a></div>
 })

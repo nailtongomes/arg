@@ -1,0 +1,16 @@
+<%= form_for(@document) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<%= render 'fields', f: f %>
+<%= f.submit "Gravar", class: "btn btn-large btn-primary", :disable_with => "Aguarde..." %>
+<% end %>
+
+<% content_for :script do %>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+	bkLib.onDomLoaded(function() {
+		nicEditors.allTextAreas({
+			fullPanel : true
+		});
+	}); 
+</script>
+<% end %>
