@@ -33,6 +33,12 @@
 								<%= link_to "Configurações", edit_user_path(current_user) %>
 							</li>
 							<li>
+								<%= link_to "Mensagens", msgs_path %>
+							</li>
+							<li>
+								<%= link_to "Documentos", documents_path %>
+							</li>
+							<li>
 								<%= link_to "Sair", signout_path, method: "delete" %>
 							</li>
 						</ul>
@@ -42,6 +48,9 @@
 					</li>
 					<% else %>
 					<li>
+						<%= link_to "DOCUMENTOS", documents_path %>
+					</li>
+					<li>
 						<%= link_to "ENTRAR", signin_path %>
 					</li>
 					<% end %>
@@ -50,7 +59,7 @@
 					</li>
 					<% if signed_in? && current_user.admin? %>
 					<li>
-						<a href="<%= pages_path %>"> <i class="icon-edit icon-white"></i></a>						  
+						<a href="<%= pages_path %>"> <i class="icon-edit icon-white"></i></a>
 					</li>
 					<% end %>
 				</ul>

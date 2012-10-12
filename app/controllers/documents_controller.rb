@@ -7,9 +7,9 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
-    if !@document.active && @document.user_id != current_user.id 
-      flash[:error] = "Documento particular - Visualizavel apenas pelo proprietario."
-      redirect_to documents_path
+    if current_user.nil? || (!@document.active && @document.user_id != current_user.id) 
+      flash[:error] = "Documento particular/protegido."
+      redirect_to documents_path    
     end
   end
 
