@@ -1,0 +1,81 @@
+<h1>Usuários</h1>
+<hr/>
+<% if User.all.any? %>
+<ol>
+	<% User.all.each do |user| %>
+	<li>
+		<span><%= user.id %> - <%= user.name %>(<%= user.email %>) </span>  
+	</li>
+	<hr/>
+	<% end %>
+</ol>
+<% end %>
+<h1>Argumentos</h1>
+<hr/>
+<% if Argument.all.any? %>
+<ol>
+	<% Argument.all.each do |argument| %>
+	<li>
+		<span><%= argument.content %> - (<%= argument.fact_id %>)</span> por <%= argument.user_id %>  
+	</li>
+	<hr/>
+	<% end %>
+</ol>
+<% end %>
+<h1>Casos</h1>
+<hr/>
+<% if Fact.all.any? %>
+<ol>
+	<% Fact.all.each do |fact| %>
+	<li>
+		<span><%= fact.id %> - <%= fact.content %> </span><br/>
+		<span><%= fact.problem %> </span>  
+	</li>
+	<hr/>
+	<% end %>
+</ol>
+<% end %>
+<h1>Páginas</h1>
+<hr/>
+<% if Page.all.any? %>
+<ol>
+	<% Page.all.each do |page| %>
+	<li>
+		<span><%= page.key %> - <%= page.value %> </span>
+	</li>
+	<hr/>
+	<% end %>
+</ol>
+<% end %>
+<h1>Esquemas</h1>
+<hr/>
+<% if Scheme.all.any? %>
+<ol>
+	<% Scheme.all.each do |scheme| %>
+	<li>
+		<span><%= scheme.name %> - <%= scheme.form %> </span><br/>
+		<span><%= scheme.cq %></span>
+	</li>
+	<hr/>
+	<% end %>
+</ol>
+<% end %>
+<h1>Avaliações</h1>
+<hr/>
+<% if Rate.all.any? %>
+<ol>
+	<% Rate.all.each do |rate| %>
+	<li> 
+		<span><%= rate.rater_id %> - <%= rate.rateable_id %> - <%= rate.stars %></span>
+	</li>
+	<hr/>
+	<% end %>
+</ol>
+<% end %>
+<hr/>
+<p>
+	Cordialmente,
+</p>
+<p>
+	A equipe do Arg.
+</p>

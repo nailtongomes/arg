@@ -6,5 +6,5 @@ class Document < ActiveRecord::Base
   validates :body, presence: true
   validates :user_id, presence: true
   
-  default_scope order: 'documents.created_at DESC'
+  default_scope order: 'documents.title ASC'
 end

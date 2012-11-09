@@ -8,8 +8,9 @@
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">
 	bkLib.onDomLoaded(function() {
+		new nicEditor({maxHeight : 300}).panelInstance('area1');
 		nicEditors.allTextAreas({
-			fullPanel : true
+			fullPanel : true 
 		});
 	}); 
 </script>
